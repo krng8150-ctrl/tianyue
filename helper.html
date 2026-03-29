@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>內掛 / 抓寵 / 登入教學｜天越天堂</title>
+<style>
+*{box-sizing:border-box;}
+body{
+    margin:0;
+    font-family:"Microsoft JhengHei", Arial, sans-serif;
+    background:
+    radial-gradient(circle at top, rgba(255,140,0,0.10), transparent 30%),
+    linear-gradient(180deg, #050505 0%, #07111b 100%);
+    color:#fff;
+    line-height:1.9;
+}
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:linear-gradient(90deg,#7a0000,#ff3c00,#7a0000);
+    color:#fff4c8;
+    text-align:center;
+    padding:12px 10px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+.wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:18px 14px 50px;
+}
+.hero{
+    background:#08101b;
+    border:2px solid #c89b4c;
+    border-radius:22px;
+    padding:24px 18px;
+    margin-bottom:20px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(255,180,0,0.08);
+}
+.hero h1{
+    margin:0 0 10px;
+    font-size:36px;
+    color:#f0c46b;
+}
+.hero p{
+    margin:0;
+    color:#fff0c8;
+}
+.menu{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:20px;
+}
+.menu a{
+    display:block;
+    text-decoration:none;
+    text-align:center;
+    padding:14px 10px;
+    border-radius:14px;
+    font-weight:900;
+    color:#fff;
+    background:linear-gradient(45deg,#1a1a1a,#333);
+    border:1px solid rgba(255,215,120,.25);
+}
+.section{
+    background:#050b14;
+    border:2px solid #c89b4c;
+    border-radius:22px;
+    padding:22px 16px;
+    margin:22px 0;
+    box-shadow:0 0 22px rgba(255,180,0,0.06);
+}
+.section h2{
+    margin:0 0 16px;
+    font-size:30px;
+    color:#f0c46b;
+    text-align:center;
+}
+.block{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,215,120,.22);
+    border-radius:14px;
+    padding:14px;
+    margin:12px 0;
+    color:#fff3d3;
+}
+.note{
+    color:#ffd86e;
+    font-weight:900;
+}
+.step{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,215,120,.25);
+    border-radius:16px;
+    padding:16px;
+    margin:14px 0;
+}
+.step h3{
+    margin:0 0 8px;
+    color:#ffd98a;
+}
+.step img{
+    width:100%;
+    border-radius:12px;
+    margin-top:10px;
+    display:block;
+}
+.list{
+    color:#fff3d3;
+}
+.back{
+    display:block;
+    text-align:center;
+    margin:26px auto 0;
+    max-width:360px;
+    padding:16px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:900;
+    color:#000;
+    background:linear-gradient(90deg,#f3d53d,#fff0a8);
+}
+@media (max-width:900px){
+    .menu{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:768px){
+    .menu{grid-template-columns:1fr;}
+    .hero h1{font-size:28px;}
+    .section h2{font-size:24px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">🛠️ 天越天堂｜內掛 / 抓寵 / 登入教學</div>
+
+<div class="wrap">
+    <div class="hero">
+        <h1>內掛圖文教學最終版</h1>
+        <p>
+            本頁整理本服專用內掛設定、常見問題、LinHelperX 指令、抓寵說明與登陸器相容設定。<br>
+            新手請先看完再掛機，效率會差很多。
+        </p>
+    </div>
+
+    <div class="menu">
+        <a href="#autofarm">內掛最強設定</a>
+        <a href="#helpercmd">LinHelperX 指令</a>
+        <a href="#pet">抓寵教學</a>
+        <a href="#loginfix">登陸器相容設定</a>
+        <a href="#faq">常見問題</a>
+        <a href="index.html">返回首頁</a>
+    </div>
+
+    <div class="section" id="autofarm">
+        <h2>【內掛最強設定（本服專用）】</h2>
+
+        <div class="block">
+            <span class="note">【① 搜怪範圍】</span><br>
+            建議設定：<span class="note">150～200</span><br>
+            👉 本服 AI 與一般版本不同，範圍太小（5～10）會導致角色原地亂跑。<br>
+            👉 設定 150 以上反而比較穩定，不容易卡點。
+        </div>
+
+        <div class="block">
+            <span class="note">【② 自動攻擊】</span><br>
+            ✔ 一定要開啟，否則角色只會站著或亂跑，不會穩定打怪。
+        </div>
+
+        <div class="block">
+            <span class="note">【③ 自動撿物】</span><br>
+            ✔ 建議開啟，避免掉寶沒撿到。<br>
+            ✔ 掛機打寶、刷傲慢幣時非常重要。
+        </div>
+
+        <div class="block">
+            <span class="note">【④ 補血設定】</span><br>
+            建議：<span class="note">60%～70%</span><br>
+            👉 本服怪物較痛，設定太低容易突然暴斃。<br>
+            👉 設太高則會浪費水。
+        </div>
+
+        <div class="block">
+            <span class="note">【⑤ 補魔設定】</span><br>
+            建議：<span class="note">50%～70%</span><br>
+            👉 法系建議高一點，近戰可略低。
+        </div>
+
+        <div class="block">
+            <span class="note">【⑥ 掛機地圖建議】</span><br>
+            ✔ 50等前：練功區<br>
+            ✔ 50等後：傲慢之塔<br>
+            👉 不要等級太低就跨高難地圖，容易飛來飛去或被圍死。
+        </div>
+
+        <div class="block">
+            <span class="note">【⑦ GM 推薦穩定版】</span><br>
+            搜怪範圍：180<br>
+            補血：65%<br>
+            補魔：60%<br>
+            自動攻擊：開<br>
+            自動撿物：開<br><br>
+            👉 這套最穩，不容易原地亂跑。
+        </div>
+    </div>
+
+    <div class="section" id="helpercmd">
+        <h2>【LinHelperX 指令參考】</h2>
+
+        <div class="block">
+            <span class="note">【技能施放】</span><br>
+            負重強化 /M<br>
+            加速術 /ME<br>
+            暗影之牙 /MW　說明：對使用中的武器施放魔法<br>
+            鎧甲護持 /MA　說明：對使用中的盔甲施放魔法<br>
+            鎧甲護持 /M=古老的皮盔甲<br>
+            高級治癒術 /M=周星星<br>
+            高級治癒術 /M　說明：對滑鼠指定的玩家施放高級治癒術<br>
+            加速術 /M　說明：對滑鼠指定的玩家施放加速術
+        </div>
+
+        <div class="block">
+            <span class="note">【道具使用】</span><br>
+            治癒藥水　說明：使用治癒藥水<br>
+            *受祝福*治癒藥水　說明：使用受祝福的治癒藥水<br>
+            *受詛咒*治癒藥水　說明：使用受詛咒的治癒藥水<br>
+            魔法卷軸 (保護罩)<br>
+            魔法卷軸 (高級治癒術) /IME<br>
+            魔法卷軸 (擬似魔法武器) /IW　說明：對使用中的武器使用魔法卷軸<br>
+            魔法卷軸 (鎧甲護持) /IA　說明：對使用中的盔甲使用魔法卷軸<br>
+            魔法卷軸 (高級治癒術) /I=劉德華<br>
+            魔法卷軸 (鎧甲護持) /I=古老的皮盔甲<br>
+            魔法卷軸 (擬似魔法武器) /I=+8 古代妖精弩槍<br>
+            溶解劑 /I=肉<br>
+            變形卷軸 /G=death 52
+        </div>
+
+        <div class="block">
+            <span class="note">【其他指令】</span><br>
+            /KEY=F?　說明：? 的值指定 5~12，用來模擬按鍵 F5~F12<br>
+            /DKEY=F?　說明：? 的值指定 5~12，用來模擬按兩下 F5~F12
+        </div>
+    </div>
+
+    <div class="section" id="pet">
+        <h2>【抓寵教學】</h2>
+
+        <div class="block">
+            <span class="note">【寵物進化】</span><br>
+            寵物進化需達 <span class="note">30級</span>。<br>
+            可吃進化果實，並可進行 <span class="note">2次進化</span>。
+        </div>
+
+        <div class="block">
+            <span class="note">【特殊抓寵提醒】</span><br>
+            骷髏需要拿 <span class="note">漂浮之眼的肉</span> 才能抓取。
+        </div>
+
+        <div class="block">
+            <span class="note">【抓寵道具取得】</span><br>
+            雜貨商店（金幣）有販售抓寵食物。<br>
+            隨身商店（金幣）也有部分抓寵相關道具。
+        </div>
+
+        <div class="block">
+            <span class="note">【新手建議】</span><br>
+            先抓容易培養的寵物，穩定升級後再考慮進化。<br>
+            特殊寵物需要對應材料，不是所有食物都能通用。
+        </div>
+    </div>
+
+    <div class="section" id="loginfix">
+        <h2>【登陸器相容設定教學】</h2>
+
+        <div class="step">
+            <h3>步驟 1｜找到登陸器</h3>
+            <div class="list">
+                到遊戲資料夾找到 <span class="note">Login.exe</span>，並對它按右鍵。
+            </div>
+            <img src="data:image/jpeg;base64,{{LOGIN1_BASE64}}" alt="登入器右鍵">
+        </div>
+
+        <div class="step">
+            <h3>步驟 2｜點內容</h3>
+            <div class="list">
+                在右鍵選單中點擊 <span class="note">內容</span>。
+            </div>
+            <img src="data:image/jpeg;base64,{{LOGIN2_BASE64}}" alt="點內容">
+        </div>
+
+        <div class="step">
+            <h3>步驟 3｜切到相容性</h3>
+            <div class="list">
+                打開內容後，切換到 <span class="note">相容性</span> 分頁。
+            </div>
+            <img src="data:image/jpeg;base64,{{LOGIN3_BASE64}}" alt="相容性">
+        </div>
+
+        <div class="step">
+            <h3>步驟 4｜點變更高 DPI 設定</h3>
+            <div class="list">
+                在相容性頁面點擊 <span class="note">變更高 DPI 設定</span>。
+            </div>
+            <img src="data:image/jpeg;base64,{{LOGIN4_BASE64}}" alt="高 DPI">
+        </div>
+
+        <div class="step">
+            <h3>步驟 5｜勾選關鍵設定</h3>
+            <div class="list">
+                勾選修正 DPI 與覆寫高 DPI 縮放行為，完成後按確定。<br>
+                👉 這樣可以避免畫面太小、模糊、比例異常。
+            </div>
+            <img src="data:image/jpeg;base64,{{LOGIN5_BASE64}}" alt="勾選 DPI">
+        </div>
+    </div>
+
+    <div class="section" id="faq">
+        <h2>【常見問題 / 避坑】</h2>
+
+        <div class="block">
+            <span class="note">❌ 範圍設太小（5～10）</span><br>
+            👉 會原地跑來跑去，看起來像在發呆。<br>
+            ✅ 本服建議改成 150～200。
+        </div>
+
+        <div class="block">
+            <span class="note">❌ 一直瞬移 / 飛來飛去</span><br>
+            👉 代表地圖太難、被怪圍、或補血太低。<br>
+            ✅ 建議換地圖，或把補血提高到 60% 以上。
+        </div>
+
+        <div class="block">
+            <span class="note">❌ 不打怪 / 站著發呆</span><br>
+            👉 確認自動攻擊有開、身上有武器、搜尋範圍不是 0。
+        </div>
+
+        <div class="block">
+            <span class="note">❌ 畫面太小 / 模糊</span><br>
+            👉 沒做登陸器相容性設定。<br>
+            ✅ 依照上面登入教學設定即可。
+        </div>
+    </div>
+
+    <a class="back" href="index.html">⬅ 返回首頁</a>
+</div>
+
+</body>
+</html>
