@@ -3,571 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>天越天堂｜官方網站</title>
 
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;scroll-behavior:smooth}
 body{
-  font-family:"Microsoft JhengHei",Arial,sans-serif;
-  color:#fff;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,120,0,.18), transparent 25%),
-    radial-gradient(circle at 80% 15%, rgba(255,180,0,.12), transparent 22%),
-    radial-gradient(circle at 50% 80%, rgba(255,70,0,.08), transparent 28%),
-    linear-gradient(180deg,#120400 0%,#090909 45%,#07111b 100%);
-  overflow-x:hidden;
-}
-.bg{
-  position:fixed;
-  inset:0;
-  z-index:-3;
-  background:
-    linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.82)),
-    url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80')
-    center center / cover no-repeat;
-  filter:brightness(.82) saturate(1.05);
-}
-.fire{
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  pointer-events:none;
-  overflow:hidden;
-}
-.fire span{
-  position:absolute;
-  bottom:-120px;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:radial-gradient(circle,#ffd36b 0%, #ff7a00 55%, rgba(255,80,0,0) 70%);
-  box-shadow:0 0 18px rgba(255,140,0,.9);
-  animation:floatUp linear infinite;
-  opacity:.85;
-}
-.fire span:nth-child(1){left:8%; animation-duration:10s; animation-delay:0s}
-.fire span:nth-child(2){left:18%; animation-duration:13s; animation-delay:2s}
-.fire span:nth-child(3){left:30%; animation-duration:9s; animation-delay:1s}
-.fire span:nth-child(4){left:42%; animation-duration:15s; animation-delay:4s}
-.fire span:nth-child(5){left:55%; animation-duration:12s; animation-delay:3s}
-.fire span:nth-child(6){left:66%; animation-duration:11s; animation-delay:1s}
-.fire span:nth-child(7){left:78%; animation-duration:14s; animation-delay:5s}
-.fire span:nth-child(8){left:90%; animation-duration:10s; animation-delay:2s}
-@keyframes floatUp{
-  0%{transform:translateY(0) scale(1);opacity:0}
-  10%{opacity:.9}
-  100%{transform:translateY(-120vh) scale(1.8);opacity:0}
-}
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:linear-gradient(90deg,#7a0000,#ff3c00,#7a0000);
-  color:#fff0c7;
-  text-align:center;
-  font-weight:900;
-  padding:12px 10px;
-  letter-spacing:1px;
-  box-shadow:0 4px 20px rgba(255,80,0,.28);
-}
-.wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:20px 14px 60px;
-}
-.hero{
-  text-align:center;
-  padding:26px 0 8px;
-}
-.logo{
-  font-size:58px;
-  font-weight:900;
-  color:#ffd861;
-  letter-spacing:2px;
-  text-shadow:
-    0 0 8px rgba(255,210,90,.9),
-    0 0 26px rgba(255,120,0,.62),
-    0 0 40px rgba(255,80,0,.35);
-  animation:glow 2.2s ease-in-out infinite alternate;
-}
-@keyframes glow{
-  from{
-    text-shadow:
-      0 0 6px rgba(255,210,90,.7),
-      0 0 20px rgba(255,120,0,.4),
-      0 0 28px rgba(255,80,0,.25);
-  }
-  to{
-    text-shadow:
-      0 0 12px rgba(255,210,90,1),
-      0 0 34px rgba(255,120,0,.78),
-      0 0 50px rgba(255,80,0,.45);
-  }
-}
-.sub{
-  max-width:900px;
-  margin:18px auto 0;
-  color:#fff1cf;
-  line-height:1.95;
-  font-size:20px;
-}
-.gold{color:#ffd45c;font-weight:900}
-.red{color:#ff8b7a;font-weight:900}
-.green{color:#86ffb1;font-weight:900}
-.blue{color:#8fd6ff;font-weight:900}
-.purple{color:#d4a2ff;font-weight:900}
-.btns{
-  max-width:760px;
-  margin:28px auto 10px;
-  display:grid;
-  gap:14px;
-}
-.btn{
-  display:block;
-  text-decoration:none;
-  text-align:center;
-  font-weight:900;
-  padding:18px 18px;
-  border-radius:999px;
-  font-size:22px;
-  color:#fff;
-  box-shadow:0 10px 24px rgba(0,0,0,.28);
-  border:1px solid rgba(255,255,255,.08);
-  transition:.22s ease;
-}
-.btn:hover{transform:translateY(-2px) scale(1.02)}
-.btn-download{background:linear-gradient(90deg,#ff2d00,#ff7d00)}
-.btn-line{background:linear-gradient(90deg,#f2d449,#fff0a9);color:#000}
-.btn-vpn{background:linear-gradient(90deg,#242424,#535353)}
-.anchor-menu{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  margin-top:18px;
-}
-.anchor-menu a{
-  text-decoration:none;
-  text-align:center;
-  padding:16px 12px;
-  border-radius:18px;
-  background:rgba(0,0,0,.45);
-  color:#ffd76a;
-  border:1px solid rgba(255,215,90,.55);
-  font-weight:900;
-}
-.cards{
-  display:grid;
-  gap:22px;
-  margin-top:28px;
-}
-.card{
-  background:rgba(4,6,10,.82);
-  border:2px solid rgba(230,180,70,.88);
-  border-radius:26px;
-  padding:26px 20px;
-  box-shadow:0 0 0 1px rgba(255,180,0,.06) inset, 0 0 25px rgba(255,120,0,.06);
-}
-.card h2{
-  margin:0 0 18px;
-  text-align:center;
-  color:#ffd45c;
-  font-size:38px;
-}
-.card h3{
-  margin:16px 0 10px;
-  color:#ffd98a;
-  font-size:24px;
-}
-.card p{
   margin:0;
-  color:#fff1cf;
-  line-height:2;
-  font-size:19px;
+  background:#000;
+  color:#fff;
+  font-family:Arial;
 }
-.list{margin-top:8px}
-.list div{
-  color:#fff1cf;
-  font-size:19px;
-  line-height:2;
-  margin:2px 0;
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
 }
-.subcard{
-  margin-top:16px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,215,110,.22);
-  border-radius:18px;
-  padding:16px;
+
+.title{
+  text-align:center;
+  font-size:32px;
+  color:gold;
+  margin:20px 0;
 }
-.table-wrap{
-  overflow-x:auto;
-  margin-top:12px;
-  border-radius:14px;
+
+.block{
+  border:2px solid gold;
+  border-radius:15px;
+  padding:20px;
+  margin:20px 0;
+  background:rgba(0,0,0,0.8);
 }
-table{
+
+h2{
+  color:gold;
+}
+
+.table{
   width:100%;
   border-collapse:collapse;
-  min-width:760px;
-  background:rgba(255,255,255,.02);
 }
-th,td{
-  border:1px solid rgba(255,215,110,.22);
-  padding:10px 12px;
-  text-align:left;
-  vertical-align:top;
-  color:#fff1cf;
-  font-size:16px;
-  line-height:1.7;
-}
-th{
-  background:rgba(255,215,110,.10);
-  color:#ffd98a;
-  font-weight:900;
-}
-.footer{
-  text-align:center;
-  color:#d7c49c;
-  padding:26px 8px 8px;
-  font-size:14px;
-}
-@media (max-width:768px){
-  .logo{font-size:42px}
-  .sub{font-size:18px}
-  .btn{font-size:19px}
-  .card h2{font-size:30px}
-  .card h3{font-size:22px}
-  .card p,.list div{font-size:17px}
-  .anchor-menu{grid-template-columns:1fr}
-  th,td{font-size:15px}
+
+.table td{
+  border:1px solid gold;
+  padding:8px;
 }
 </style>
 </head>
+
 <body>
 
-<div class="bg"></div>
-<div class="fire">
-  <span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span>
+<div class="container">
+
+<div class="title">🔥 天越天堂 🔥</div>
+
+<!-- 內掛 -->
+<div class="block">
+<h2>🛠 內掛最強設定</h2>
+
+✔ 啟動後自動攻擊  
+✔ 搜怪建議：150～200  
+✔ 小範圍會亂跑（不要用）  
+✔ 補血：60%～70%  
+✔ 補魔：50%～70%  
+
+✔ GM推薦：  
+範圍180 / 補血65 / 補魔60
 </div>
 
-<div class="topbar">🔥 天越天堂正式開服｜進來馬上開戰｜裝備靠打｜傲慢幣 / 新傲慢幣核心系統 🔥</div>
+<!-- 轉生 -->
+<div class="block">
+<h2>🔄 轉生系統（完整說明）</h2>
 
-<div class="wrap">
-  <div class="hero">
-    <div class="logo">🔥 天越天堂 🔥</div>
-    <div class="sub">
-      老玩家回歸、新玩家入坑首選。<br>
-      <span class="gold">天M變身免抽｜內掛系統輕鬆掛｜最高10轉玩法｜紋樣 / 裝備升階 / 龍珠系統</span><br>
-      現在進場就是第一批強者。
-    </div>
+✔ 最高 10轉  
+✔ 每轉提升基礎能力  
 
-    <div class="btns">
-      <a class="btn btn-download" href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing" target="_blank">⬇️ 下載遊戲懶人包</a>
-      <a class="btn btn-line" href="https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">💬 加入 LINE 玩家群</a>
-      <a class="btn btn-vpn" href="https://www.radmin-vpn.com/" target="_blank">🌐 下載 VPN（RADMIN VPN）</a>
-    </div>
+【職業成長】
 
-    <div class="anchor-menu">
-      <a href="#newbie">📘 新手教學</a>
-      <a href="#autofarm">🛠️ 內掛教學</a>
-      <a href="#reborn">🔁 轉生系統</a>
-      <a href="#equip">🛡️ 裝備表格總覽</a>
-    </div>
-  </div>
+✔ 王族 / 騎士  
+高血量＋減傷（坦型）
 
-  <div class="cards">
+✔ 妖精  
+命中＋攻速＋平衡輸出  
 
-    <div class="card">
-      <h2>📢 官方公告</h2>
-      <p>
-        本服目前為<span class="gold">正式開服</span>版本。<br>
-        裝備以 <span class="gold">傲慢幣 / 新傲慢幣</span> 系統為核心發展，保留打寶與成長價值。<br>
-        不走商城碾壓路線，重視長期穩定經營與公平環境。
-      </p>
-    </div>
+✔ 法師 / 幻術  
+魔攻＋魔傷（爆發型）  
 
-    <div class="card" id="newbie">
-      <h2>🔥 新手完整教學</h2>
-      <div class="list">
-        <div>① 進入遊戲後，先找 <span class="gold">傳送師</span> 傳送到「30等練功區」</div>
-        <div>② 開啟內掛系統，建議先練到 <span class="gold">50等左右</span></div>
-        <div>③ 50等後前往 <span class="gold">傲慢之塔</span> 開始刷怪，收集核心貨幣「傲慢幣」</div>
-        <div>④ 存夠傲慢幣後，可向 NPC 購買基礎裝備，或進行武器製作</div>
-        <div>⑤ 裝備成型後，開始強化與升階，逐步提升角色戰力</div>
-        <div>⑥ 後期發展方向：<span class="gold">新傲慢幣 → 高階裝備 → 紋樣系統 → 轉生系統</span></div>
-      </div>
-    </div>
+✔ 黑妖 / 龍騎  
+近戰爆發（高輸出）  
 
-    <div class="card" id="autofarm">
-      <h2>🛠️ 內掛最強設定（本服專用）</h2>
-      <div class="list">
-        <div>✔ 本服內掛為<span class="gold">啟動後自動攻擊型</span>，不需另外開自動攻擊</div>
-        <div>✔ 掉落採<span class="gold">直接吸入角色身上</span>，不需另外設定自動撿物</div>
-        <div>✔ 搜怪範圍建議：<span class="gold">150～200</span></div>
-        <div>✔ 本服小範圍（5～10）反而容易原地亂跑</div>
-        <div>✔ 補血建議：<span class="gold">60%～70%</span></div>
-        <div>✔ 補魔建議：<span class="gold">50%～70%</span></div>
-        <div>✔ GM 推薦穩定版：<span class="gold">範圍找怪180 / 補血65 / 補魔60</span></div>
-      </div>
-    </div>
-
-    <div class="card" id="reborn">
-      <h2>🔁 轉生系統重點</h2>
-      <div class="list">
-        <div>✔ 王族 / 騎士：高血量、高減傷成長路線</div>
-        <div>✔ 妖精：力量、敏捷、命中與傷害同步提升</div>
-        <div>✔ 法師 / 幻術師：主升智力、魔攻、額外魔法傷害</div>
-        <div>✔ 黑妖 / 龍騎士：力量與近戰傷害直線成長</div>
-        <div>✔ 最高 <span class="gold">10轉</span></div>
-      </div>
-    </div>
-
-    <div class="card" id="equip">
-      <h2>🛡️ 裝備表格總覽</h2>
-
-      <div class="subcard">
-        <h3>永恆項鍊系統</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>流派</th>
-                <th>定位</th>
-                <th>適合職業</th>
-                <th>成長規則</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="red">力量</td>
-                <td>近戰輸出 / 高生存</td>
-                <td>騎士 / 黑妖 / 龍騎</td>
-                <td>一般：能力+0 / 1～4階：能力+1 / 5～8階：能力+2 / 9階：能力+3</td>
-              </tr>
-              <tr>
-                <td class="green">敏捷</td>
-                <td>平衡萬用</td>
-                <td>妖精 / 全職通用</td>
-                <td>血量 / 魔量平均提升，回血 / 回魔平均分配</td>
-              </tr>
-              <tr>
-                <td class="blue">智力</td>
-                <td>法術爆發</td>
-                <td>法師 / 幻術師</td>
-                <td>主提升智力、魔量、回魔</td>
-              </tr>
-              <tr>
-                <td class="gold">體力</td>
-                <td>高生存坦克</td>
-                <td>打王 / 前排</td>
-                <td>主提升體質、大量血量、高回血</td>
-              </tr>
-              <tr>
-                <td class="purple">魔力</td>
-                <td>長時間續航</td>
-                <td>掛機 / 法系續航</td>
-                <td>主提升精神、大量魔量、高回魔</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="subcard">
-        <h3>麥斯特耳環系統</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>階級</th>
-                <th class="red">紅光耳環（輸出）</th>
-                <th class="blue">藍光耳環（防禦）</th>
-                <th class="purple">紫光耳環（藥水）</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>一般</td><td>近戰傷害+1 / 遠戰傷害+1 / 魔攻+1</td><td>防禦-1 / 傷害減免+1</td><td>藥水回復%+2 / 藥水回復量+2</td></tr>
-              <tr><td>1階</td><td>近戰傷害+2 / 遠戰傷害+2 / 魔攻+2</td><td>防禦-2 / 傷害減免+1</td><td>藥水回復%+4 / 藥水回復量+4</td></tr>
-              <tr><td>2階</td><td>近戰傷害+2 / 遠戰傷害+2 / 魔攻+2</td><td>防禦-2 / 傷害減免+1</td><td>藥水回復%+4 / 藥水回復量+4</td></tr>
-              <tr><td>3階</td><td>近戰傷害+3 / 遠戰傷害+3 / 魔攻+3</td><td>防禦-3 / 傷害減免+2</td><td>藥水回復%+6 / 藥水回復量+6</td></tr>
-              <tr><td>4階</td><td>近戰傷害+3 / 遠戰傷害+3 / 魔攻+3</td><td>防禦-3 / 傷害減免+2</td><td>藥水回復%+6 / 藥水回復量+6</td></tr>
-              <tr><td>5階</td><td>近戰傷害+4 / 遠戰傷害+4 / 魔攻+4</td><td>防禦-4 / 傷害減免+3</td><td>藥水回復%+8 / 藥水回復量+8</td></tr>
-              <tr><td>6階</td><td>近戰傷害+4 / 遠戰傷害+4 / 魔攻+4</td><td>防禦-4 / 傷害減免+3</td><td>藥水回復%+8 / 藥水回復量+8</td></tr>
-              <tr><td>7階</td><td>近戰傷害+5 / 遠戰傷害+5 / 魔攻+5</td><td>防禦-5 / 傷害減免+4</td><td>藥水回復%+10 / 藥水回復量+10</td></tr>
-              <tr><td>8階</td><td>近戰傷害+5 / 遠戰傷害+5 / 魔攻+5</td><td>防禦-5 / 傷害減免+5</td><td>藥水回復%+10 / 藥水回復量+10</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="subcard">
-        <h3>永恆戒指系列</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>階級</th>
-                <th class="red">回復戒指</th>
-                <th class="gold">集中戒指</th>
-                <th class="green">體力戒指</th>
-                <th class="blue">魔力戒指</th>
-                <th class="purple">抗魔戒指</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>一般</td><td>回血+1 / 回魔+1</td><td>命中+1 / 遠命+1 / 魔攻+1</td><td>血量+20 / 回血+1</td><td>魔量+20 / 回魔+1</td><td>魔防+2 / 減傷+1</td></tr>
-              <tr><td>1階</td><td>回血+1 / 回魔+1</td><td>命中+1 / 遠命+1 / 魔攻+1</td><td>血量+30 / 回血+1</td><td>魔量+30 / 回魔+1</td><td>魔防+3 / 減傷+1</td></tr>
-              <tr><td>2階</td><td>回血+2 / 回魔+1</td><td>命中+1 / 遠命+1 / 魔攻+1</td><td>血量+40 / 回血+1</td><td>魔量+40 / 回魔+1</td><td>魔防+4 / 減傷+1</td></tr>
-              <tr><td>3階</td><td>回血+2 / 回魔+2</td><td>命中+2 / 遠命+2 / 魔攻+2</td><td>血量+50 / 回血+2</td><td>魔量+50 / 回魔+2</td><td>魔防+5 / 減傷+1</td></tr>
-              <tr><td>4階</td><td>回血+3 / 回魔+2</td><td>命中+2 / 遠命+2 / 魔攻+2</td><td>血量+60 / 回血+2</td><td>魔量+60 / 回魔+2</td><td>魔防+6 / 減傷+1</td></tr>
-              <tr><td>5階</td><td>回血+3 / 回魔+3</td><td>命中+2 / 遠命+2 / 魔攻+2</td><td>血量+70 / 回血+2</td><td>魔量+70 / 回魔+2</td><td>魔防+7 / 減傷+2</td></tr>
-              <tr><td>6階</td><td>回血+4 / 回魔+3</td><td>命中+3 / 遠命+3 / 魔攻+3</td><td>血量+80 / 回血+3</td><td>魔量+80 / 回魔+3</td><td>魔防+8 / 減傷+2</td></tr>
-              <tr><td>7階</td><td>回血+4 / 回魔+4</td><td>命中+3 / 遠命+3 / 魔攻+3</td><td>血量+90 / 回血+3</td><td>魔量+90 / 回魔+3</td><td>魔防+9 / 減傷+2</td></tr>
-              <tr><td>8階</td><td>回血+5 / 回魔+4</td><td>命中+4 / 遠命+4 / 魔攻+4</td><td>血量+100 / 回血+4</td><td>魔量+100 / 回魔+4</td><td>魔防+10 / 減傷+3</td></tr>
-              <tr><td>9階</td><td>回血+5 / 回魔+5</td><td>命中+4 / 遠命+4 / 魔攻+4</td><td>血量+120 / 回血+5</td><td>魔量+120 / 回魔+5</td><td>魔防+12 / 減傷+3</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="subcard">
-        <h3>光之殷海薩腰帶</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>階級</th>
-                <th class="blue">智力腰帶</th>
-                <th class="red">力量腰帶</th>
-                <th class="green">敏捷腰帶</th>
-                <th class="purple">魅力腰帶</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>一般</td><td>智+1 / MP+40 / 回魔+1</td><td>力+1 / HP+50 / 回血+1</td><td>敏+1 / HP+30 / MP+30 / 回血+1 / 回魔+1</td><td>魅+1 / MP+30 / HP+10</td></tr>
-              <tr><td>+1</td><td>智+1 / MP+50 / 回魔+1</td><td>力+1 / HP+60 / 回血+1</td><td>敏+1 / HP+40 / MP+40 / 回血+1 / 回魔+1</td><td>魅+1 / MP+40 / HP+10</td></tr>
-              <tr><td>+2</td><td>智+1 / MP+60 / 回魔+2</td><td>力+1 / HP+70 / 回血+2</td><td>敏+1 / HP+50 / MP+50 / 回血+1 / 回魔+1</td><td>魅+1 / MP+50 / HP+10 / 回魔+1</td></tr>
-              <tr><td>+3</td><td>智+2 / MP+70 / 回魔+2</td><td>力+2 / HP+80 / 回血+2</td><td>敏+2 / HP+60 / MP+60 / 回血+2 / 回魔+1</td><td>魅+2 / MP+60 / HP+20 / 回魔+1</td></tr>
-              <tr><td>+4</td><td>智+2 / MP+80 / 回魔+3</td><td>力+2 / HP+90 / 回血+3</td><td>敏+2 / HP+70 / MP+70 / 回血+2 / 回魔+2</td><td>魅+2 / MP+70 / HP+20 / 回魔+2</td></tr>
-              <tr><td>+5</td><td>智+3 / MP+100 / 回魔+3 / 減傷+1</td><td>力+3 / HP+120 / 回血+3 / 減傷+1</td><td>敏+3 / HP+80 / MP+80 / 回血+3 / 回魔+2 / 負重減免+5</td><td>魅+3 / MP+90 / HP+30 / 回魔+2 / 減傷+1</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="subcard">
-        <h3>聖者金龍盔甲</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>階級</th>
-                <th>防禦</th>
-                <th>能力</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>一般</td><td>-5</td><td>基礎防禦提升</td></tr>
-              <tr><td>1階</td><td>-6</td><td>基礎防禦提升</td></tr>
-              <tr><td>2階</td><td>-7</td><td>基礎防禦提升</td></tr>
-              <tr><td>3階</td><td>-8</td><td>基礎防禦提升</td></tr>
-              <tr><td>4階</td><td>-9</td><td>基礎防禦提升</td></tr>
-              <tr><td>5階</td><td>-10</td><td>基礎防禦提升</td></tr>
-              <tr><td>6階</td><td>-11</td><td>血量+200 / 魔量+35 / PVP減免+1</td></tr>
-              <tr><td>7階</td><td>-12</td><td>血量+300 / 魔量+40 / 回血+5 / PVP減免+2</td></tr>
-              <tr><td>8階</td><td>-13</td><td>血量+400 / 魔量+45 / 回血+10 / PVP減免+3</td></tr>
-              <tr><td>極</td><td>-14</td><td>血量+500 / 魔量+50 / 回血+15 / PVP減免+5</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="subcard">
-        <h3>亞斯克雷之手套</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>階級</th>
-                <th>防禦</th>
-                <th>能力</th>
-                <th>PVP</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>一般</td><td>-1</td><td>HP+5 / MP+5</td><td>傷害+1 / 減免+1</td></tr>
-              <tr><td>1階</td><td>-1</td><td>HP+10 / MP+10</td><td>傷害+1 / 減免+1</td></tr>
-              <tr><td>2階</td><td>-2</td><td>HP+15 / MP+15</td><td>傷害+1 / 減免+1</td></tr>
-              <tr><td>3階</td><td>-2</td><td>HP+20 / MP+20</td><td>傷害+1 / 減免+1</td></tr>
-              <tr><td>4階</td><td>-3</td><td>HP+25 / MP+25</td><td>傷害+2 / 減免+2</td></tr>
-              <tr><td>5階</td><td>-3</td><td>HP+30 / MP+30 / 回血+10</td><td>傷害+3 / 減免+3</td></tr>
-              <tr><td>6階</td><td>-4</td><td>HP+35 / MP+35 / 回血+20</td><td>傷害+4 / 減免+4</td></tr>
-              <tr><td>7階</td><td>-4</td><td>HP+40 / MP+40 / 回血+30</td><td>傷害+5 / 減免+5</td></tr>
-              <tr><td>8階</td><td>-5</td><td>HP+45 / MP+45 / 回血+40</td><td>傷害+6 / 減免+6</td></tr>
-              <tr><td>極</td><td>-5</td><td>HP+50 / MP+50 / 回血+50</td><td>傷害+7 / 減免+7</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="subcard">
-        <h3>死亡騎士脛甲（重點版）</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>系列</th>
-                <th>基礎成長</th>
-                <th>進階真 / 極</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="red">毀滅｜近戰</td>
-                <td>一般血量+10 → +9 血量+100 / 經驗+20%</td>
-                <td>真1：防禦-7 / 血量+140 / 回血+50<br>真2：防禦-8 / 血量+170 / 回血+70<br>極3：防禦-9 / 血量+200 / 回血+90 / 經驗+35%</td>
-              </tr>
-              <tr>
-                <td class="green">神速｜遠攻</td>
-                <td>一般血量+5 / 魔量+5 → +9 血量+50 / 魔量+50 / 經驗+20%</td>
-                <td>真1：防禦-7 / 血量+70 / 魔量+70 / 回血+30 / 回魔+30<br>真2：防禦-8 / 血量+85 / 魔量+85 / 回血+35 / 回魔+35<br>極3：防禦-9 / 血量+100 / 魔量+100 / 回血+45 / 回魔+45 / 經驗+35%</td>
-              </tr>
-              <tr>
-                <td class="blue">萬魔｜魔法</td>
-                <td>一般魔量+10 → +9 魔量+100 / 經驗+20%</td>
-                <td>真1：防禦-7 / 魔量+140 / 回魔+50<br>真2：防禦-8 / 魔量+170 / 回魔+70<br>極3：防禦-9 / 魔量+200 / 回魔+90 / 經驗+35%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="subcard">
-        <h3>其他高階裝備重點</h3>
-        <div class="list">
-          <div>✔ 格蘭肯戰盔：近戰 / 遠攻 / 魔法三系，8階與極開始附加傷害減免</div>
-          <div>✔ 獵影之痕T恤：近戰 / 遠攻 / 魔法 / 防禦四系分流，高階差距明顯</div>
-          <div>✔ 黑帝斯斗篷：抗屬性專用，9階後可進化魔化斗篷</div>
-          <div>✔ 後期裝備差距非常大，越高階越有感</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="card">
-      <h2>⚔️ 遊戲特色</h2>
-      <div class="list">
-        <div>✔ 天M變身免抽</div>
-        <div>✔ 內掛系統輕鬆掛</div>
-        <div>✔ 最高10轉玩法</div>
-        <div>✔ 紋樣系統 / 裝備升階 / 龍珠系統</div>
-        <div>✔ 長期穩定營運</div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer">天越天堂 官方網站</div>
+【重點】
+✔ 轉數越高 → 成長越誇張  
+✔ 10轉為最終畢業  
 </div>
+
+<!-- 裝備 -->
+<div class="block">
+<h2>🛡 格蘭肯戰盔</h2>
+
+✔ 防禦：0 → 極 -5  
+✔ 8階以上附加傷害減免  
+
+【近戰】
+血量+20 → +240  
+回血+1 → +12  
+
+【遠攻】
+血魔平衡成長  
+
+【魔法】
+魔量+20 → +240  
+回魔+1 → +12  
+
+✔ 高階增加減傷
+</div>
+
+<div class="block">
+<h2>👕 獵影之痕T恤</h2>
+
+✔ 分為四系：
+近戰 / 遠攻 / 魔法 / 防禦  
+
+✔ 主要用途：
+基礎補正裝  
+
+✔ 不提供攻擊能力  
+
+✔ 防禦型最高  
+✔ 魔法型魔量最高  
+✔ 近戰血量最高  
+</div>
+
+<div class="block">
+<h2>🧥 黑帝斯斗篷</h2>
+
+✔ 抗性裝備  
+✔ 不提供攻擊  
+
+✔ 最高抗性 +150  
+
+✔ 魔化版本：
+全能力+1  
+防禦-6  
+
+✔ 四屬性：
+火 / 水 / 風 / 地  
+</div>
+
+<!-- 新手 -->
+<div class="block">
+<h2>📘 新手完整教學</h2>
+
+✔ 上線 → 開內掛  
+✔ 設定範圍180  
+✔ 開始掛機  
+
+✔ 裝備慢慢打  
+✔ 傲慢幣做裝  
+
+✔ 先升級 → 再轉生  
+
+✔ 不用課金也能玩
+</div>
+
+</div>
+
 </body>
 </html>
