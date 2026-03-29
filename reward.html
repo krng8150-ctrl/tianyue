@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎁 天越天堂｜推文領獎專區</title>
+
+<style>
+body{
+margin:0;
+font-family:"Microsoft JhengHei";
+background:
+linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.82)),
+url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+color:white;
+text-align:center;
+}
+
+.wrap{
+max-width:800px;
+margin:0 auto;
+padding:30px 15px 60px;
+}
+
+h1{
+font-size:38px;
+color:#ffd54f;
+text-shadow:0 0 20px orange;
+margin-bottom:10px;
+}
+
+.sub{
+font-size:17px;
+line-height:1.8;
+color:#ffe9b5;
+margin-bottom:20px;
+}
+
+.box{
+background:rgba(0,0,0,0.72);
+border:1px solid rgba(255,215,0,0.5);
+border-radius:16px;
+padding:20px;
+margin:20px 0;
+box-shadow:0 0 20px rgba(255,140,0,0.2);
+}
+
+h2{
+margin-top:0;
+color:#ffd54f;
+}
+
+input, textarea, select{
+width:100%;
+padding:14px;
+margin:8px 0;
+border-radius:10px;
+border:none;
+font-size:16px;
+box-sizing:border-box;
+}
+
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.btn{
+display:block;
+width:100%;
+padding:16px;
+margin-top:12px;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.send{
+background:linear-gradient(45deg,#ff3c00,#ff9a00);
+color:white;
+}
+
+.back{
+display:inline-block;
+margin-top:15px;
+padding:14px 22px;
+border-radius:12px;
+text-decoration:none;
+background:linear-gradient(45deg,#d4af37,#fff3b0);
+color:black;
+font-weight:bold;
+}
+
+.notice{
+font-size:16px;
+line-height:1.9;
+text-align:left;
+}
+
+.notice b{
+color:#ffd54f;
+}
+
+.result{
+margin-top:15px;
+font-size:17px;
+color:#fff4b3;
+line-height:1.8;
+word-break:break-word;
+}
+
+.small{
+font-size:14px;
+color:#ccc;
+line-height:1.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<h1>🎁 推文領獎專區</h1>
+<div class="sub">
+推文活動、分享活動、指定獎勵申請都從這裡提交。<br>
+目前為網頁登記版，提交後由 GM 核對後發送獎勵。
+</div>
+
+<div class="box">
+<h2>📌 領獎說明</h2>
+<div class="notice">
+<b>1.</b> 請填寫正確的遊戲帳號與角色名稱。<br>
+<b>2.</b> 推文連結請貼完整網址。<br>
+<b>3.</b> 同一活動請勿重複申請。<br>
+<b>4.</b> 若資料填錯，可能導致無法發獎。<br>
+<b>5.</b> 正式發獎時間與規則，以 GM 公告為主。
+</div>
+</div>
+
+<div class="box">
+<h2>📝 領獎資料填寫</h2>
+
+<input type="text" id="account" placeholder="請輸入遊戲帳號">
+<input type="text" id="charname" placeholder="請輸入角色名稱">
+
+<select id="rewardType">
+  <option value="推文獎勵">推文獎勵</option>
+  <option value="分享獎勵">分享獎勵</option>
+  <option value="活動獎勵">活動獎勵</option>
+  <option value="其他獎勵">其他獎勵</option>
+</select>
+
+<input type="text" id="postlink" placeholder="請貼上推文 / 分享連結">
+<textarea id="remark" placeholder="備註（可不填）"></textarea>
+
+<button class="btn send" onclick="submitReward()">📨 送出領獎申請</button>
+
+<div class="result" id="result"></div>
+<div class="small">
+送出後請自行截圖保留，避免後續核對時找不到資料。
+</div>
+</div>
+
+<div class="box">
+<h2>💬 GM 補充說明</h2>
+<div class="notice">
+若後續要升級成「自動發獎系統」，可再接主機 / 資料庫，<br>
+屆時可直接由網站自動寫入發獎資料，不用人工核對。
+</div>
+</div>
+
+<a class="back" href="index.html">⬅ 返回官方首頁</a>
+
+</div>
+
+<script>
+function submitReward(){
+  var account = document.getElementById("account").value.trim();
+  var charname = document.getElementById("charname").value.trim();
+  var rewardType = document.getElementById("rewardType").value;
+  var postlink = document.getElementById("postlink").value.trim();
+  var remark = document.getElementById("remark").value.trim();
+  var result = document.getElementById("result");
+
+  if(account === "" || charname === "" || postlink === ""){
+    result.innerHTML = "❌ 請填寫完整資料：遊戲帳號、角色名稱、推文連結都必填。";
+    return;
+  }
+
+  result.innerHTML =
+    "✅ 已完成登記<br><br>" +
+    "【遊戲帳號】" + account + "<br>" +
+    "【角色名稱】" + charname + "<br>" +
+    "【獎勵類型】" + rewardType + "<br>" +
+    "【推文連結】" + postlink + "<br>" +
+    "【備註】" + (remark === "" ? "無" : remark) + "<br><br>" +
+    "請自行截圖保留，並等待 GM 核對後發送獎勵。";
+}
+</script>
+
+</body>
+</html>
