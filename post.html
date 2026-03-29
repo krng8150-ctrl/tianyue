@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PO文複製工具｜天越天堂</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:"Microsoft JhengHei", Arial, sans-serif;
+    color:#fff;
+    text-align:center;
+    background:
+    radial-gradient(circle at top, rgba(255,120,0,0.18), transparent 35%),
+    linear-gradient(180deg, #120400 0%, #1b0902 30%, #090909 100%);
+}
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.82)),
+    url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80') center center / cover no-repeat;
+    filter:brightness(0.75);
+}
+
+.fire{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+    background:
+    radial-gradient(circle at 18% 15%, rgba(255,90,0,0.20), transparent 18%),
+    radial-gradient(circle at 82% 20%, rgba(255,150,0,0.18), transparent 20%),
+    radial-gradient(circle at 50% 80%, rgba(255,80,0,0.13), transparent 24%);
+}
+
+.wrap{
+    max-width:900px;
+    margin:0 auto;
+    padding:24px 14px 50px;
+}
+
+.top-banner{
+    background:linear-gradient(90deg,#7a0000,#ff3c00,#7a0000);
+    padding:12px;
+    font-weight:900;
+    color:#fff1bf;
+    font-size:16px;
+    letter-spacing:1px;
+}
+
+h1{
+    margin:20px 0 10px;
+    font-size:40px;
+    color:#ffd54f;
+    text-shadow:0 0 18px rgba(255,120,0,.8);
+}
+
+.sub{
+    color:#ffe8b2;
+    font-size:17px;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.box{
+    background:rgba(0,0,0,0.72);
+    border:1px solid rgba(255,215,0,0.45);
+    border-radius:18px;
+    padding:18px;
+    margin:18px 0;
+    box-shadow:0 0 20px rgba(255,120,0,0.12);
+}
+
+.box h2{
+    margin:0 0 14px;
+    color:#ffd54f;
+    font-size:30px;
+}
+
+.tabs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.tab-btn{
+    border:none;
+    border-radius:12px;
+    padding:14px 10px;
+    font-size:16px;
+    font-weight:900;
+    cursor:pointer;
+    color:#fff;
+    background:linear-gradient(45deg,#3a3a3a,#5a5a5a);
+}
+
+.tab-btn.active{
+    background:linear-gradient(45deg,#ff3c00,#ff9a00);
+    box-shadow:0 0 16px rgba(255,100,0,.35);
+}
+
+textarea{
+    width:100%;
+    height:520px;
+    border:none;
+    border-radius:14px;
+    padding:16px;
+    font-size:15px;
+    line-height:1.8;
+    color:#111;
+    background:#f5f5f5;
+    resize:vertical;
+}
+
+.btn-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:14px;
+}
+
+.btn{
+    border:none;
+    border-radius:14px;
+    padding:16px 12px;
+    font-size:18px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.copy{
+    background:linear-gradient(45deg,#ff3c00,#ff8f00);
+    color:#fff;
+}
+
+.toggle{
+    background:linear-gradient(45deg,#5b00d8,#a100ff);
+    color:#fff;
+}
+
+.link-btn{
+    display:block;
+    text-decoration:none;
+    margin-top:14px;
+    border-radius:14px;
+    padding:16px 12px;
+    font-size:18px;
+    font-weight:900;
+    background:linear-gradient(45deg,#d4af37,#fff3b0);
+    color:#000;
+}
+
+.note{
+    margin-top:14px;
+    color:#ddd;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.hidden{
+    display:none;
+}
+
+@media (max-width:768px){
+    h1{
+        font-size:34px;
+    }
+
+    .box h2{
+        font-size:26px;
+    }
+
+    .tabs{
+        grid-template-columns:1fr;
+    }
+
+    .btn-row{
+        grid-template-columns:1fr;
+    }
+
+    textarea{
+        height:460px;
+        font-size:14px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="fire"></div>
+
+<div class="top-banner">
+🔥 天越天堂 PO文複製工具｜多版本模板｜一鍵複製 🔥
+</div>
+
+<div class="wrap">
+
+<h1>📢 PO文複製工具</h1>
+<div class="sub">
+玩家可直接在這裡選擇不同版本 PO 文，<br>
+按一下就能複製去 FB / 巴哈 / Discord / 社群。
+</div>
+
+<div class="box">
+    <h2>🔥 PO文模板選擇</h2>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="setTemplate('standard', this)">標準招生版</button>
+        <button class="tab-btn" onclick="setTemplate('short', this)">短版快貼版</button>
+        <button class="tab-btn" onclick="setTemplate('hardcore', this)">硬派打寶版</button>
+        <button class="tab-btn" onclick="setTemplate('friend', this)">揪朋友版</button>
+    </div>
+
+    <div id="postAreaWrap">
+        <textarea id="postText"></textarea>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn copy" onclick="copyText()">📋 一鍵複製</button>
+        <button class="btn toggle" onclick="toggleText()">👁 顯示 / 隱藏</button>
+    </div>
+
+    <a class="link-btn" href="index.html">⬅ 返回官方首頁</a>
+
+    <div class="note">
+        提醒：若要對外發文，建議直接複製後再補上你的圖片一起發，效果更好。
+    </div>
+</div>
+
+</div>
+
+<script>
+const templates = {
+standard: `🔥【天越天堂】正式開服🔥
+老玩家回歸、新玩家入坑首選！
+
+目前為正式服
+✔ 裝備靠打
+✔ 傲慢幣 / 新傲慢幣核心系統
+✔ 長期穩定營運
+
+━━━━━━━━━━━━━━━
+
+💥 遊戲特色
+
+✨ 天M變身系統（免抽卡！直接使用）
+✨ 內掛系統（上班族輕鬆掛）
+✨ 轉生系統（最高10轉）
+✨ 陣營系統（PVP更有趣）
+✨ 玩法簡單，上手快速
+
+━━━━━━━━━━━━━━━
+
+⚖️ 公平環境
+
+🚫 無親友團
+🚫 無黑箱操作
+✅ GM穩定經營
+
+━━━━━━━━━━━━━━━
+
+📊 正式服設定
+
+📈 經驗倍率：5000倍
+💰 金幣倍率：10倍
+🎁 掉寶倍率：10倍
+🕹 遊戲版本：3.81
+
+━━━━━━━━━━━━━━━
+
+👨‍💻 GM上線時間
+
+🕙 晚上 22:00 ～ 凌晨 02:00
+📌 其餘時間不定時上線
+
+━━━━━━━━━━━━━━━
+
+📖 新手說明
+
+👉 入群後可查看社群記事本
+👉 有完整基本教學，新手也能輕鬆上手
+
+━━━━━━━━━━━━━━━
+
+⬇️ 遊戲懶人包下載
+https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing
+
+━━━━━━━━━━━━━━━
+
+🌐 RADMIN VPN下載
+https://www.radmin-vpn.com/
+
+📡 安裝後請加入
+網路：天越天堂
+密碼：123456
+
+━━━━━━━━━━━━━━━
+
+💬 玩家討論 / 交易 LINE群
+https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default
+
+━━━━━━━━━━━━━━━
+
+🎁 推文領獎專區
+https://krng8150-ctrl.github.io/reward.html
+
+━━━━━━━━━━━━━━━
+
+🔥 一句話總結
+
+裝備靠打，貨幣成長，現在進來馬上開戰！`,
+
+short: `🔥【天越天堂】正式開服🔥
+
+✔ 裝備靠打
+✔ 傲慢幣 / 新傲慢幣系統
+✔ 天M變身免抽
+✔ 內掛輕鬆掛
+✔ 現在進來就是第一批強者
+
+⬇️ 下載
+https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing
+
+🌐 VPN
+https://www.radmin-vpn.com/
+網路：天越天堂
+密碼：123456
+
+💬 LINE群
+https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default
+
+🎁 推文領獎
+https://krng8150-ctrl.github.io/reward.html`,
+
+hardcore: `🔥【天越天堂】正式開服｜硬派打寶服🔥
+
+不是無腦商城碾壓，
+裝備以傲慢幣 / 新傲慢幣系統為主，
+要靠打寶、靠累積、靠成長玩出差距！
+
+💥 核心特色
+✔ 裝備靠打
+✔ 傲慢幣 / 新傲慢幣系統
+✔ 最高10轉玩法
+✔ 天M變身免抽
+✔ 內掛系統輕鬆掛
+✔ 長期穩定營運
+
+現在加入就是第一批強者，
+晚來只會追得很累！
+
+⬇️ 下載
+https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing
+
+💬 LINE群
+https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default
+
+🌐 VPN
+https://www.radmin-vpn.com/
+網路：天越天堂
+密碼：123456`,
+
+friend: `🔥 朋友們來玩【天越天堂】啦！🔥
+
+正式開服中，
+現在進場剛好是最好追的時期！
+
+✔ 天M變身免抽
+✔ 內掛系統輕鬆掛
+✔ 裝備靠打
+✔ 傲慢幣 / 新傲慢幣成長系統
+✔ 不怕無聊，長期穩定營運
+
+有興趣直接下載進來開戰👇
+
+⬇️ 遊戲下載
+https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing
+
+💬 LINE群
+https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default
+
+🎁 推文領獎頁
+https://krng8150-ctrl.github.io/reward.html`
+};
+
+function setTemplate(type, btn){
+    document.getElementById("postText").value = templates[type];
+    const buttons = document.querySelectorAll(".tab-btn");
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+}
+
+function copyText(){
+    const text = document.getElementById("postText");
+    text.select();
+    text.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("已複製！");
+}
+
+function toggleText(){
+    const area = document.getElementById("postAreaWrap");
+    area.classList.toggle("hidden");
+}
+
+window.onload = function(){
+    document.getElementById("postText").value = templates.standard;
+};
+</script>
+
+</body>
+</html>
