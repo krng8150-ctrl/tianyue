@@ -8,7 +8,7 @@
 <style>
 body{
 margin:0;
-font-family: "Microsoft JhengHei";
+font-family:"Microsoft JhengHei";
 color:white;
 text-align:center;
 background:
@@ -19,9 +19,10 @@ background-position:center;
 }
 
 .marquee{
-background:red;
-padding:10px;
+background:linear-gradient(90deg,#8b0000,#ff3c00,#8b0000);
+padding:12px;
 font-weight:bold;
+font-size:16px;
 }
 
 .container{
@@ -29,40 +30,53 @@ padding:30px 15px;
 }
 
 h1{
-font-size:42px;
+font-size:44px;
 color:#FFD700;
-text-shadow:0 0 20px orange;
+text-shadow:0 0 25px orange;
+animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px orange;}
+to{ text-shadow:0 0 30px red;}
 }
 
 .subtitle{
 font-size:18px;
 line-height:1.8;
 margin:15px 0;
+color:#ffe9b5;
 }
 
 .btn{
 display:block;
 margin:15px auto;
-padding:15px;
-width:260px;
+padding:16px;
+width:270px;
 border-radius:30px;
 text-decoration:none;
 font-size:18px;
 font-weight:bold;
+transition:0.2s;
+}
+
+.btn:hover{
+transform:scale(1.05);
 }
 
 .download{
-background:linear-gradient(45deg, red, orange);
+background:linear-gradient(45deg,#ff0000,#ff7a00);
 color:white;
+box-shadow:0 0 15px rgba(255,100,0,0.6);
 }
 
 .line{
-background:linear-gradient(45deg, gold, #fff2a8);
+background:linear-gradient(45deg,#d4af37,#fff3b0);
 color:black;
 }
 
 .vpn{
-background:linear-gradient(45deg, #333, #666);
+background:linear-gradient(45deg,#2b2b2b,#666);
 color:white;
 }
 
@@ -71,16 +85,25 @@ background:rgba(0,0,0,0.7);
 margin:20px;
 padding:20px;
 border-radius:15px;
-border:1px solid gold;
+border:1px solid rgba(255,215,0,0.5);
+box-shadow:0 0 20px rgba(255,140,0,0.2);
 }
 
+h2{
+color:#FFD700;
+}
+
+.highlight{
+color:#ffcc00;
+font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
 <div class="marquee">
-🔥 天越天堂正式開服｜商城免費｜裝備靠打｜進來馬上開戰 🔥
+🔥 天越天堂正式開服｜裝備靠打｜進來馬上開戰 🔥
 </div>
 
 <div class="container">
@@ -88,8 +111,8 @@ border:1px solid gold;
 <h1>🔥 天越天堂 🔥</h1>
 
 <div class="subtitle">
-正式開服｜商城免費｜天M變身免抽｜內掛系統輕鬆掛<br>
-🔥 開服黃金期｜現在進場優勢最大 🔥
+正式開服｜天M變身免抽｜內掛系統輕鬆掛<br>
+<span class="highlight">🔥 開服黃金期｜現在進場優勢最大 🔥</span>
 </div>
 
 <a class="btn download" href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing" target="_blank">
@@ -106,24 +129,31 @@ border:1px solid gold;
 
 <div class="box">
 <h2>📢 官方公告</h2>
-目前為正式開服，商城免費，裝備需自行打寶，<br>
+目前為正式開服，裝備需自行打傲慢幣/新傲慢幣購買，<br>
 保留最純粹的成長樂趣與打寶價值，長期穩定經營。<br><br>
-🔥 現在加入就是第一批強者！
+<span class="highlight">🔥 現在加入就是第一批強者！</span>
 </div>
 
 <div class="box">
 <h2>🌐 VPN教學</h2>
-安裝後加入：<br><br>
+下載並安裝後加入：<br><br>
 網路：天越天堂<br>
 密碼：123456
 </div>
 
 <div class="box">
 <h2>⚔️ 遊戲特色</h2>
-商城全部免費<br>
-天M變身免抽<br>
-內掛系統輕鬆掛<br>
-最高10轉玩法
+✔ 天M變身免抽<br>
+✔ 內掛系統輕鬆掛<br>
+✔ 最高10轉玩法<br>
+✔ 長期穩定營運<br>
+✔ 裝備靠打、成長有感
+</div>
+
+<div class="box">
+<h2>🔥 新手建議</h2>
+進服後先開啟內掛，自動練功快速成長，<br>
+優先提升裝備與轉生，快速拉開戰力差距！
 </div>
 
 </div>
