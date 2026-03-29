@@ -1,158 +1,343 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔥天越天堂🔥</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥天越天堂🔥 官方網站</title>
+  <style>
+    * { box-sizing: border-box; }
 
-<style>
-body {
-  margin:0;
-  font-family: "Microsoft JhengHei";
-  color:white;
-  text-align:center;
-  background:black;
-}
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      color: #fff;
+      background: #000;
+    }
 
-/* 🔥 神級背景（已幫你用類似你那張圖的風格） */
-.bg {
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:
-  linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
-  url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-  z-index:-1;
-}
+    .bg {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.88)),
+        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      z-index: -1;
+    }
 
-/* 🔥 跑馬燈 */
-.marquee {
-  background:red;
-  padding:10px;
-  font-weight:bold;
-  overflow:hidden;
-}
+    .marquee {
+      background: linear-gradient(90deg, #7a0000, #c1121f, #7a0000);
+      padding: 10px 0;
+      overflow: hidden;
+      font-weight: bold;
+      border-bottom: 1px solid rgba(255,180,80,.25);
+    }
 
-.marquee span {
-  display:inline-block;
-  animation:mar 10s linear infinite;
-}
+    .marquee span {
+      display: inline-block;
+      white-space: nowrap;
+      padding-left: 100%;
+      animation: marquee 12s linear infinite;
+      color: #fff2b0;
+      text-shadow: 0 0 10px rgba(255,120,0,.5);
+    }
 
-@keyframes mar {
-  from { transform:translateX(100%); }
-  to { transform:translateX(-100%); }
-}
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
 
-/* 🔥 標題發光 */
-h1 {
-  margin-top:80px;
-  font-size:42px;
-  color:#ffcc66;
-  text-shadow:0 0 20px orange;
-  animation: glow 1.5s infinite alternate;
-}
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
 
-@keyframes glow {
-  from { text-shadow:0 0 10px orange; }
-  to { text-shadow:0 0 30px red; }
-}
+    .hero {
+      text-align: center;
+      padding: 50px 0 20px;
+    }
 
-.subtitle {
-  margin-top:20px;
-  font-size:18px;
-  line-height:1.8;
-  color:#ffd;
-}
+    .hero h1 {
+      margin: 0;
+      font-size: 46px;
+      color: #ffd66b;
+      text-shadow: 0 0 20px rgba(255,160,0,.7);
+      animation: glow 1.5s infinite alternate;
+    }
 
-/* 🔥 按鈕 */
-.btn {
-  display:block;
-  margin:20px auto;
-  width:85%;
-  max-width:320px;
-  padding:16px;
-  border-radius:14px;
-  font-size:18px;
-  font-weight:bold;
-  text-decoration:none;
-}
+    @keyframes glow {
+      from { text-shadow: 0 0 10px rgba(255,120,0,.5); }
+      to { text-shadow: 0 0 28px rgba(255,60,0,.9); }
+    }
 
-.download {
-  background:linear-gradient(45deg, red, orange);
-  color:white;
-}
+    .subtitle {
+      margin: 18px auto 0;
+      max-width: 900px;
+      font-size: 20px;
+      line-height: 1.9;
+      color: #ffe9b5;
+    }
 
-.line {
-  background:linear-gradient(45deg, gold, #fff3b0);
-  color:black;
-}
+    .btns {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
 
-/* 🔥 卡片 */
-.card {
-  margin:30px 15px;
-  padding:20px;
-  border-radius:15px;
-  background:rgba(0,0,0,0.7);
-  border:1px solid gold;
-}
+    .btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 340px;
+      padding: 16px 22px;
+      border-radius: 14px;
+      font-size: 20px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease;
+      text-align: center;
+    }
 
-.title {
-  font-size:24px;
-  color:#ffcc66;
-  margin-bottom:10px;
-}
-</style>
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-download {
+      background: linear-gradient(45deg, #b30000, #ff6200);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(255,100,0,.35);
+    }
+
+    .btn-line {
+      background: linear-gradient(45deg, #d8ab3a, #fff1a6);
+      color: #241400;
+      box-shadow: 0 0 18px rgba(255,220,120,.25);
+    }
+
+    .btn-sub {
+      background: linear-gradient(45deg, #1c1c1c, #404040);
+      color: #fff;
+      border: 1px solid rgba(255,220,120,.15);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(10,10,10,.72);
+      border: 1px solid rgba(255,210,100,.18);
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      backdrop-filter: blur(3px);
+    }
+
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 34px;
+      color: #ffd66b;
+      text-shadow: 0 0 10px rgba(255,140,0,.25);
+    }
+
+    .card p, .card li {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #fff;
+      margin: 0;
+    }
+
+    .card ul {
+      padding-left: 22px;
+      margin: 0;
+      text-align: left;
+    }
+
+    .full {
+      margin-top: 24px;
+    }
+
+    .card-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .mini-link {
+      display: block;
+      text-decoration: none;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,214,107,.18);
+      border-radius: 14px;
+      padding: 16px 12px;
+      color: #fff7d0;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .vpn-box {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,214,107,.15);
+    }
+
+    .vpn-box strong {
+      color: #ffd66b;
+    }
+
+    .link-text {
+      color: #ffe9b5;
+      word-break: break-all;
+    }
+
+    .footer {
+      text-align: center;
+      color: #c8b78d;
+      font-size: 14px;
+      padding: 40px 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .grid,
+      .card-links {
+        grid-template-columns: 1fr;
+      }
+
+      .card h2 {
+        font-size: 28px;
+      }
+
+      .card p, .card li {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="bg"></div>
 
-<div class="bg"></div>
+  <div class="marquee">
+    <span>🔥 天越天堂封測開放中｜商城免費｜天M變身免抽｜內掛系統輕鬆掛｜老玩家回歸、新玩家首選 🔥</span>
+  </div>
 
-<div class="marquee">
-<span>🔥 天越天堂封測開放中｜商城免費｜裝備靠打｜今晚開戰 🔥</span>
-</div>
+  <div class="wrap">
+    <section class="hero">
+      <h1>🔥 天越天堂 🔥</h1>
+      <div class="subtitle">
+        封測開放中｜商城免費｜天M變身免抽｜內掛系統輕鬆掛<br>
+        老玩家回歸、新玩家入坑首選
+      </div>
 
-<h1>🔥 天越天堂 🔥</h1>
+      <div class="btns">
+        <a class="btn btn-download" href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing" target="_blank">
+          ⬇ 下載遊戲懶人包
+        </a>
 
-<div class="subtitle">
-封測開放中｜商城免費｜天M變身免抽<br>
-內掛系統輕鬆掛<br>
-老玩家回歸、新玩家首選
-</div>
+        <a class="btn btn-line" href="https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+          💬 加入玩家討論 / 交易 LINE群
+        </a>
 
-<a class="btn download" href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing" target="_blank">
-⬇ 下載遊戲懶人包
-</a>
+        <a class="btn btn-sub" href="https://www.radmin-vpn.com/" target="_blank">
+          🌐 下載 RADMIN VPN
+        </a>
+      </div>
+    </section>
 
-<a class="btn line" href="https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
-💬 加入LINE玩家群
-</a>
+    <div class="grid">
+      <section class="card">
+        <h2>📢 官方公告</h2>
+        <p>
+          目前為封測服，完全免費，商城物品全部免費，部分裝備需自行打寶，
+          保留成長樂趣與打寶價值。
+        </p>
+      </section>
 
-<div class="card">
-<div class="title">📢 官方公告</div>
-目前為封測服，完全免費<br>
-商城全部免費，裝備需自行打寶
-</div>
+      <section class="card">
+        <h2>⚔️ 遊戲特色</h2>
+        <ul>
+          <li>✔ 商城全部免費</li>
+          <li>✔ 天M變身免抽</li>
+          <li>✔ 內掛系統輕鬆掛</li>
+          <li>✔ 最高 10 轉玩法</li>
+          <li>✔ 老玩家回歸、新玩家首選</li>
+        </ul>
+      </section>
+    </div>
 
-<div class="card">
-<div class="title">⚔️ 遊戲特色</div>
-✔ 商城免費<br>
-✔ 天M變身免抽<br>
-✔ 內掛輕鬆掛<br>
-✔ 最高10轉<br>
-✔ 打寶爽感十足
-</div>
+    <section class="card full">
+      <h2>⬇️ 遊戲下載專區</h2>
+      <p>
+        點下方按鈕即可前往 Google Drive 下載遊戲懶人包。
+      </p>
+      <div class="btns">
+        <a class="btn btn-download" href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing" target="_blank">
+          立即下載懶人包
+        </a>
+      </div>
+    </section>
 
-<div class="card">
-<div class="title">🌐 VPN教學</div>
-下載 RADMIN VPN<br>
-網路：天越天堂<br>
-密碼：123456
-</div>
+    <section class="card full">
+      <h2>🌐 VPN 教學</h2>
+      <p>
+        進入遊戲前，請先安裝 RADMIN VPN。
+      </p>
 
-<div style="margin:40px;color:#aaa;">
-天越天堂官方網站
-</div>
+      <div class="vpn-box">
+        <p><strong>VPN下載：</strong></p>
+        <p class="link-text">https://www.radmin-vpn.com/</p>
+      </div>
 
+      <div class="vpn-box">
+        <p><strong>安裝後請加入：</strong></p>
+        <p>網路：天越天堂</p>
+        <p>密碼：123456</p>
+      </div>
+
+      <div class="btns">
+        <a class="btn btn-sub" href="https://www.radmin-vpn.com/" target="_blank">
+          前往下載 RADMIN VPN
+        </a>
+      </div>
+    </section>
+
+    <section class="card full">
+      <h2>💬 玩家討論 / 交易 LINE群</h2>
+      <p>
+        玩家交流、討論、交易、公告都可以從這裡加入。
+      </p>
+      <div class="btns">
+        <a class="btn btn-line" href="https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+          立即加入 LINE 群
+        </a>
+      </div>
+    </section>
+
+    <section class="card full">
+      <h2>🔥 快速入口</h2>
+      <div class="card-links">
+        <a class="mini-link" href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing" target="_blank">遊戲下載</a>
+        <a class="mini-link" href="https://www.radmin-vpn.com/" target="_blank">VPN下載</a>
+        <a class="mini-link" href="https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">LINE群</a>
+      </div>
+    </section>
+
+    <div class="footer">
+      天越天堂 官方網站
+    </div>
+  </div>
 </body>
 </html>
