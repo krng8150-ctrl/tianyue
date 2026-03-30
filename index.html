@@ -1895,3 +1895,124 @@ div, span, p, h1, h2, h3{
 </div>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 回到首頁按鈕（右下角固定） ===== -->
+
+<style>
+#backHomeBtn{
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  z-index: 9999;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  background: linear-gradient(90deg,#ffd86a,#ff9800);
+  box-shadow: 0 6px 18px rgba(0,0,0,.4);
+  text-decoration: none;
+}
+</style>
+
+<a href="#" id="backHomeBtn">⬆ 回到首頁</a>
+
+<script>
+document.getElementById("backHomeBtn").onclick = function(e){
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+</script>
+
+<!-- ===== 結束 ===== -->
+<!-- ===== 滑動導航 + 回到首頁 ===== -->
+
+<style>
+#backHomeBtn{
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  z-index: 9999;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  background: linear-gradient(90deg,#ffd86a,#ff9800);
+  box-shadow: 0 6px 18px rgba(0,0,0,.4);
+  text-decoration: none;
+}
+
+.extra-anchor{
+  display:block;
+  position:relative;
+  top:-90px;
+  visibility:hidden;
+  height:0;
+}
+</style>
+
+<!-- 這些是補給上面按鈕用的定位點 -->
+<span id="home" class="extra-anchor"></span>
+<span id="newbie" class="extra-anchor"></span>
+<span id="helper" class="extra-anchor"></span>
+<span id="equip" class="extra-anchor"></span>
+<span id="highgear" class="extra-anchor"></span>
+<span id="jewelry" class="extra-anchor"></span>
+<span id="reborn" class="extra-anchor"></span>
+<span id="pattern" class="extra-anchor"></span>
+<span id="dragon" class="extra-anchor"></span>
+<span id="reward" class="extra-anchor"></span>
+<span id="donate" class="extra-anchor"></span>
+
+<a href="#" id="backHomeBtn">⬆ 回到首頁</a>
+
+<script>
+(function(){
+  // 回首頁按鈕
+  var backBtn = document.getElementById("backHomeBtn");
+  if(backBtn){
+    backBtn.onclick = function(e){
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  }
+
+  // 讓頁面平滑滑動
+  document.documentElement.style.scrollBehavior = "smooth";
+
+  // 修正上面按鈕的 href，直接滑到對應區塊
+  var map = {
+    "首頁重點":"home",
+    "新手教學":"newbie",
+    "內掛教學":"helper",
+    "裝備系統":"equip",
+    "高階防具":"highgear",
+    "飾品系統":"jewelry",
+    "轉生系統":"reborn",
+    "紋樣系統":"pattern",
+    "龍珠系統":"dragon",
+    "發文獎勵":"reward",
+    "贊助說明":"donate"
+  };
+
+  var links = document.querySelectorAll("a, .btn, .big-btn, .navgrid a, .grid .btn");
+  links.forEach(function(el){
+    var text = (el.innerText || el.textContent || "").trim();
+    if(map[text]){
+      el.style.cursor = "pointer";
+      el.onclick = function(e){
+        e.preventDefault();
+        var target = document.getElementById(map[text]);
+        if(target){
+          target.scrollIntoView({behavior:"smooth", block:"start"});
+        }
+      };
+    }
+  });
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
