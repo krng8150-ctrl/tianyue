@@ -3,128 +3,482 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>天越天堂 v1000</title>
-
+<title>天越天堂｜官方網站</title>
 <style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Arial;
-color:white;
-background:black;
+  font-family:"Microsoft JhengHei",Arial,sans-serif;
+  color:#fff;
+  background:#000;
+  overflow-x:hidden;
+}
+:root{
+  --gold:#ffd86a;
+  --gold2:#fff0b8;
+  --orange:#ff8c00;
+  --red:#ff5a2f;
+  --panel:rgba(0,0,0,.76);
+  --panel2:rgba(8,8,8,.88);
+  --line:rgba(255,216,106,.42);
+  --shadow:0 18px 36px rgba(0,0,0,.35);
 }
 
+/* 背景
+   你要把你那張圖另外上傳到 GitHub 倉庫根目錄
+   檔名改成：tianyue-bg.jpg
+*/
 .bg{
-position:fixed;
-width:100%;
-height:100%;
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
-url('https://picsum.photos/1920/1080?random=888');
-background-size:cover;
-z-index:-1;
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  background:
+    linear-gradient(rgba(0,0,0,.30),rgba(0,0,0,.78)),
+    url('tianyue-bg.jpg') center center / cover no-repeat;
+  animation:bgZoom 16s ease-in-out infinite alternate;
 }
+.bgGlow{
+  position:fixed;
+  inset:0;
+  z-index:-4;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,215,120,.24), transparent 20%),
+    radial-gradient(circle at 18% 28%, rgba(255,160,0,.14), transparent 18%),
+    radial-gradient(circle at 82% 28%, rgba(255,120,0,.14), transparent 18%),
+    radial-gradient(circle at 50% 88%, rgba(255,190,60,.10), transparent 22%);
+  animation:glowMove 8s ease-in-out infinite alternate;
+}
+.particles{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  overflow:hidden;
+}
+.particles span{
+  position:absolute;
+  bottom:-40px;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#ffd86a;
+  box-shadow:0 0 12px rgba(255,216,106,.95);
+  animation:floatUp linear infinite;
+}
+.particles span:nth-child(1){left:6%;animation-duration:11s}
+.particles span:nth-child(2){left:15%;animation-duration:14s;animation-delay:1s}
+.particles span:nth-child(3){left:27%;animation-duration:9s;animation-delay:2s}
+.particles span:nth-child(4){left:39%;animation-duration:13s;animation-delay:1s}
+.particles span:nth-child(5){left:52%;animation-duration:10s;animation-delay:3s}
+.particles span:nth-child(6){left:64%;animation-duration:15s;animation-delay:2s}
+.particles span:nth-child(7){left:75%;animation-duration:12s;animation-delay:1s}
+.particles span:nth-child(8){left:88%;animation-duration:10s;animation-delay:4s}
+
+@keyframes bgZoom{
+  from{transform:scale(1)}
+  to{transform:scale(1.06)}
+}
+@keyframes glowMove{
+  from{transform:translateY(0)}
+  to{transform:translateY(-18px)}
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(1);opacity:0}
+  10%{opacity:.95}
+  100%{transform:translateY(-120vh) scale(2);opacity:0}
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:90;
+  background:linear-gradient(90deg,#7b0000,#ff4b00,#7b0000);
+  color:#fff2d0;
+  text-align:center;
+  font-weight:900;
+  padding:12px 10px;
+  letter-spacing:1px;
+  box-shadow:0 4px 18px rgba(255,75,0,.28);
+}
+.wrap{
+  max-width:1280px;
+  margin:auto;
+  padding:20px 14px 80px;
+}
+.hero{
+  text-align:center;
+  padding:28px 0 10px;
+}
+.logo{
+  font-size:60px;
+  font-weight:900;
+  color:var(--gold);
+  text-shadow:
+    0 0 10px rgba(255,216,106,.95),
+    0 0 28px rgba(255,140,0,.65),
+    0 0 58px rgba(255,90,47,.35);
+  animation:logoGlow 2.2s ease-in-out infinite alternate;
+}
+@keyframes logoGlow{
+  from{
+    text-shadow:
+      0 0 8px rgba(255,216,106,.75),
+      0 0 20px rgba(255,140,0,.45),
+      0 0 36px rgba(255,90,47,.22);
+  }
+  to{
+    text-shadow:
+      0 0 12px rgba(255,216,106,1),
+      0 0 34px rgba(255,140,0,.78),
+      0 0 56px rgba(255,90,47,.42);
+  }
+}
+.subtitle{
+  margin:14px auto 0;
+  max-width:980px;
+  color:#fff5db;
+  font-size:20px;
+  line-height:1.9;
+}
+.gold{color:var(--gold);font-weight:900}
+.red{color:#ff8f7d;font-weight:900}
+.blue{color:#8cecff;font-weight:900}
+.green{color:#9bffb1;font-weight:900}
+
+.btns{
+  display:grid;
+  gap:14px;
+  max-width:860px;
+  margin:28px auto 10px;
+}
+.btn{
+  display:block;
+  text-decoration:none;
+  text-align:center;
+  padding:18px 16px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:22px;
+  box-shadow:0 12px 24px rgba(0,0,0,.28);
+  transition:.22s ease;
+}
+.btn:hover{transform:translateY(-2px) scale(1.01)}
+.btn-download{background:linear-gradient(90deg,#ff2d00,#ff8a00);color:#fff}
+.btn-line{background:linear-gradient(90deg,#f5d95a,#fff0ae);color:#000}
+.btn-vpn{background:linear-gradient(90deg,#242424,#5a5a5a);color:#fff}
 
 .menu{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-padding:10px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:22px;
 }
-
 .menu button{
-background:black;
-border:1px solid #00ffff;
-color:#00ffff;
-padding:10px;
+  background:rgba(0,0,0,.70);
+  color:var(--gold);
+  border:1px solid rgba(255,216,106,.46);
+  border-radius:18px;
+  padding:14px 12px;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.menu button.active,
+.menu button:hover{
+  background:rgba(255,180,0,.10);
+  box-shadow:0 0 18px rgba(255,180,0,.16);
+  transform:translateY(-1px);
 }
 
-.section{
-display:none;
-padding:20px;
-}
-
-.active{
-display:block;
-}
+.section{display:none;margin-top:22px}
+.section.active{display:block}
 
 .card{
-background:rgba(0,0,0,0.7);
-border:1px solid #00ffff;
-padding:15px;
-margin:10px 0;
+  background:var(--panel);
+  border:2px solid rgba(255,216,106,.88);
+  border-radius:26px;
+  padding:24px 18px;
+  margin-bottom:18px;
+  box-shadow:0 0 20px rgba(255,180,20,.08), var(--shadow);
+  backdrop-filter:blur(2px);
+}
+.card h2{
+  margin:0 0 14px;
+  color:var(--gold);
+  font-size:32px;
+  text-align:center;
+}
+.card h3{
+  margin:18px 0 10px;
+  color:#ffe29a;
+  font-size:23px;
+}
+.list div,.card p{
+  color:#fff2d7;
+  font-size:18px;
+  line-height:1.95;
+}
+.notice{
+  margin-top:12px;
+  padding:12px 14px;
+  background:rgba(255,216,106,.08);
+  border-left:4px solid var(--gold);
+  color:#fff2d7;
+  line-height:1.9;
+}
+.table-wrap{
+  overflow-x:auto;
+  margin-top:10px;
+}
+table{
+  width:100%;
+  min-width:920px;
+  border-collapse:collapse;
+  background:rgba(255,255,255,.02);
+}
+th,td{
+  border:1px solid rgba(255,216,106,.22);
+  padding:10px 12px;
+  text-align:left;
+  vertical-align:top;
+  color:#fff2d7;
+  line-height:1.8;
+}
+th{
+  background:rgba(255,216,106,.11);
+  color:var(--gold);
+}
+.codebox{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,216,106,.18);
+  border-radius:14px;
+  padding:14px;
+  white-space:pre-wrap;
+  color:#fff2d7;
+  line-height:1.9;
+}
+.footer{
+  text-align:center;
+  color:#dccda5;
+  padding:24px 8px 10px;
+  font-size:14px;
+}
+
+@media (max-width:960px){
+  .menu{grid-template-columns:repeat(2,1fr)}
+  .logo{font-size:44px}
+  .subtitle{font-size:18px}
+  .btn{font-size:19px}
+  .card h2{font-size:27px}
+  .card h3{font-size:21px}
 }
 </style>
 </head>
-
 <body>
 
 <div class="bg"></div>
-
-<div class="menu">
-<button onclick="show('home')">首頁</button>
-<button onclick="show('newbie')">新手</button>
-<button onclick="show('equip')">裝備</button>
-<button onclick="show('helper')">內掛</button>
-<button onclick="show('reborn')">轉生</button>
-<button onclick="show('donate')">贊助</button>
+<div class="bgGlow"></div>
+<div class="particles">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
 </div>
 
-<div id="home" class="section active">
-<div class="card">
-🔥 天越天堂 🔥<br>
-封測開放中｜免費｜高倍率｜輕鬆掛機
-</div>
-</div>
+<div class="topbar">🔥 天越天堂正式開服｜進來馬上開戰｜傲慢幣 / 新傲慢幣核心系統 🔥</div>
 
-<div id="newbie" class="section">
-<div class="card">
-新手流程：<br>
-1. 練到50等<br>
-2. 打傲慢幣<br>
-3. 做裝備<br>
-4. 往高階發展
-</div>
-</div>
+<div class="wrap">
+  <div class="hero">
+    <div class="logo">🔥 天越天堂 🔥</div>
+    <div class="subtitle">
+      老玩家回歸、新玩家入坑首選。<br>
+      <span class="gold">天M變身免抽｜內掛系統輕鬆掛｜最高10轉玩法｜紋樣 / 裝備升階 / 龍珠系統</span>
+    </div>
 
-<div id="equip" class="section">
-<div class="card">
-裝備系統：<br>
-✔ 永恆項鍊<br>
-✔ 耳環<br>
-✔ 戒指<br>
-✔ 腰帶<br>
-✔ 高階防具
-</div>
-</div>
+    <div class="btns">
+      <a class="btn btn-download" href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing" target="_blank">⬇️ 下載遊戲懶人包</a>
+      <a class="btn btn-line" href="https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">💬 加入 LINE 玩家群</a>
+      <a class="btn btn-vpn" href="https://www.radmin-vpn.com/" target="_blank">🌐 下載 VPN（RADMIN VPN）</a>
+    </div>
 
-<div id="helper" class="section">
-<div class="card">
-內掛重點：<br>
-✔ 自動打怪<br>
-✔ 範圍150~200<br>
-✔ 補血60%
-</div>
-</div>
+    <div class="menu">
+      <button class="active" onclick="showSection('home',this)">首頁</button>
+      <button onclick="showSection('newbie',this)">新手教學</button>
+      <button onclick="showSection('helper',this)">內掛教學</button>
+      <button onclick="showSection('equip',this)">裝備系統</button>
+      <button onclick="showSection('reborn',this)">轉生系統</button>
+      <button onclick="showSection('dragon',this)">龍珠系統</button>
+      <button onclick="showSection('reward',this)">發文獎勵</button>
+      <button onclick="showSection('donate',this)">贊助說明</button>
+    </div>
+  </div>
 
-<div id="reborn" class="section">
-<div class="card">
-轉生系統：<br>
-最高10轉<br>
-大幅提升能力
-</div>
-</div>
+  <div id="home" class="section active">
+    <div class="card">
+      <h2>🏠 首頁重點</h2>
+      <div class="list">
+        <div>✔ 封測開放中 / 免費 / 高倍率 / 輕鬆掛機</div>
+        <div>✔ 天M變身免抽、內掛系統、最高10轉</div>
+        <div>✔ 傲慢幣 / 新傲慢幣為本服核心成長貨幣</div>
+        <div>✔ 裝備升階、紋樣、龍珠、神龍武器都有完整發展路線</div>
+      </div>
+    </div>
+  </div>
 
-<div id="donate" class="section">
-<div class="card">
-贊助比例：<br>
-1元 = 5元寶
-</div>
+  <div id="newbie" class="section">
+    <div class="card">
+      <h2>📘 新手完整教學</h2>
+      <div class="list">
+        <div>① 進入遊戲後，先找傳送師傳送到 <b>30等練功區</b></div>
+        <div>② 開啟內掛，先穩定把角色練到 <b>50等左右</b></div>
+        <div>③ 50等後前往 <b>傲慢之塔</b> 收集 <b>傲慢幣</b></div>
+        <div>④ 傲慢幣夠了之後，可向 NPC 購買基礎裝備，或進行武器製作</div>
+        <div>⑤ 中期開始補強：耳環 / 戒指 / 項鍊 / 腰帶</div>
+        <div>⑥ 後期方向：<b>新傲慢幣 → 高階防具 → 紋樣系統 → 轉生系統 → 龍珠 / 神龍武器</b></div>
+      </div>
+      <div class="notice">
+        新手先把等級、掛機穩定度、貨幣來源和基礎裝備建立起來，再往後面系統推進，成長最穩。
+      </div>
+    </div>
+  </div>
+
+  <div id="helper" class="section">
+    <div class="card">
+      <h2>⌨️ 內掛最強設定</h2>
+      <div class="list">
+        <div>✔ 本服內掛為啟動後自動攻擊型，不需另外開自動攻擊</div>
+        <div>✔ 掉落多數直接吸入角色身上，不需另外設定撿物</div>
+        <div>✔ 搜怪範圍建議：<b>150～200</b></div>
+        <div>✔ 小範圍容易原地亂跑，不建議</div>
+        <div>✔ 補血建議：<b>60%～70%</b></div>
+        <div>✔ 補魔建議：<b>50%～70%</b></div>
+        <div>✔ 推薦穩定版：<b>範圍180 / 補血65 / 補魔60</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>LinHelperX 指令參考</h2>
+      <div class="codebox">負重強化 /M
+加速術 /ME
+暗影之牙 /MW　說明：對使用中的武器施放魔法
+鎧甲護持 /MA　說明：對使用中的盔甲施放魔法
+鎧甲護持 /M=古老的皮盔甲
+高級治癒術 /M=周星星
+高級治癒術 /M　說明：對滑鼠指定的玩家施放高級治癒術
+加速術 /M　說明：對滑鼠指定的玩家施放加速術
+
+/KEY=F?
+/DKEY=F?</div>
+    </div>
+  </div>
+
+  <div id="equip" class="section">
+    <div class="card">
+      <h2>🛡️ 裝備系統重點</h2>
+      <div class="list">
+        <div>✔ 永恆項鍊：力量 / 敏捷 / 智力 / 體力 / 魔力 五大流派</div>
+        <div>✔ 麥斯特耳環：紅光輸出 / 藍光防禦 / 紫光功能</div>
+        <div>✔ 永恆戒指：回復 / 集中 / 體力 / 魔力 / 抗魔 分流</div>
+        <div>✔ 光之殷海薩腰帶：智力 / 力量 / 敏捷 / 魅力 四種定位</div>
+        <div>✔ 高階防具：金龍盔甲 / 亞斯克雷 / 狂戰臂甲 / 死騎脛甲 / 格蘭肯 / 獵影之痕 / 黑帝斯</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>麥斯特耳環系統</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>類型</th>
+              <th>定位</th>
+              <th>效果重點</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>紅光耳環</td>
+              <td>輸出流</td>
+              <td>近戰傷害 / 遠戰傷害 / 魔攻提升</td>
+            </tr>
+            <tr>
+              <td>藍光耳環</td>
+              <td>防禦流</td>
+              <td>防禦與傷害減免提升</td>
+            </tr>
+            <tr>
+              <td>紫光耳環</td>
+              <td>功能流</td>
+              <td>藥水回復百分比與回復量提升</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="reborn" class="section">
+    <div class="card">
+      <h2>🔁 轉生系統</h2>
+      <div class="list">
+        <div>✔ 王族 / 騎士：高血量、高減傷成長線</div>
+        <div>✔ 妖精：力量、敏捷、命中、傷害同步提升</div>
+        <div>✔ 法師 / 幻術：主升智力、魔攻、額外魔法傷害</div>
+        <div>✔ 黑妖 / 龍騎：力量與近戰傷害直線成長</div>
+        <div>✔ 最高 <b>10 轉</b></div>
+        <div>✔ 綜合萬能藥 45 / 單項上限 35 / 手點能力上限 25</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dragon" class="section">
+    <div class="card">
+      <h2>🐉 龍珠系統 / 神龍武器</h2>
+      <div class="list">
+        <div>✔ 幻想系列 → 月神系列 → 戰神系列</div>
+        <div>✔ 想獲得神龍武器前，需先收集 <b>7 顆龍珠</b></div>
+        <div>✔ 龍珠碎片可兌換龍珠</div>
+        <div>✔ 集齊 7 顆龍珠後，可兌換神龍禮盒</div>
+        <div>✔ 開神龍禮盒有機會獲得神龍武器兌換卷</div>
+        <div>✔ 可向神龍武器 NPC 兌換武器</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="reward" class="section">
+    <div class="card">
+      <h2>🎁 發文獎勵</h2>
+      <div class="list">
+        <div>✔ 玩家先完成指定的發文 / 推文 / 宣傳任務</div>
+        <div>✔ 再依活動規則填寫角色資料與連結</div>
+        <div>✔ 建議流程：玩家填資料 → GM 核對 → 手動發獎</div>
+        <div>✔ 同一活動請勿重複申請</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="donate" class="section">
+    <div class="card">
+      <h2>💰 贊助說明</h2>
+      <div class="list">
+        <div>✔ 本服贊助比例：<b>1元 = 5元寶</b></div>
+        <div>✔ 用途：支持伺服器長期經營、便利型道具、外觀 / 特效 / 變身內容</div>
+        <div>✔ 不走極端破壞平衡的課金模式</div>
+        <div>✔ 讓玩家即使不大量贊助，也能長期穩定遊玩</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">天越天堂 官方網站</div>
 </div>
 
 <script>
-function show(id){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+function showSection(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
 
