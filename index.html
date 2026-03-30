@@ -2857,3 +2857,49 @@ section, .card, .box, .bottom-add-card, .quick-link-card{
 
 })();
 </script>
+<!-- ===== 內容救援包 ===== -->
+
+<style>
+
+/* 🔥 強制所有內容顯示 */
+section, div, p, span, ul, li, h1, h2, h3{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+/* 🔥 防止被背景蓋住 */
+section, .card, .box, .bottom-add-card{
+  position:relative !important;
+  z-index:10 !important;
+}
+
+/* 🔥 背景全部降層 */
+#gold,
+#gold-particle-upgrade,
+#final-bg,
+#final-fixed-bg,
+#pagebg{
+  z-index:0 !important;
+}
+
+/* 🔥 避免被清空高度 */
+section, .card, .box{
+  min-height:auto !important;
+}
+
+/* 🔥 防止被隱藏 */
+*[style*="display: none"]{
+  display:block !important;
+}
+
+</style>
+
+<script>
+// 🔥 防止JS把內容清掉
+(function(){
+  console.log("內容救援啟動");
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
