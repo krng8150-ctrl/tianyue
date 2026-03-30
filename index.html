@@ -2698,3 +2698,127 @@ section:hover{
 </style>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 神級最終版（極致視覺，不動結構） ===== -->
+
+<style>
+
+/* ===== ① 全畫面能量流動 ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  background:
+    radial-gradient(circle at 30% 70%, rgba(255,140,0,.12), transparent 40%),
+    radial-gradient(circle at 70% 30%, rgba(120,200,255,.10), transparent 40%);
+  animation:energyFlow 10s linear infinite;
+}
+
+@keyframes energyFlow{
+  0%{transform:translate(0,0);}
+  50%{transform:translate(10px,-10px);}
+  100%{transform:translate(0,0);}
+}
+
+/* ===== ② 雷電升級（閃更猛） ===== */
+#bg-fire-magic-layer::after{
+  animation:lightningFlashPro 3.5s linear infinite;
+}
+
+@keyframes lightningFlashPro{
+  0%, 70%, 100%{opacity:0;}
+  71%{opacity:.3;}
+  72%{opacity:.9;}
+  73%{opacity:.1;}
+  74%{opacity:.8;}
+  75%{opacity:0;}
+}
+
+/* ===== ③ 火焰爆閃 ===== */
+#bg-fire-magic-layer::before{
+  animation:firePulsePro 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes firePulsePro{
+  0%{
+    opacity:.5;
+    transform:scale(1);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1.12);
+  }
+}
+
+/* ===== ④ 按鈕點擊震動 ===== */
+a:active, button:active{
+  transform:scale(.96);
+  filter:brightness(1.2);
+}
+
+/* ===== ⑤ 超強發光按鈕 ===== */
+a, button{
+  transition:.2s;
+}
+
+a:hover, button:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:
+    0 0 12px rgba(255,216,106,.6),
+    0 0 30px rgba(255,140,0,.35);
+}
+
+/* ===== ⑥ LOGO金光脈衝 ===== */
+img, h1{
+  animation:logoPulse 4s ease-in-out infinite;
+}
+
+@keyframes logoPulse{
+  0%{
+    filter:brightness(1);
+  }
+  50%{
+    filter:brightness(1.25) drop-shadow(0 0 12px rgba(255,216,106,.7));
+  }
+  100%{
+    filter:brightness(1);
+  }
+}
+
+/* ===== ⑦ 卡片浮動感 ===== */
+.pet-info-card,
+.fixed-download-card,
+section{
+  transition:.3s;
+}
+
+.pet-info-card:hover,
+.fixed-download-card:hover,
+section:hover{
+  transform:translateY(-4px);
+}
+
+/* ===== ⑧ 微粒子閃光 ===== */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+  background-image:
+    radial-gradient(circle, rgba(255,216,106,.4) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(120,200,255,.3) 0 1px, transparent 2px);
+  background-size:140px 140px, 200px 200px;
+  animation:particleFloat 14s linear infinite;
+  opacity:.25;
+}
+
+@keyframes particleFloat{
+  from{background-position:0 0, 0 0;}
+  to{background-position:0 -140px, 0 -200px;}
+}
+
+</style>
+
+<!-- ===== 結束 ===== -->
