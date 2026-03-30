@@ -2690,3 +2690,170 @@ b,strong{
 </script>
 
 <!-- ===== 結束 ===== -->
+<style>
+#backHomeBtn{
+  position:fixed !important;
+  right:16px !important;
+  bottom:20px !important;
+  z-index:99999 !important;
+  padding:14px 18px !important;
+  border-radius:50px !important;
+  font-size:16px !important;
+  font-weight:900 !important;
+  color:#000 !important;
+  background:linear-gradient(90deg,#ffd86a,#ff9800) !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.45) !important;
+  text-decoration:none !important;
+  display:inline-block !important;
+}
+</style>
+
+<script>
+(function(){
+  // 刪掉重複的回首頁按鈕，只留最後一顆
+  var olds = document.querySelectorAll('#backHomeBtn');
+  olds.forEach(function(el, i){
+    if(i < olds.length - 1) el.remove();
+  });
+
+  // 如果沒有按鈕就建立一顆
+  var btn = document.getElementById('backHomeBtn');
+  if(!btn){
+    btn = document.createElement('a');
+    btn.id = 'backHomeBtn';
+    btn.href = '#';
+    btn.innerText = '⬆ 回到首頁';
+    document.body.appendChild(btn);
+  }
+
+  // 強制固定在右下角
+  btn.style.position = 'fixed';
+  btn.style.right = '16px';
+  btn.style.bottom = '20px';
+  btn.style.zIndex = '99999';
+
+  btn.onclick = function(e){
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+})();
+</script>
+<style>
+/* 修正莫名大空白 */
+.extra-anchor{
+  display:none !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+#home,#newbie,#helper,#equip,#highgear,#jewelry,#reborn,#pattern,#dragon,#reward,#donate{
+  display:none !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+body, html{
+  min-height:auto !important;
+}
+
+.bottom-add-wrap,
+.quick-link-wrap,
+.big-btn-wrap,
+.auto-reward{
+  position:relative !important;
+  z-index:5 !important;
+}
+
+/* 避免某些背景層把版面撐高 */
+#gold,
+#gold-particle-upgrade,
+#final-bg,
+#final-fixed-bg,
+#final-bg-force,
+#pagebg{
+  max-height:100vh !important;
+}
+
+/* 若 section 被加到超大外距，強制拉回 */
+section, .card, .box, .bottom-add-card, .quick-link-card{
+  margin-top:22px !important;
+  margin-bottom:22px !important;
+}
+</style>
+
+<script>
+(function(){
+  // 把空白定位點直接清空
+  var ids = ['home','newbie','helper','equip','highgear','jewelry','reborn','pattern','dragon','reward','donate'];
+  ids.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && !el.classList.contains('card') && !el.classList.contains('box')){
+      el.innerHTML = '';
+      el.style.display = 'none';
+      el.style.height = '0';
+      el.style.margin = '0';
+      el.style.padding = '0';
+    }
+  });
+
+  document.querySelectorAll('.extra-anchor').forEach(function(el){
+    el.innerHTML = '';
+    el.style.display = 'none';
+    el.style.height = '0';
+    el.style.margin = '0';
+    el.style.padding = '0';
+  });
+})();
+</script>
+<style>
+#backHomeBtn{
+  position:fixed !important;
+  right:16px !important;
+  bottom:80px !important; /* 避開手機底部 */
+  z-index:999999 !important;
+
+  padding:14px 18px !important;
+  border-radius:50px !important;
+
+  font-size:16px !important;
+  font-weight:900 !important;
+
+  color:#000 !important;
+  background:linear-gradient(90deg,#ffd86a,#ff9800) !important;
+
+  box-shadow:0 10px 26px rgba(0,0,0,.5) !important;
+
+  text-decoration:none !important;
+  display:inline-block !important;
+}
+</style>
+
+<script>
+(function(){
+
+  // 🔥 刪掉全部舊的回首頁（避免卡在底部的）
+  document.querySelectorAll('#backHomeBtn').forEach(function(el){
+    el.remove();
+  });
+
+  // 🔥 重新建立一顆固定的
+  var btn = document.createElement('a');
+  btn.id = 'backHomeBtn';
+  btn.href = '#';
+  btn.innerText = '⬆ 回到首頁';
+
+  document.body.appendChild(btn);
+
+  // 🔥 點擊回頂
+  btn.onclick = function(e){
+    e.preventDefault();
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    });
+  };
+
+})();
+</script>
