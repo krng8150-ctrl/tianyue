@@ -2016,3 +2016,50 @@ document.getElementById("backHomeBtn").onclick = function(e){
 </script>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 新增：下載懶人包滑動按鈕 ===== -->
+
+<script>
+(function(){
+
+  // 🔥 找到「首頁重點」那排按鈕區
+  var allBtns = document.querySelectorAll("a, div");
+
+  allBtns.forEach(function(el){
+    var text = (el.innerText || "").trim();
+
+    // 👉 在首頁區塊後面插入新按鈕
+    if(text === "首頁重點"){
+
+      // 建立新按鈕
+      var btn = document.createElement("div");
+      btn.innerText = "⬇ 下載懶人包";
+      btn.style.marginTop = "10px";
+      btn.style.padding = "14px";
+      btn.style.borderRadius = "14px";
+      btn.style.textAlign = "center";
+      btn.style.fontWeight = "bold";
+      btn.style.fontSize = "18px";
+      btn.style.color = "#000";
+      btn.style.background = "linear-gradient(90deg,#00c6ff,#0072ff)";
+      btn.style.boxShadow = "0 8px 20px rgba(0,0,0,.4)";
+      btn.style.cursor = "pointer";
+
+      // 點擊滑動到底部下載區
+      btn.onclick = function(){
+        var target = document.querySelector(".big-btn-wrap");
+        if(target){
+          target.scrollIntoView({behavior:"smooth"});
+        }else{
+          window.scrollTo({top:document.body.scrollHeight, behavior:"smooth"});
+        }
+      };
+
+      // 插入到下面
+      el.parentNode.insertBefore(btn, el.nextSibling);
+    }
+  });
+
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
