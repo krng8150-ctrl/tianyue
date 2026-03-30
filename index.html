@@ -2063,3 +2063,521 @@ document.getElementById("backHomeBtn").onclick = function(e){
 </script>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 神級字體強化（天堂金光版） ===== -->
+
+<style>
+
+/* 🔥 全站文字進化（高級感） */
+body, div, span, p{
+  color: #fff !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 0 2px #000,
+    0 0 6px #000,
+    0 2px 10px rgba(0,0,0,0.9),
+    0 4px 20px rgba(0,0,0,1);
+}
+
+/* 🔥 主標題（超亮金色發光） */
+h1, h2{
+  color: #ffd86a !important;
+  font-weight: 900 !important;
+
+  text-shadow:
+    0 0 5px #000,
+    0 0 15px #000,
+    0 0 25px rgba(255,215,0,0.8),
+    0 0 40px rgba(255,200,0,0.7),
+    0 4px 30px rgba(0,0,0,1);
+}
+
+/* 🔥 卡片按鈕文字（像天堂UI） */
+a, .btn, .big-btn{
+  font-weight: 900 !important;
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 0 3px #000,
+    0 2px 10px rgba(0,0,0,1),
+    0 0 10px rgba(255,215,0,0.6);
+}
+
+/* 🔥 首頁按鈕（你那一排大按鈕） */
+button, .box, .grid div{
+  border: 1px solid rgba(255,216,106,0.4) !important;
+  box-shadow:
+    0 0 10px rgba(255,216,106,0.2),
+    inset 0 0 10px rgba(255,216,106,0.15);
+}
+
+/* 🔥 滑過去發光（手機也會有點效果） */
+button:hover, a:hover, .btn:hover{
+  transform: scale(1.03);
+  box-shadow:
+    0 0 20px rgba(255,216,106,0.5),
+    0 0 40px rgba(255,216,106,0.3);
+}
+
+/* 🔥 卡片區背景再加深（讓字更清楚） */
+section, .card{
+  background: rgba(0,0,0,0.6) !important;
+  backdrop-filter: blur(3px);
+  border-radius: 16px;
+}
+
+/* 🔥 小字也清楚 */
+.small-text{
+  color: #ffe29a !important;
+  text-shadow:
+    0 0 3px #000,
+    0 2px 6px rgba(0,0,0,0.9);
+}
+
+/* 🔥 回到首頁按鈕強化 */
+#backHomeBtn{
+  font-weight: 900 !important;
+  letter-spacing: 1px;
+  box-shadow:
+    0 0 10px rgba(255,216,106,0.6),
+    0 6px 20px rgba(0,0,0,.6);
+}
+
+</style>
+
+<!-- ===== 結束 ===== -->
+<!-- ===== 動畫效果包（直接貼最下面）開始 ===== -->
+
+<style>
+/* 整站淡入 */
+body{
+  animation: siteFadeIn 1.2s ease-out;
+}
+@keyframes siteFadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* 背景層微動 */
+#final-fixed-bg,
+#final-bg,
+#final-bg-force,
+#pagebg{
+  animation: bgFloat 12s ease-in-out infinite alternate !important;
+}
+@keyframes bgFloat{
+  0%{transform:scale(1.12) translateY(0px);}
+  100%{transform:scale(1.18) translateY(-12px);}
+}
+
+/* 主標題金光呼吸 */
+.title, .logo, h1{
+  animation: logoGlow 2.8s ease-in-out infinite;
+}
+@keyframes logoGlow{
+  0%{
+    text-shadow:
+      0 0 5px #000,
+      0 0 15px rgba(255,215,0,.35),
+      0 0 25px rgba(255,200,0,.25);
+    transform:scale(1);
+  }
+  50%{
+    text-shadow:
+      0 0 8px #000,
+      0 0 22px rgba(255,215,0,.75),
+      0 0 45px rgba(255,180,0,.55);
+    transform:scale(1.02);
+  }
+  100%{
+    text-shadow:
+      0 0 5px #000,
+      0 0 15px rgba(255,215,0,.35),
+      0 0 25px rgba(255,200,0,.25);
+    transform:scale(1);
+  }
+}
+
+/* 按鈕浮動發光 */
+.btn, .big-btn, button, .grid .btn, .navgrid a{
+  animation: btnFloatGlow 3s ease-in-out infinite;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+@keyframes btnFloatGlow{
+  0%{
+    transform:translateY(0);
+    box-shadow:0 0 8px rgba(255,216,106,.15), 0 6px 16px rgba(0,0,0,.35);
+  }
+  50%{
+    transform:translateY(-4px);
+    box-shadow:0 0 18px rgba(255,216,106,.35), 0 10px 24px rgba(0,0,0,.45);
+  }
+  100%{
+    transform:translateY(0);
+    box-shadow:0 0 8px rgba(255,216,106,.15), 0 6px 16px rgba(0,0,0,.35);
+  }
+}
+.btn:hover, .big-btn:hover, button:hover, .grid .btn:hover, .navgrid a:hover{
+  transform:translateY(-3px) scale(1.03) !important;
+  filter:brightness(1.08);
+}
+
+/* 卡片慢慢浮現 */
+.card, section, .box, .bottom-add-card, .quick-link-card{
+  animation: cardFadeUp .9s ease-out;
+}
+@keyframes cardFadeUp{
+  from{opacity:0; transform:translateY(18px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* 回首頁按鈕呼吸 */
+#backHomeBtn{
+  animation: homePulse 2s ease-in-out infinite;
+}
+@keyframes homePulse{
+  0%{transform:scale(1); box-shadow:0 0 10px rgba(255,216,106,.35), 0 6px 18px rgba(0,0,0,.4);}
+  50%{transform:scale(1.05); box-shadow:0 0 22px rgba(255,216,106,.7), 0 10px 24px rgba(0,0,0,.55);}
+  100%{transform:scale(1); box-shadow:0 0 10px rgba(255,216,106,.35), 0 6px 18px rgba(0,0,0,.4);}
+}
+</style>
+
+<script>
+(function(){
+  // 滾動時讓卡片有淡入感
+  var items = document.querySelectorAll('.card, section, .box, .bottom-add-card, .quick-link-card');
+  if (!('IntersectionObserver' in window) || !items.length) return;
+
+  items.forEach(function(el){
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .7s ease, transform .7s ease';
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {threshold:0.12});
+
+  items.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- ===== 動畫效果包（直接貼最下面）結束 ===== -->
+<!-- ===== 最終動畫包（不卡版） ===== -->
+
+<style>
+
+/* 整站淡入 */
+body{
+  animation:fadeIn .8s ease-out;
+}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* 背景微動 */
+#final-fixed-bg,
+#final-bg,
+#pagebg{
+  animation:bgMove 10s ease-in-out infinite alternate !important;
+}
+@keyframes bgMove{
+  0%{transform:scale(1.12)}
+  100%{transform:scale(1.18) translateY(-8px)}
+}
+
+/* 標題金光呼吸 */
+h1,h2,.title{
+  animation:titleGlow 2.5s ease-in-out infinite;
+}
+@keyframes titleGlow{
+  0%,100%{
+    text-shadow:0 0 6px #000,0 0 15px rgba(255,215,0,.3)
+  }
+  50%{
+    text-shadow:0 0 10px #000,0 0 30px rgba(255,215,0,.8)
+  }
+}
+
+/* 按鈕浮動 */
+.btn,.big-btn,button,.navgrid a{
+  animation:btnMove 2.5s ease-in-out infinite;
+}
+@keyframes btnMove{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+
+/* 滑過亮 */
+.btn:hover,.big-btn:hover,button:hover{
+  transform:translateY(-3px) scale(1.05);
+  filter:brightness(1.1);
+}
+
+/* 回首頁呼吸 */
+#backHomeBtn{
+  animation:homeGlow 2s ease-in-out infinite;
+}
+@keyframes homeGlow{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+
+/* 粒子漂浮 */
+#gold{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+
+  background-image:
+  radial-gradient(circle,rgba(255,216,106,.4) 0 2px,transparent 3px);
+
+  background-size:180px 180px;
+  animation:goldMove 18s linear infinite;
+  opacity:.4;
+}
+@keyframes goldMove{
+  from{background-position:0 0}
+  to{background-position:0 -180px}
+}
+
+</style>
+
+<script>
+(function(){
+  if(document.getElementById("gold")) return;
+  var d=document.createElement("div");
+  d.id="gold";
+  document.body.appendChild(d);
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
+<!-- ===== 再升級動畫版 ===== -->
+
+<style>
+/* 整站淡入 */
+body{
+  animation:siteFade .8s ease-out;
+}
+@keyframes siteFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* 背景微浮動 */
+#final-fixed-bg,
+#final-bg,
+#pagebg{
+  animation:bgFloatPlus 12s ease-in-out infinite alternate !important;
+}
+@keyframes bgFloatPlus{
+  0%{transform:scale(1.15) translateY(0)}
+  100%{transform:scale(1.22) translateY(-10px)}
+}
+
+/* 金色粒子 */
+#gold-particle-upgrade{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.35;
+  background-image:
+    radial-gradient(circle, rgba(255,216,106,.55) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255,180,0,.25) 0 1px, transparent 2px);
+  background-size:180px 180px, 260px 260px;
+  animation:goldParticleMove 18s linear infinite;
+}
+@keyframes goldParticleMove{
+  from{background-position:0 0, 0 0}
+  to{background-position:0 -180px, 0 -260px}
+}
+
+/* 主標題火光金芒 */
+h1,h2,.title,.logo{
+  animation:titleFireGlow 2.6s ease-in-out infinite;
+}
+@keyframes titleFireGlow{
+  0%,100%{
+    text-shadow:
+      0 0 4px #000,
+      0 0 10px rgba(255,180,0,.25),
+      0 0 18px rgba(255,215,0,.35),
+      0 0 26px rgba(255,120,0,.18);
+    transform:scale(1);
+  }
+  50%{
+    text-shadow:
+      0 0 6px #000,
+      0 0 16px rgba(255,180,0,.45),
+      0 0 30px rgba(255,215,0,.7),
+      0 0 44px rgba(255,120,0,.35);
+    transform:scale(1.02);
+  }
+}
+
+/* 按鈕浮動 */
+.btn,.big-btn,button,.navgrid a,#backHomeBtn{
+  animation:btnFloatUp 2.8s ease-in-out infinite;
+  position:relative;
+  overflow:hidden;
+}
+@keyframes btnFloatUp{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+
+/* 按鈕流光 */
+.btn::before,
+.big-btn::before,
+button::before,
+.navgrid a::before,
+#backHomeBtn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:60%;
+  height:100%;
+  transform:skewX(-22deg);
+  background:linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.18) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  animation:btnShine 3.2s ease-in-out infinite;
+}
+@keyframes btnShine{
+  0%{left:-120%}
+  55%{left:140%}
+  100%{left:140%}
+}
+
+/* Hover 更亮 */
+.btn:hover,.big-btn:hover,button:hover,.navgrid a:hover,#backHomeBtn:hover{
+  filter:brightness(1.12);
+  transform:translateY(-3px) scale(1.03);
+}
+
+/* 卡片淡入上浮 */
+.card,section,.box,.bottom-add-card,.quick-link-card{
+  animation:cardRise .9s ease-out;
+}
+@keyframes cardRise{
+  from{opacity:0; transform:translateY(16px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+/* 回首頁按鈕更明顯 */
+#backHomeBtn{
+  animation:homePulsePlus 2s ease-in-out infinite;
+}
+@keyframes homePulsePlus{
+  0%,100%{
+    box-shadow:0 0 12px rgba(255,216,106,.35), 0 6px 18px rgba(0,0,0,.45);
+  }
+  50%{
+    box-shadow:0 0 26px rgba(255,216,106,.7), 0 10px 28px rgba(0,0,0,.6);
+  }
+}
+
+</style>
+
+<script>
+(function(){
+  if(!document.getElementById("gold-particle-upgrade")){
+    var d=document.createElement("div");
+    d.id="gold-particle-upgrade";
+    document.body.appendChild(d);
+  }
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
+<!-- ===== 字體清晰強化包 ===== -->
+
+<style>
+
+/* 🔥 全站字體強化 */
+body{
+  color:#fff !important;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.9),
+    0 0 4px rgba(0,0,0,.8);
+}
+
+/* 🔥 標題更清楚（不被金光吃掉） */
+h1,h2,h3,.title,.logo{
+  color:#FFD700 !important;
+  text-shadow:
+    0 2px 4px #000,
+    0 0 10px rgba(255,215,0,.5) !important;
+}
+
+/* 🔥 一般文字（白字加黑邊） */
+p,span,div,li{
+  color:#ffffff !important;
+  text-shadow:
+    0 1px 3px rgba(0,0,0,.95),
+    0 0 2px rgba(0,0,0,.8);
+}
+
+/* 🔥 數字專用（最重要） */
+.number, .num, b, strong{
+  color:#fff !important;
+  text-shadow:
+    0 0 3px #000,
+    0 0 6px #000,
+    0 0 10px rgba(0,0,0,.9) !important;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+/* 🔥 密碼 / 重要資訊（例如123456） */
+.password, .key, .highlight{
+  background:rgba(0,0,0,.6);
+  padding:4px 10px;
+  border-radius:8px;
+  font-weight:bold;
+  text-shadow:none !important;
+}
+
+/* 🔥 卡片加暗底（讓字浮出來） */
+.card, .box, section, .bottom-add-card{
+  background:rgba(0,0,0,.35) !important;
+  backdrop-filter:blur(4px);
+}
+
+/* 🔥 按鈕文字更清楚 */
+.btn, .big-btn, button, .navgrid a{
+  font-weight:bold;
+  letter-spacing:1px;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,.9) !important;
+}
+
+/* 🔥 特別針對你那段（網路/密碼） */
+div:contains("密碼"),
+div:contains("網路"){
+  font-weight:bold;
+}
+
+/* 🔥 防止金光過亮壓字 */
+#gold,
+#gold-particle-upgrade{
+  opacity:.18 !important;
+}
+
+</style>
+
+<!-- ===== 結束 ===== -->
