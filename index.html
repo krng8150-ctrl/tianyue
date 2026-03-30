@@ -1761,3 +1761,29 @@ document.body.style.background = "url('https://picsum.photos/1080/1920') center 
   setTimeout(setBg, 2000);
 })();
 </script>
+<style>
+html, body{
+  background: transparent !important;
+}
+
+#final-fixed-bg{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url('IMG_3682.png') center center / cover no-repeat;
+  transform: scale(1.15);
+  transform-origin: center center;
+}
+</style>
+
+<script>
+(function () {
+  var old = document.getElementById('final-fixed-bg');
+  if (old) old.remove();
+
+  var bg = document.createElement('div');
+  bg.id = 'final-fixed-bg';
+  document.body.prepend(bg);
+})();
+</script>
