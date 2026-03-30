@@ -2168,3 +2168,73 @@ html, body{
   }
 })();
 </script>
+<!-- ===== 背景動畫效果包 ===== -->
+
+<style>
+/* 固定背景動畫層 */
+#bg-animate-layer{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.68)),
+    url('IMG_3682.png') center center / cover no-repeat;
+  animation: bgZoomFloat 14s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+/* 金色粒子層 */
+#bg-particles-layer{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .28;
+  background-image:
+    radial-gradient(circle, rgba(255,216,106,.55) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255,180,0,.22) 0 1px, transparent 2px);
+  background-size: 180px 180px, 260px 260px;
+  animation: particleMove 18s linear infinite;
+}
+
+/* 背景慢慢浮動 */
+@keyframes bgZoomFloat{
+  0%{
+    transform: scale(1.06) translateY(0);
+  }
+  100%{
+    transform: scale(1.12) translateY(-10px);
+  }
+}
+
+/* 粒子往上飄 */
+@keyframes particleMove{
+  from{
+    background-position: 0 0, 0 0;
+  }
+  to{
+    background-position: 0 -180px, 0 -260px;
+  }
+}
+</style>
+
+<script>
+(function(){
+  var old1 = document.getElementById('bg-animate-layer');
+  if(old1) old1.remove();
+
+  var old2 = document.getElementById('bg-particles-layer');
+  if(old2) old2.remove();
+
+  var bg = document.createElement('div');
+  bg.id = 'bg-animate-layer';
+  document.body.prepend(bg);
+
+  var particles = document.createElement('div');
+  particles.id = 'bg-particles-layer';
+  document.body.appendChild(particles);
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
