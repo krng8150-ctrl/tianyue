@@ -2567,4 +2567,134 @@ html, body{
 </script>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 神級視覺強化（安全版） ===== -->
 
+<style>
+
+/* ===== ① 按鈕發光呼吸 ===== */
+a, button{
+  position: relative;
+  overflow: hidden;
+}
+
+a::before, button::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:inherit;
+  background:linear-gradient(120deg,
+    transparent,
+    rgba(255,216,106,.6),
+    transparent);
+  opacity:0;
+  transition:.4s;
+}
+
+a:hover::before, button:hover::before{
+  opacity:1;
+}
+
+/* 呼吸發光 */
+a, button{
+  animation:btnGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes btnGlow{
+  0%{
+    box-shadow:0 0 0 rgba(255,216,106,0);
+  }
+  100%{
+    box-shadow:0 0 18px rgba(255,216,106,.35);
+  }
+}
+
+/* ===== ② 金光流動（高級感） ===== */
+a::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(120deg,
+    transparent,
+    rgba(255,255,255,.4),
+    transparent);
+  transform:skewX(-25deg);
+}
+
+a:hover::after{
+  animation:shineMove 1.2s;
+}
+
+@keyframes shineMove{
+  0%{left:-120%;}
+  100%{left:140%;}
+}
+
+/* ===== ③ 卡片金框升級 ===== */
+.pet-info-card,
+.fixed-download-card,
+.card,
+section{
+  position:relative;
+  border:1px solid rgba(255,216,106,.35);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.45),
+    inset 0 0 12px rgba(255,216,106,.08);
+}
+
+/* 外層流光邊框 */
+.pet-info-card::before,
+.fixed-download-card::before,
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  background:linear-gradient(120deg,
+    transparent,
+    rgba(255,216,106,.6),
+    transparent);
+  opacity:.15;
+  animation:borderFlow 6s linear infinite;
+}
+
+@keyframes borderFlow{
+  0%{opacity:.05;}
+  50%{opacity:.25;}
+  100%{opacity:.05;}
+}
+
+/* ===== ④ 背景火焰強化 ===== */
+#bg-fire-magic-layer::before{
+  filter:blur(18px) brightness(1.2);
+  opacity:.9;
+}
+
+/* ===== ⑤ 雷電強化 ===== */
+#bg-fire-magic-layer::after{
+  animation:lightningFlash 4s linear infinite;
+}
+
+/* ===== ⑥ 文字更清楚 ===== */
+body{
+  text-shadow:0 2px 8px rgba(0,0,0,.85);
+}
+
+/* 標題發光 */
+h1,h2,h3{
+  text-shadow:
+    0 0 8px rgba(255,216,106,.5),
+    0 2px 8px rgba(0,0,0,.9);
+}
+
+/* ===== ⑦ 滑動時微亮 ===== */
+section:hover{
+  filter:brightness(1.05);
+  transition:.3s;
+}
+
+</style>
+
+<!-- ===== 結束 ===== -->
