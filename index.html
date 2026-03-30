@@ -2238,3 +2238,255 @@ html, body{
 </script>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 火焰閃光 + 雷電魔法背景特效 ===== -->
+
+<style>
+#bg-fire-magic-layer{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+/* 火焰閃光 */
+#bg-fire-magic-layer::before{
+  content:"";
+  position:absolute;
+  inset:-10%;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,120,0,.18) 0 8%, transparent 18%),
+    radial-gradient(circle at 80% 78%, rgba(255,80,0,.16) 0 7%, transparent 18%),
+    radial-gradient(circle at 50% 100%, rgba(255,180,0,.12) 0 10%, transparent 24%);
+  animation:firePulse 3.5s ease-in-out infinite alternate;
+  mix-blend-mode:screen;
+}
+
+/* 雷電閃光 */
+#bg-fire-magic-layer::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(115deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(170,220,255,.0) 46%,
+      rgba(170,220,255,.22) 48%,
+      rgba(255,255,255,.35) 49%,
+      rgba(170,220,255,.18) 50%,
+      rgba(170,220,255,0) 52%,
+      transparent 58%,
+      transparent 100%);
+  opacity:.0;
+  animation:lightningFlash 6s linear infinite;
+  mix-blend-mode:screen;
+}
+
+@keyframes firePulse{
+  0%{
+    opacity:.45;
+    transform:scale(1) translateY(0);
+    filter:blur(6px);
+  }
+  100%{
+    opacity:.9;
+    transform:scale(1.08) translateY(-8px);
+    filter:blur(14px);
+  }
+}
+
+@keyframes lightningFlash{
+  0%, 83%, 100%{
+    opacity:0;
+  }
+  84%{
+    opacity:.18;
+  }
+  85%{
+    opacity:.55;
+  }
+  86%{
+    opacity:.08;
+  }
+  87%{
+    opacity:.48;
+  }
+  88%{
+    opacity:0;
+  }
+}
+
+/* 額外魔法粒子 */
+#bg-magic-particles{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.22;
+  background-image:
+    radial-gradient(circle, rgba(255,216,106,.45) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(120,200,255,.28) 0 1px, transparent 2px);
+  background-size:160px 160px, 240px 240px;
+  animation:magicParticlesMove 16s linear infinite;
+}
+
+@keyframes magicParticlesMove{
+  from{background-position:0 0, 0 0;}
+  to{background-position:0 -160px, 0 -240px;}
+}
+</style>
+
+<script>
+(function(){
+  var oldA = document.getElementById('bg-fire-magic-layer');
+  if(oldA) oldA.remove();
+
+  var oldB = document.getElementById('bg-magic-particles');
+  if(oldB) oldB.remove();
+
+  var layer = document.createElement('div');
+  layer.id = 'bg-fire-magic-layer';
+  document.body.appendChild(layer);
+
+  var particles = document.createElement('div');
+  particles.id = 'bg-magic-particles';
+  document.body.appendChild(particles);
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
+<!-- ===== 寵物說明 ===== -->
+
+<style>
+.pet-info-wrap{
+  max-width:1100px;
+  margin:30px auto 80px auto;
+  padding:0 14px;
+  position:relative;
+  z-index:20;
+}
+.pet-info-card{
+  background:rgba(0,0,0,.78);
+  border:2px solid rgba(255,216,106,.88);
+  border-radius:22px;
+  padding:22px 18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  color:#fff2d7;
+}
+.pet-info-card h2{
+  margin:0 0 14px 0;
+  text-align:center;
+  color:#ffd86a;
+  font-size:28px;
+  font-weight:900;
+}
+.pet-info-card .pet-line{
+  line-height:1.95;
+  font-size:18px;
+  margin:8px 0;
+}
+.pet-info-card .pet-box{
+  margin-top:14px;
+  padding:14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,216,106,.18);
+}
+</style>
+
+<div class="pet-info-wrap">
+  <section class="pet-info-card">
+    <h2>寵物說明</h2>
+
+    <div class="pet-line">✔ 寵物進化需達 <b>30級</b></div>
+    <div class="pet-line">✔ 達到條件後可食用 <b>進化果實</b></div>
+    <div class="pet-line">✔ 寵物可進行 <b>2次進化</b></div>
+    <div class="pet-line">✔ 勝利果實可作為進一步培養用途</div>
+
+    <div class="pet-box">
+      <div class="pet-line">✔ 特別注意：<b>骷髏</b> 需要拿 <b>漂浮之眼的肉</b> 才能抓取</div>
+    </div>
+
+    <div class="pet-box">
+      <div class="pet-line">✔ 雜貨商店可使用 <b>金幣</b> 購買抓寵道具與各種食物</div>
+      <div class="pet-line">✔ 隨身商店也可使用 <b>金幣</b> 購買抓寵道具與各種食物</div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== 結束 ===== -->
+<!-- ===== 新增：寵物說明按鈕 + 滑動到寵物區 ===== -->
+
+<style>
+#petJumpBtn{
+  display:block;
+  width:100%;
+  max-width:760px;
+  margin:16px auto;
+  padding:18px 14px;
+  border-radius:18px;
+  text-align:center;
+  font-size:20px;
+  font-weight:900;
+  color:#ffd86a;
+  background:rgba(0,0,0,.62);
+  border:2px solid rgba(255,216,106,.45);
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.35),
+    inset 0 0 10px rgba(255,216,106,.12);
+  text-decoration:none;
+  position:relative;
+  z-index:20;
+}
+</style>
+
+<script>
+(function(){
+
+  // 1. 幫寵物說明區補一個定位 id
+  var petTitle = Array.from(document.querySelectorAll('h1,h2,h3,div')).find(function(el){
+    return (el.innerText || '').trim() === '寵物說明';
+  });
+
+  if(petTitle){
+    var petSection = petTitle.closest('section') || petTitle.parentElement;
+    if(petSection && !petSection.id){
+      petSection.id = 'pet-info-section';
+    }
+  }
+
+  // 2. 找首頁按鈕區，把「寵物說明」按鈕插進去
+  if(document.getElementById('petJumpBtn')) return;
+
+  var equipBtn = Array.from(document.querySelectorAll('a,div,button')).find(function(el){
+    return (el.innerText || '').trim() === '裝備系統';
+  });
+
+  if(equipBtn && equipBtn.parentNode){
+    var btn = document.createElement('a');
+    btn.id = 'petJumpBtn';
+    btn.href = '#';
+    btn.innerText = '寵物說明';
+
+    btn.onclick = function(e){
+      e.preventDefault();
+      var target = document.getElementById('pet-info-section') || petTitle;
+      if(target){
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    };
+
+    // 插在裝備系統按鈕後面
+    if(equipBtn.nextSibling){
+      equipBtn.parentNode.insertBefore(btn, equipBtn.nextSibling);
+    }else{
+      equipBtn.parentNode.appendChild(btn);
+    }
+  }
+
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
+
