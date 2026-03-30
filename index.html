@@ -1718,10 +1718,46 @@ Lv30 血量+150 / 魔量+150 / 魔防+20 / 回魔+7 / 近命+5 / 遠命+5</div>
 </div>
 
 </div>
+</body>
 
 <script>
-document.body.style.background = "url('IMG_3682.png') no-repeat center center fixed";
-document.body.style.backgroundSize = "cover";
+document.body.style.background = "url('https://picsum.photos/1080/1920') center center / cover no-repeat fixed";
 </script>
-</body>
+
 </html>
+<script>
+(function () {
+  function setBg() {
+    var old = document.getElementById("final-bg-force");
+    if (old) old.remove();
+
+    var bg = document.createElement("div");
+    bg.id = "final-bg-force";
+    bg.style.position = "fixed";
+    bg.style.left = "0";
+    bg.style.top = "0";
+    bg.style.width = "100vw";
+    bg.style.height = "100vh";
+    bg.style.zIndex = "-1";
+    bg.style.pointerEvents = "none";
+    bg.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.72)), url('https://krng8150-ctrl.github.io/IMG_3682.png?v=999')";
+    bg.style.backgroundSize = "cover";
+    bg.style.backgroundPosition = "center center";
+    bg.style.backgroundRepeat = "no-repeat";
+    bg.style.backgroundAttachment = "fixed";
+
+    document.documentElement.style.background = "transparent";
+    document.body.style.background = "transparent";
+    document.body.prepend(bg);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setBg);
+  } else {
+    setBg();
+  }
+
+  setTimeout(setBg, 800);
+  setTimeout(setBg, 2000);
+})();
+</script>
