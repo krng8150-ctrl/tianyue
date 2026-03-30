@@ -2073,3 +2073,98 @@ body{
 </script>
 
 <!-- ===== 結束 ===== -->
+<style>
+/* ===== 修正下載區大小，不要太高 ===== */
+#fixed-download-panel{
+  max-width: 1100px !important;
+  margin: 20px auto 40px auto !important;
+  padding: 0 14px !important;
+}
+
+.fixed-download-card{
+  padding: 18px 14px !important;
+  border-radius: 18px !important;
+}
+
+.fixed-download-title{
+  font-size: 22px !important;
+  margin-bottom: 12px !important;
+}
+
+.fixed-download-btn{
+  margin: 12px 0 !important;
+  padding: 16px 12px !important;
+  font-size: 18px !important;
+  border-radius: 16px !important;
+}
+
+.fixed-download-info{
+  margin: 12px 0 !important;
+  padding: 12px !important;
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+  border-radius: 14px !important;
+}
+
+/* ===== 底部兩顆按鈕永遠固定在最上層，不被蓋住 ===== */
+#backHomeBtn,
+#fastDownloadBtn{
+  position: fixed !important;
+  bottom: 80px !important;
+  z-index: 999999 !important;
+}
+
+#backHomeBtn{
+  right: 16px !important;
+}
+
+#fastDownloadBtn{
+  left: 16px !important;
+}
+
+/* ===== 固定背景圖重新強制建立 ===== */
+html, body{
+  background: transparent !important;
+}
+
+#final-fixed-bg-force{
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.68)),
+    url('IMG_3682.png') center center / cover no-repeat !important;
+  transform: scale(1.08) !important;
+  transform-origin: center center !important;
+}
+</style>
+
+<script>
+(function(){
+  /* 建立固定背景 */
+  var oldBg = document.getElementById('final-fixed-bg-force');
+  if(oldBg) oldBg.remove();
+
+  var bg = document.createElement('div');
+  bg.id = 'final-fixed-bg-force';
+  document.body.prepend(bg);
+
+  /* 重新把兩顆固定按鈕拉回最上層 */
+  var homeBtn = document.getElementById('backHomeBtn');
+  if(homeBtn){
+    homeBtn.style.position = 'fixed';
+    homeBtn.style.right = '16px';
+    homeBtn.style.bottom = '80px';
+    homeBtn.style.zIndex = '999999';
+  }
+
+  var dlBtn = document.getElementById('fastDownloadBtn');
+  if(dlBtn){
+    dlBtn.style.position = 'fixed';
+    dlBtn.style.left = '16px';
+    dlBtn.style.bottom = '80px';
+    dlBtn.style.zIndex = '999999';
+  }
+})();
+</script>
