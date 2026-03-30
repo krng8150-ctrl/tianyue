@@ -2489,4 +2489,82 @@ html, body{
 </script>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 全站穩定修正（框不亂跳 + 正確跳轉） ===== -->
+
+<style>
+/* ===== 卡片大小固定（解決忽大忽小） ===== */
+.pet-info-card,
+.fixed-download-card{
+  min-height: auto !important;
+  height: auto !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* ===== 背景動畫不影響內容 ===== */
+#bg-fire-magic-layer,
+#bg-magic-particles{
+  will-change: opacity;
+}
+
+/* ===== 強制下載區定位 ===== */
+#download-anchor-fix{
+  position: relative;
+  top: -60px; /* 避免被header吃掉 */
+}
+
+/* ===== 按鈕穩定 ===== */
+#backHomeBtn,
+#fastDownloadBtn{
+  transform: none !important;
+  animation: none !important;
+}
+
+/* ===== 防止整體縮放影響 ===== */
+*{
+  backface-visibility: hidden;
+}
+</style>
+
+<script>
+(function(){
+
+  /* ===== 1. 建立真正下載錨點 ===== */
+  if(!document.getElementById('download-anchor-fix')){
+    var downloadSection = document.querySelector('#fixed-download-panel');
+    if(downloadSection){
+      var anchor = document.createElement('div');
+      anchor.id = 'download-anchor-fix';
+      downloadSection.prepend(anchor);
+    }
+  }
+
+  /* ===== 2. 修正「下載懶人包」按鈕跳錯 ===== */
+  var allBtns = document.querySelectorAll('a,button,div');
+
+  allBtns.forEach(function(el){
+    if(el.innerText && el.innerText.includes('下載懶人包')){
+      el.onclick = function(e){
+        e.preventDefault();
+        var target = document.getElementById('download-anchor-fix');
+        if(target){
+          target.scrollIntoView({
+            behavior:'smooth',
+            block:'start'
+          });
+        }
+      };
+    }
+  });
+
+  /* ===== 3. 防止抓錯寵物區 ===== */
+  var petSection = document.getElementById('pet-info-section');
+  if(petSection){
+    petSection.style.scrollMarginTop = "80px";
+  }
+
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
 
