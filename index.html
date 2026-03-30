@@ -2822,3 +2822,175 @@ body::after{
 </style>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 最後升階版（純視覺，不動結構） ===== -->
+
+<style>
+/* 進站微閃光 */
+html::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:3;
+  background:radial-gradient(circle at center, rgba(255,240,180,.22), rgba(255,255,255,0) 55%);
+  opacity:0;
+  animation:entryFlash 1.4s ease-out 1;
+}
+@keyframes entryFlash{
+  0%{opacity:0}
+  20%{opacity:.65}
+  100%{opacity:0}
+}
+
+/* 背景層更有生命感 */
+#bg-fire-magic-layer{
+  filter:saturate(1.08) brightness(1.04);
+}
+#bg-fire-magic-layer::before{
+  animation:firePulseFinal 2.2s ease-in-out infinite alternate !important;
+}
+@keyframes firePulseFinal{
+  0%{
+    opacity:.55;
+    transform:scale(1) translateY(0);
+    filter:blur(12px);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1.16) translateY(-10px);
+    filter:blur(22px);
+  }
+}
+#bg-fire-magic-layer::after{
+  animation:lightningFlashFinal 3.1s linear infinite !important;
+}
+@keyframes lightningFlashFinal{
+  0%,68%,100%{opacity:0}
+  69%{opacity:.25}
+  70%{opacity:.95}
+  71%{opacity:.08}
+  72%{opacity:.78}
+  73%{opacity:0}
+}
+
+/* 粒子加強但不蓋字 */
+#bg-magic-particles,
+#gold-particle-upgrade,
+#gold{
+  opacity:.18 !important;
+  filter:brightness(1.08);
+}
+
+/* 標題最終金光 */
+h1,h2,h3,.title,.logo{
+  animation:titleFinalPulse 2.8s ease-in-out infinite !important;
+}
+@keyframes titleFinalPulse{
+  0%,100%{
+    text-shadow:
+      0 2px 4px #000,
+      0 0 10px rgba(255,215,0,.35),
+      0 0 24px rgba(255,180,0,.28),
+      0 0 38px rgba(255,120,0,.12);
+    filter:brightness(1);
+  }
+  50%{
+    text-shadow:
+      0 2px 4px #000,
+      0 0 14px rgba(255,215,0,.7),
+      0 0 34px rgba(255,180,0,.48),
+      0 0 52px rgba(255,120,0,.22);
+    filter:brightness(1.06);
+  }
+}
+
+/* 按鈕流光最終版 */
+a, button, .btn, .big-btn, .navgrid a{
+  position:relative;
+  overflow:hidden;
+}
+a::before, button::before, .btn::before, .big-btn::before, .navgrid a::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-130%;
+  width:58%;
+  height:100%;
+  transform:skewX(-24deg);
+  background:linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.26) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  animation:finalShine 4.2s ease-in-out infinite;
+}
+@keyframes finalShine{
+  0%{left:-130%}
+  40%{left:150%}
+  100%{left:150%}
+}
+
+/* 按鈕發光與懸浮 */
+a, button, .btn, .big-btn, .navgrid a{
+  animation:finalBtnFloat 2.8s ease-in-out infinite !important;
+  transition:transform .25s ease, filter .25s ease, box-shadow .25s ease;
+}
+@keyframes finalBtnFloat{
+  0%,100%{
+    transform:translateY(0);
+    box-shadow:0 0 10px rgba(255,216,106,.18), 0 8px 18px rgba(0,0,0,.32);
+  }
+  50%{
+    transform:translateY(-4px);
+    box-shadow:0 0 22px rgba(255,216,106,.38), 0 12px 24px rgba(0,0,0,.42);
+  }
+}
+a:hover, button:hover, .btn:hover, .big-btn:hover, .navgrid a:hover{
+  transform:translateY(-3px) scale(1.03) !important;
+  filter:brightness(1.1);
+}
+
+/* 點擊按壓感 */
+a:active, button:active, .btn:active, .big-btn:active, .navgrid a:active{
+  transform:scale(.97) !important;
+}
+
+/* 卡片最終金框 */
+.card, section, .box, .bottom-add-card, .quick-link-card, .pet-info-card, .fixed-download-card{
+  position:relative;
+  border:1px solid rgba(255,216,106,.34) !important;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.38),
+    inset 0 0 14px rgba(255,216,106,.08),
+    0 0 12px rgba(255,216,106,.12) !important;
+}
+.card::after, section::after, .box::after, .bottom-add-card::after, .quick-link-card::after, .pet-info-card::after, .fixed-download-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+}
+
+/* 回首頁按鈕最後升階 */
+#backHomeBtn{
+  animation:backBtnFinal 2s ease-in-out infinite !important;
+}
+@keyframes backBtnFinal{
+  0%,100%{
+    box-shadow:
+      0 10px 26px rgba(0,0,0,.5),
+      0 0 12px rgba(255,215,0,.3);
+  }
+  50%{
+    box-shadow:
+      0 12px 30px rgba(0,0,0,.58),
+      0 0 24px rgba(255,215,0,.62);
+  }
+}
+</style>
+
+<!-- ===== 結束 ===== -->
+
