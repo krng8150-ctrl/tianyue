@@ -1,1 +1,178 @@
-https://github.com/krng8150-ctrl/krng8150-ctrl.github.io/edit/main/index.html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天越天堂</title>
+
+<style>
+body{
+margin:0;
+font-family:"Microsoft JhengHei";
+color:#fff;
+background:#000;
+}
+
+/* 背景圖 */
+.bg{
+position:fixed;
+inset:0;
+z-index:-10;
+background:
+linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.85)),
+url('tianyue-bg.jpg') center/cover no-repeat;
+animation:zoom 15s infinite alternate;
+}
+
+/* 光效 */
+.fx{
+position:fixed;
+inset:0;
+z-index:-9;
+pointer-events:none;
+background:
+radial-gradient(circle at 50% 20%, rgba(255,200,80,.25), transparent 20%);
+}
+
+/* 粒子 */
+.p{
+position:fixed;
+inset:0;
+z-index:-8;
+pointer-events:none;
+}
+
+.p span{
+position:absolute;
+bottom:-20px;
+width:4px;
+height:4px;
+background:#ffd86a;
+border-radius:50%;
+animation:up linear infinite;
+}
+
+@keyframes zoom{
+from{transform:scale(1)}
+to{transform:scale(1.05)}
+}
+
+@keyframes up{
+0%{transform:translateY(0);opacity:0}
+10%{opacity:1}
+100%{transform:translateY(-120vh);opacity:0}
+}
+
+/* 主體 */
+.wrap{
+padding:20px;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+color:#ffd86a;
+text-shadow:0 0 10px gold;
+}
+
+/* 卡片 */
+.card{
+background:rgba(0,0,0,.8);
+border:2px solid gold;
+padding:20px;
+margin:15px 0;
+border-radius:20px;
+}
+
+/* 選單 */
+.menu{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-bottom:20px;
+}
+
+.menu button{
+padding:12px;
+background:black;
+color:#00ffff;
+border:1px solid #00ffff;
+}
+
+.section{display:none}
+.active{display:block}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="fx"></div>
+<div class="p">
+<span style="left:10%;animation-duration:10s"></span>
+<span style="left:30%;animation-duration:12s"></span>
+<span style="left:50%;animation-duration:9s"></span>
+<span style="left:70%;animation-duration:11s"></span>
+</div>
+
+<div class="wrap">
+
+<div class="title">🔥 天越天堂 🔥</div>
+
+<div class="menu">
+<button onclick="show('home')">首頁</button>
+<button onclick="show('equip')">裝備</button>
+<button onclick="show('helper')">內掛</button>
+<button onclick="show('reward')">發文</button>
+</div>
+
+<div id="home" class="section active">
+<div class="card">
+✔ 封測開放中 / 免費 / 高倍率 / 輕鬆掛機<br>
+✔ 天M變身免抽 / 最高10轉
+</div>
+</div>
+
+<div id="equip" class="section">
+<div class="card">
+【裝備系統】<br>
+永恆項鍊：力量 / 敏捷 / 智力 / 體力 / 魔力<br>
+麥斯特耳環：紅輸出 / 藍防禦 / 紫功能<br>
+</div>
+</div>
+
+<div id="helper" class="section">
+<div class="card">
+內掛設定：<br>
+範圍150~200<br>
+補血60%
+</div>
+</div>
+
+<div id="reward" class="section">
+<div class="card">
+玩家帳號：<br>
+<input style="width:100%;padding:10px;margin:5px 0">
+
+角色ID：<br>
+<input style="width:100%;padding:10px;margin:5px 0">
+
+發文連結：<br>
+<input style="width:100%;padding:10px;margin:5px 0">
+
+<button style="width:100%;padding:12px;background:gold;border:0">送出</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
