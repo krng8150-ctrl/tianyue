@@ -1926,3 +1926,150 @@ b,strong{
 </script>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 固定背景最穩版 ===== -->
+
+<style>
+
+/* 🔥 關閉原本背景 */
+body{
+  background:none !important;
+}
+
+/* 🔥 建立固定背景 */
+#fixed-bg-final{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+
+  z-index:-1;
+
+  background-image:url('你的圖片網址'); /* ← 換成你的圖 */
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  transform:scale(1.05);
+}
+
+</style>
+
+<script>
+(function(){
+
+  // 🔥 避免重複建立
+  if(document.getElementById('fixed-bg-final')) return;
+
+  var bg = document.createElement('div');
+  bg.id = 'fixed-bg-final';
+
+  document.body.prepend(bg);
+
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
+<!-- ===== 下載區救援版（直接貼最下面） ===== -->
+
+<style>
+#fixed-download-panel{
+  position: relative;
+  z-index: 99999;
+  max-width: 1100px;
+  margin: 40px auto 80px auto;
+  padding: 0 14px;
+}
+.fixed-download-card{
+  background: rgba(0,0,0,.78);
+  border: 2px solid rgba(255,216,106,.88);
+  border-radius: 22px;
+  padding: 22px 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+.fixed-download-title{
+  text-align:center;
+  color:#ffd86a;
+  font-size:28px;
+  font-weight:900;
+  margin-bottom:16px;
+  text-shadow:0 2px 8px rgba(0,0,0,.9);
+}
+.fixed-download-btn{
+  display:block;
+  width:100%;
+  text-decoration:none;
+  text-align:center;
+  padding:18px 14px;
+  margin:16px 0;
+  border-radius:18px;
+  font-size:20px;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+.fixed-download-btn-1{
+  background:linear-gradient(90deg,#4fc3f7,#2979ff);
+  color:#fff;
+}
+.fixed-download-btn-2{
+  background:linear-gradient(90deg,#ff7043,#e91e63);
+  color:#fff;
+}
+.fixed-download-btn-3{
+  background:linear-gradient(90deg,#43d854,#8be63b);
+  color:#111;
+}
+.fixed-download-info{
+  margin:16px 0;
+  padding:16px;
+  border-radius:16px;
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(255,216,106,.35);
+  color:#ffe7a6;
+  text-align:center;
+  line-height:1.9;
+  font-size:18px;
+  font-weight:700;
+  text-shadow:0 2px 8px rgba(0,0,0,.95);
+}
+</style>
+
+<div id="fixed-download-panel">
+  <div class="fixed-download-card">
+    <div class="fixed-download-title">快速下載專區</div>
+
+    <a class="fixed-download-btn fixed-download-btn-1"
+       href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing"
+       target="_blank" rel="noopener">
+       ⬇️ 下載遊戲懶人包
+    </a>
+
+    <a class="fixed-download-btn fixed-download-btn-2"
+       href="https://www.radmin-vpn.com/"
+       target="_blank" rel="noopener">
+       🌐 下載 RADMIN VPN
+    </a>
+
+    <div class="fixed-download-info">
+      📡 網路：天越天堂<br>
+      🔑 密碼：123456
+    </div>
+
+    <a class="fixed-download-btn fixed-download-btn-3"
+       href="https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+       target="_blank" rel="noopener">
+       💬 加入玩家 LINE 群
+    </a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var old = document.getElementById('fixed-download-panel');
+  if(old){
+    old.style.display = 'block';
+  }
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
