@@ -1787,3 +1787,28 @@ html, body{
   document.body.prepend(bg);
 })();
 </script>
+<style>
+#final-bg{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+  url('IMG_3682.png') center center / cover no-repeat;
+
+  transform: scale(1.2);
+}
+</style>
+
+<script>
+(function(){
+  var old = document.getElementById("final-bg");
+  if(old) old.remove();
+
+  var bg = document.createElement("div");
+  bg.id = "final-bg";
+  document.body.prepend(bg);
+})();
+</script>
