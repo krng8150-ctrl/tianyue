@@ -2581,3 +2581,112 @@ div:contains("網路"){
 </style>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 最終字體+UI強化 ===== -->
+
+<style>
+
+/* 🔥 全站字體清晰 */
+body{
+  color:#fff !important;
+  text-shadow:0 1px 2px rgba(0,0,0,.9);
+}
+
+/* 🔥 標題（天堂金字） */
+h1,h2,.title,.logo{
+  color:#FFD700 !important;
+  font-weight:900;
+  letter-spacing:2px;
+  text-shadow:
+    0 2px 4px #000,
+    0 0 12px rgba(255,215,0,.6),
+    0 0 24px rgba(255,180,0,.4);
+}
+
+/* 🔥 一般文字 */
+p,span,div,li{
+  color:#fff !important;
+  text-shadow:0 1px 3px rgba(0,0,0,.95);
+}
+
+/* 🔥 數字強化（最重要） */
+b,strong{
+  color:#ffffff !important;
+  font-weight:900;
+  text-shadow:
+    0 0 4px #000,
+    0 0 8px #000,
+    0 0 12px rgba(0,0,0,.9);
+  letter-spacing:2px;
+}
+
+/* 🔥 密碼 / 網路區塊（天堂UI風） */
+.password-box{
+  margin-top:10px;
+  padding:12px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#000,#1a1a1a);
+  border:1px solid rgba(255,215,0,.4);
+  box-shadow:0 0 12px rgba(255,215,0,.3);
+  font-weight:bold;
+}
+
+/* 🔥 密碼數字 */
+.password-box b{
+  color:#FFD700 !important;
+  font-size:18px;
+  text-shadow:
+    0 0 6px #000,
+    0 0 10px rgba(255,215,0,.8);
+}
+
+/* 🔥 卡片底部變暗（讓字浮出來） */
+.card,section,.box,.bottom-add-card{
+  background:rgba(0,0,0,.45) !important;
+  backdrop-filter:blur(6px);
+  border-radius:14px;
+}
+
+/* 🔥 按鈕文字 */
+.btn,.big-btn,button,.navgrid a{
+  font-weight:900;
+  letter-spacing:1px;
+  text-shadow:0 2px 4px rgba(0,0,0,.9);
+}
+
+/* 🔥 按鈕邊緣金光 */
+.btn,.big-btn{
+  box-shadow:
+    0 0 10px rgba(255,215,0,.25),
+    0 6px 16px rgba(0,0,0,.4);
+}
+
+/* 🔥 回首頁更清楚 */
+#backHomeBtn{
+  font-weight:900;
+  letter-spacing:1px;
+  text-shadow:0 2px 4px rgba(0,0,0,.9);
+}
+
+/* 🔥 降低背景粒子干擾 */
+#gold,
+#gold-particle-upgrade{
+  opacity:.15 !important;
+}
+
+</style>
+
+<script>
+/* 🔥 自動包裝「網路/密碼」變UI */
+(function(){
+  var all = document.querySelectorAll("div,span,p");
+  all.forEach(function(el){
+    if(el.innerText && (el.innerText.includes("網路") || el.innerText.includes("密碼"))){
+      if(!el.classList.contains("password-box")){
+        el.classList.add("password-box");
+      }
+    }
+  });
+})();
+</script>
+
+<!-- ===== 結束 ===== -->
