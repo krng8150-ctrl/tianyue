@@ -1812,3 +1812,86 @@ html, body{
   document.body.prepend(bg);
 })();
 </script>
+<!-- ===== 大按鈕下載區 + 文字清晰強化 ===== -->
+
+<style>
+/* 🔥 全站文字清晰化 */
+body{
+  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+/* 🔥 按鈕區 */
+.big-btn-wrap{
+  max-width:1100px;
+  margin:40px auto 80px auto;
+  padding:0 14px;
+  position:relative;
+  z-index:5;
+}
+
+.big-btn{
+  display:block;
+  width:100%;
+  padding:18px;
+  margin:14px 0;
+  border-radius:16px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+  text-decoration:none;
+  color:#000;
+  background:linear-gradient(90deg,#ff9800,#ffd86a);
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+/* 🔥 不同顏色 */
+.btn-download{ background:linear-gradient(90deg,#00c6ff,#0072ff); color:#fff;}
+.btn-vpn{ background:linear-gradient(90deg,#ff512f,#dd2476); color:#fff;}
+.btn-line{ background:linear-gradient(90deg,#00c853,#64dd17); color:#000;}
+
+/* 🔥 小文字 */
+.small-text{
+  text-align:center;
+  color:#ffe29a;
+  margin-top:6px;
+  font-size:16px;
+  line-height:1.8;
+}
+
+/* 🔥 讓首頁卡片文字更清楚 */
+div, span, p, h1, h2, h3{
+  text-shadow: 0 2px 8px rgba(0,0,0,0.85);
+}
+</style>
+
+<div class="big-btn-wrap">
+
+  <!-- 遊戲下載 -->
+  <a class="big-btn btn-download" 
+     href="https://drive.google.com/file/d/18VjaCqEScuUsr3eI001XYJOt0SEndEz_/view?usp=sharing" 
+     target="_blank">
+     ⬇️ 下載遊戲懶人包
+  </a>
+
+  <!-- VPN -->
+  <a class="big-btn btn-vpn" 
+     href="https://www.radmin-vpn.com/" 
+     target="_blank">
+     🌐 下載 RADMIN VPN
+  </a>
+
+  <div class="small-text">
+    📡 網路：天越天堂<br>
+    🔑 密碼：123456
+  </div>
+
+  <!-- LINE群 -->
+  <a class="big-btn btn-line" 
+     href="https://line.me/ti/g2/qaI4HViHisVGl47m9GXcnm1AM_g52UycW-AkKg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" 
+     target="_blank">
+     💬 加入玩家LINE群
+  </a>
+
+</div>
+
+<!-- ===== 結束 ===== -->
