@@ -6,28 +6,35 @@
 <title>天越天堂 官方網站</title>
 
 <style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;scroll-behavior:smooth}
+
 body{
-  margin:0;
-  font-family:Arial;
-  background:#000;
+  font-family:"Microsoft JhengHei",Arial;
   color:#fff;
+  background:linear-gradient(#050505,#0b0703,#090909);
 }
 
-.header{
-  background:linear-gradient(90deg,#ff6a00,#ff0000);
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:999;
   padding:15px;
   text-align:center;
-  font-size:18px;
+  background:linear-gradient(90deg,#7b0000,#ff4b00,#7b0000);
+  font-weight:bold;
 }
 
-.container{
+.wrap{
+  max-width:1100px;
+  margin:auto;
   padding:15px;
 }
 
 .card{
   background:#000;
   border:2px solid gold;
-  border-radius:15px;
+  border-radius:12px;
   padding:15px;
   margin-bottom:20px;
 }
@@ -50,7 +57,7 @@ input,textarea{
   width:100%;
   padding:10px;
   margin:5px 0;
-  border-radius:10px;
+  border-radius:8px;
   border:none;
 }
 
@@ -59,8 +66,8 @@ button{
   padding:12px;
   background:gold;
   border:none;
-  border-radius:10px;
-  font-size:16px;
+  border-radius:8px;
+  font-weight:bold;
 }
 </style>
 
@@ -68,11 +75,11 @@ button{
 
 <body>
 
-<div class="header">
-🔥 天越天堂正式開服｜進來馬上開戰｜慢幣核心系統 🔥
+<div class="topbar">
+🔥 天越天堂｜開服進行中 🔥
 </div>
 
-<div class="container">
+<div class="wrap">
 
 <!-- 發文獎勵 -->
 <div class="card">
@@ -114,13 +121,8 @@ button{
 <div class="card">
 <h2>🧤 亞斯克雷之手套</h2>
 
-<table class="table">
-<tr><td>一般</td><td>HP+5 MP+5</td></tr>
-<tr><td>5階</td><td>HP+30 MP+30 回血+10</td></tr>
-<tr><td>8階</td><td>HP+45 MP+45 回血+40</td></tr>
-<tr><td>極</td><td>HP+50 MP+50 回血+50</td></tr>
-</table>
-
+<p>HP / MP 成長裝備</p>
+<p>最高：HP+50 MP+50 回血+50</p>
 <p>PVP最高 +7</p>
 </div>
 
@@ -128,53 +130,40 @@ button{
 <div class="card">
 <h2>👢 亞斯克雷之靴</h2>
 
-<table class="table">
-<tr><td>一般</td><td>HP+5 MP+5</td></tr>
-<tr><td>5階</td><td>HP+30 MP+30 減傷+1</td></tr>
-<tr><td>8階</td><td>HP+45 MP+45 減傷+4</td></tr>
-<tr><td>極</td><td>HP+50 MP+50 減傷+5</td></tr>
-</table>
-
+<p>HP / MP / 減傷成長</p>
+<p>最高 減傷 +5</p>
 </div>
 
 <!-- 臂甲 -->
 <div class="card">
 <h2>🛡️ 狂戰臂甲</h2>
 
-<p>近戰：最高HP+100</p>
+<p>近戰：HP+100</p>
 <p>遠攻：HP+50 MP+50</p>
 <p>魔法：MP+100</p>
-
 </div>
 
 <!-- 脛甲 -->
 <div class="card">
 <h2>⚔️ 死亡騎士脛甲</h2>
 
-<p>+9後可進階</p>
-<p>最高：HP+200 / MP+200 / 回復大幅提升</p>
-<p>經驗最高 +35%</p>
-
+<p>可進階 真 / 極</p>
+<p>最高經驗 +35%</p>
 </div>
 
 <!-- 頭盔 -->
 <div class="card">
 <h2>👑 格蘭肯戰盔</h2>
 
-<p>近戰：高血+回血</p>
-<p>遠攻：血魔平衡</p>
-<p>魔法：高魔+回魔</p>
+<p>血量 / 回血 / 減傷</p>
 <p>最高減傷 +2</p>
-
 </div>
 
 <!-- T恤 -->
 <div class="card">
 <h2>👕 獵影之痕T恤</h2>
 
-<p>近戰 / 遠攻 / 魔法 / 防禦 四系</p>
-<p>最高 HP+60 / MP+60 / 減傷+2</p>
-
+<p>四種類型成長</p>
 </div>
 
 <!-- 斗篷 -->
@@ -183,7 +172,6 @@ button{
 
 <p>抗屬性裝備</p>
 <p>最高抗性 +150</p>
-
 </div>
 
 <!-- 贊助 -->
@@ -191,8 +179,7 @@ button{
 <h2>💰 贊助說明</h2>
 
 <p>1元 = 5元寶</p>
-<p>不影響平衡</p>
-
+<p>不影響遊戲平衡</p>
 </div>
 
 </div>
