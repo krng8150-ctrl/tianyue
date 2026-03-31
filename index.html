@@ -156,7 +156,7 @@ body::after{
 }
 .notice{
   margin-top:12px;
-  padding:12px 14px;
+  padding:12px⋯⋯ 14px;
   background:rgba(255,216,106,.08);
   border-left:4px solid var(--gold);
   color:#fff2d7;
@@ -3001,4 +3001,386 @@ a:active, button:active, .btn:active, .big-btn:active, .navgrid a:active{
 </style>
 
 <!-- ===== 結束 ===== -->
+<!-- ===== 重要公告區（玩家版） ===== -->
+<style>
+.notice-wrap{
+  max-width:1100px;
+  margin:30px auto 80px auto;
+  padding:0 14px;
+  position:relative;
+  z-index:20;
+}
+.notice-card{
+  background:rgba(0,0,0,.82);
+  border:2px solid rgba(255,216,106,.88);
+  border-radius:22px;
+  padding:22px 16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+.notice-title{
+  text-align:center;
+  color:#ffd86a;
+  font-size:30px;
+  font-weight:900;
+  margin-bottom:16px;
+  text-shadow:0 2px 8px rgba(0,0,0,.9);
+}
+.notice-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+  margin-bottom:16px;
+}
+.notice-tab{
+  text-align:center;
+  padding:12px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,216,106,.18);
+  color:#fff2d7;
+  font-size:18px;
+  font-weight:800;
+}
+.notice-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:10px 0;
+  padding:14px 12px;
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,216,106,.18);
+  text-decoration:none;
+}
+.notice-item:hover{
+  filter:brightness(1.08);
+}
+.notice-no{
+  min-width:34px;
+  height:34px;
+  line-height:34px;
+  text-align:center;
+  border-radius:8px;
+  background:#ff2d2d;
+  color:#fff;
+  font-weight:900;
+}
+.notice-text{
+  color:#fff2d7;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.6;
+}
+.notice-date{
+  margin-left:auto;
+  color:#ff8c8c;
+  font-size:16px;
+  font-weight:700;
+  white-space:nowrap;
+}
+@media (max-width:768px){
+  .notice-tabs{
+    grid-template-columns:1fr;
+  }
+  .notice-item{
+    flex-wrap:wrap;
+  }
+  .notice-date{
+    margin-left:46px;
+  }
+}
+</style>
+
+<div class="notice-wrap">
+  <section class="notice-card">
+    <div class="notice-title">重要公告</div>
+
+    <div class="notice-tabs">
+      <div class="notice-tab">重要公告</div>
+      <div class="notice-tab">精彩活動</div>
+      <div class="notice-tab">遊戲資訊</div>
+    </div>
+
+    <a class="notice-item" href="notice1.html">
+      <div class="notice-no">1</div>
+      <div class="notice-text">【注意事項】玩家須知手冊</div>
+      <div class="notice-date">2026-03-31</div>
+    </a>
+
+    <a class="notice-item" href="notice2.html">
+      <div class="notice-no">2</div>
+      <div class="notice-text">【贊助說明】贊助比例與規則公告</div>
+      <div class="notice-date">2026-03-31</div>
+    </a>
+
+    <a class="notice-item" href="notice3.html">
+      <div class="notice-no">3</div>
+      <div class="notice-text">【活動公告】發文獎勵申請說明</div>
+      <div class="notice-date">2026-03-31</div>
+    </a>
+  </section>
+</div>
+<!-- ===== 結束 ===== -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玩家須知手冊｜天越天堂</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Microsoft JhengHei","Noto Sans TC",Arial,sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.9;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(rgba(0,0,0,.48), rgba(0,0,0,.78)),
+    url('IMG_3682.png') center center / cover no-repeat fixed;
+}
+.topbar{
+  background:linear-gradient(90deg,#a00000,#ff4d00,#a00000);
+  color:#fff2d7;
+  text-align:center;
+  font-weight:900;
+  font-size:28px;
+  padding:18px 12px;
+}
+.wrap{
+  max-width:1000px;
+  margin:30px auto 80px auto;
+  padding:0 14px;
+}
+.card{
+  background:rgba(0,0,0,.82);
+  border:2px solid rgba(255,216,106,.88);
+  border-radius:22px;
+  padding:24px 18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+h1{
+  margin:0 0 16px 0;
+  text-align:center;
+  color:#ffd86a;
+  font-size:34px;
+}
+.line{
+  margin:10px 0;
+  font-size:19px;
+}
+.back{
+  display:block;
+  max-width:320px;
+  margin:24px auto 0 auto;
+  text-align:center;
+  padding:14px 16px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#000;
+  font-weight:900;
+  background:linear-gradient(90deg,#ffd86a,#ff9800);
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">天越天堂 重要公告</div>
+
+<div class="wrap">
+  <section class="card">
+    <h1>【注意事項】玩家須知手冊</h1>
+
+    <div class="line">✔ 請玩家遵守伺服器規則與活動規範。</div>
+    <div class="line">✔ 如有使用外掛、惡意影響遊戲環境等行為，將依規定處理。</div>
+    <div class="line">✔ 活動獎勵、發放時間與內容，依當期公告為準。</div>
+    <div class="line">✔ 若有爭議，請以官方公告與 GM 最終判定為準。</div>
+
+    <a class="back" href="index.html">⬅ 返回首頁</a>
+  </section>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>贊助說明｜天越天堂</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Microsoft JhengHei","Noto Sans TC",Arial,sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.9;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(rgba(0,0,0,.48), rgba(0,0,0,.78)),
+    url('IMG_3682.png') center center / cover no-repeat fixed;
+}
+.topbar{
+  background:linear-gradient(90deg,#a00000,#ff4d00,#a00000);
+  color:#fff2d7;
+  text-align:center;
+  font-weight:900;
+  font-size:28px;
+  padding:18px 12px;
+}
+.wrap{
+  max-width:1000px;
+  margin:30px auto 80px auto;
+  padding:0 14px;
+}
+.card{
+  background:rgba(0,0,0,.82);
+  border:2px solid rgba(255,216,106,.88);
+  border-radius:22px;
+  padding:24px 18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+h1{
+  margin:0 0 16px 0;
+  text-align:center;
+  color:#ffd86a;
+  font-size:34px;
+}
+.line{
+  margin:10px 0;
+  font-size:19px;
+}
+.back{
+  display:block;
+  max-width:320px;
+  margin:24px auto 0 auto;
+  text-align:center;
+  padding:14px 16px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#000;
+  font-weight:900;
+  background:linear-gradient(90deg,#ffd86a,#ff9800);
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">天越天堂 重要公告</div>
+
+<div class="wrap">
+  <section class="card">
+    <h1>【贊助說明】贊助比例與規則公告</h1>
+
+    <div class="line">✔ 本服贊助比例：1元 = 5元寶。</div>
+    <div class="line">✔ 贊助用途為支持伺服器長期經營、便利型道具、外觀與特效內容。</div>
+    <div class="line">✔ 本服不走極端破壞平衡課金模式。</div>
+    <div class="line">✔ 贊助完成後，請依公告流程填寫正確資料，避免核對失敗。</div>
+
+    <a class="back" href="index.html">⬅ 返回首頁</a>
+  </section>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>發文獎勵說明｜天越天堂</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Microsoft JhengHei","Noto Sans TC",Arial,sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.9;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(rgba(0,0,0,.48), rgba(0,0,0,.78)),
+    url('IMG_3682.png') center center / cover no-repeat fixed;
+}
+.topbar{
+  background:linear-gradient(90deg,#a00000,#ff4d00,#a00000);
+  color:#fff2d7;
+  text-align:center;
+  font-weight:900;
+  font-size:28px;
+  padding:18px 12px;
+}
+.wrap{
+  max-width:1000px;
+  margin:30px auto 80px auto;
+  padding:0 14px;
+}
+.card{
+  background:rgba(0,0,0,.82);
+  border:2px solid rgba(255,216,106,.88);
+  border-radius:22px;
+  padding:24px 18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+h1{
+  margin:0 0 16px 0;
+  text-align:center;
+  color:#ffd86a;
+  font-size:34px;
+}
+.line{
+  margin:10px 0;
+  font-size:19px;
+}
+.back{
+  display:block;
+  max-width:320px;
+  margin:24px auto 0 auto;
+  text-align:center;
+  padding:14px 16px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#000;
+  font-weight:900;
+  background:linear-gradient(90deg,#ffd86a,#ff9800);
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">天越天堂 重要公告</div>
+
+<div class="wrap">
+  <section class="card">
+    <h1>【活動公告】發文獎勵申請說明</h1>
+
+    <div class="line">✔ 完成指定發文 / 推文 / 宣傳任務後，可申請活動獎勵。</div>
+    <div class="line">✔ 申請時請填寫正確的遊戲帳號、角色ID與活動連結。</div>
+    <div class="line">✔ 發文內容若遭刪除、隱藏、無法查看，視同未完成活動。</div>
+    <div class="line">✔ 獎勵發放時間依 GM 審核進度為準。</div>
+
+    <a class="back" href="index.html">⬅ 返回首頁</a>
+  </section>
+</div>
+
+</body>
+</html>
+
 
