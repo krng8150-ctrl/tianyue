@@ -3,54 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>玩家須知手冊｜天越天堂</title>
+<title>【注意事項】玩家須知手冊｜天越天堂</title>
 <style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{
-  margin:0;
-  font-family:"Microsoft JhengHei";
-  background:#000;
+  font-family:"Microsoft JhengHei","Noto Sans TC",Arial,sans-serif;
   color:#fff;
+  background:#000;
+  line-height:1.9;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.78)),
+    url('IMG_3682.png') center center / cover no-repeat fixed;
+  transform:scale(1.05);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.18;
+  background-image:
+    radial-gradient(circle, rgba(255,216,106,.45) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(120,200,255,.22) 0 1px, transparent 2px);
+  background-size:160px 160px, 240px 240px;
+  animation:particleMove 18s linear infinite;
+}
+@keyframes particleMove{
+  from{background-position:0 0,0 0}
+  to{background-position:0 -160px,0 -240px}
+}
+
+.topbar{
+  background:linear-gradient(90deg,#a30000,#ff4d00,#a30000);
+  color:#fff2d7;
+  text-align:center;
+  font-size:28px;
+  font-weight:900;
+  padding:18px 12px;
+  letter-spacing:1px;
+  text-shadow:0 2px 8px rgba(0,0,0,.8);
+  box-shadow:0 4px 18px rgba(255,90,0,.28);
 }
 .wrap{
-  max-width:900px;
-  margin:40px auto;
-  padding:20px;
+  max-width:1000px;
+  margin:30px auto 80px auto;
+  padding:0 14px;
 }
 .card{
-  background:rgba(0,0,0,.8);
-  border:2px solid #ffd86a;
-  border-radius:16px;
-  padding:20px;
+  background:rgba(0,0,0,.78);
+  border:2px solid rgba(255,216,106,.88);
+  border-radius:24px;
+  padding:26px 18px;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.38),
+    0 0 18px rgba(255,216,106,.12);
+}
+.notice-badge{
+  display:inline-block;
+  margin:0 auto 14px auto;
+  padding:8px 16px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#ff4d4d,#ff9800);
+  color:#fff;
+  font-weight:900;
+  font-size:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+.notice-badge-wrap{
+  text-align:center;
 }
 h1{
+  margin:0 0 18px 0;
   text-align:center;
   color:#ffd86a;
+  font-size:36px;
+  font-weight:900;
+  text-shadow:
+    0 2px 4px #000,
+    0 0 14px rgba(255,215,0,.45);
 }
-.back{
+.notice-date{
+  text-align:center;
+  color:#ffb3b3;
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+.line{
+  margin:12px 0;
+  padding:14px 16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,216,106,.16);
+  font-size:19px;
+  text-shadow:0 2px 8px rgba(0,0,0,.9);
+}
+.btns{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:22px;
+}
+.back,
+.home{
   display:block;
   text-align:center;
-  margin-top:20px;
-  padding:12px;
-  background:#ffd86a;
-  color:#000;
-  font-weight:900;
+  padding:14px 16px;
+  border-radius:16px;
   text-decoration:none;
-  border-radius:10px;
+  font-weight:900;
+  font-size:18px;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+.back{
+  color:#000;
+  background:linear-gradient(90deg,#ffd86a,#ff9800);
+}
+.home{
+  color:#fff;
+  background:linear-gradient(90deg,#ff4d4d,#ff9800);
+}
+.back:hover,.home:hover{
+  filter:brightness(1.08);
+}
+@media (max-width:768px){
+  .topbar{font-size:22px;padding:16px 10px}
+  h1{font-size:28px}
+  .line{font-size:17px}
+  .btns{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
+<div class="topbar">🔥 天越天堂｜重要公告 🔥</div>
+
 <div class="wrap">
-  <div class="card">
-    <h1>【注意事項】玩家須知</h1>
+  <section class="card">
+    <div class="notice-badge-wrap">
+      <div class="notice-badge">NOTICE</div>
+    </div>
 
-    <p>✔ 請遵守遊戲規則</p>
-    <p>✔ 禁止外掛與破壞平衡行為</p>
-    <p>✔ 活動獎勵依官方公告為準</p>
+    <h1>【注意事項】玩家須知手冊</h1>
+    <div class="notice-date">公告日期：2026-03-31</div>
 
-    <a class="back" href="index.html">⬅ 返回首頁</a>
-  </div>
+    <div class="line">✔ 請玩家遵守伺服器規則與活動規範。</div>
+    <div class="line">✔ 禁止使用外掛、惡意影響遊戲環境與破壞平衡行為。</div>
+    <div class="line">✔ 活動獎勵、公告內容與發放方式，依官方當期公告為準。</div>
+    <div class="line">✔ 如有爭議，請以官方公告與 GM 最終判定為準。</div>
+
+    <div class="btns">
+      <a class="back" href="index.html#notice-area">⬅ 返回公告區</a>
+      <a class="home" href="index.html">🏠 返回首頁</a>
+    </div>
+  </section>
 </div>
 
 </body>
