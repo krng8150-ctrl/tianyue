@@ -4200,3 +4200,69 @@ window.addEventListener("load", function(){
 
 });
 </script>
+  <script>
+window.addEventListener("load", function () {
+  const tabs = document.querySelectorAll(".notice-tab");
+  const panels = document.querySelectorAll(".notice-panel, .notice-content, .tab-content");
+
+  if (!tabs.length) return;
+
+  function getTargetName(tab) {
+    return (
+      tab.getAttribute("data-tab") ||
+      tab.getAttribute("data-target") ||
+      tab.getAttribute("href")?.replace("#", "") ||
+      ""
+    );
+  }
+
+  function findTarget(tab) {
+    const name = getTargetName(tab);
+    if (!name) return null;
+    return document.getElementById(name) || document.querySelector(name.startsWith("#") ? name : "#" + name);
+  }
+
+  function showTab(tab) {
+    const target = findTarget(tab);
+
+    tabs.forEach(function (t) {
+      t.classList.remove("active");
+    });
+
+    if (panels.length) {
+      panels.forEach(function (p) {
+        p.style.display = "none";
+        p.classList.remove("active");
+      });
+    }
+
+    tab.classList.add("active");
+
+    if (target) {
+      target.style.display = "";
+      target.classList.add("active");
+    }
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.onclick = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      showTab(tab);
+      return false;
+    };
+
+    tab.addEventListener("touchstart", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      showTab(tab);
+    }, { passive: false });
+
+    if (index === 0) {
+      setTimeout(function () {
+        showTab(tab);
+      }, 50);
+    }
+  });
+});
+</script>
