@@ -4031,5 +4031,32 @@ document.body.appendChild(flag);
 
 })();
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const tabs = document.querySelectorAll(".notice-tab");
+
+  if(tabs.length >= 3){
+
+    tabs[0].style.cursor = "pointer";
+    tabs[1].style.cursor = "pointer";
+    tabs[2].style.cursor = "pointer";
+
+    tabs[0].onclick = function(){
+      location.href = "notice1.html";
+    };
+
+    tabs[1].onclick = function(){
+      location.href = "notice3.html";
+    };
+
+    tabs[2].onclick = function(){
+      location.href = "notice2.html";
+    };
+
+  }
+
+});
+</script>
 
 
