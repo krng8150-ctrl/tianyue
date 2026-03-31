@@ -4058,5 +4058,148 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 </script>
+  <script>
+window.addEventListener("load", function(){
+
+  const tabs = document.querySelectorAll(".notice-tab");
+  const items = document.querySelectorAll(".notice-card");
+
+  if(tabs.length >= 3){
+
+    tabs.forEach((tab, index)=>{
+      tab.style.cursor = "pointer";
+
+      tab.onclick = function(){
+
+        // ===== 清除所有高亮 =====
+        tabs.forEach(t=>t.style.opacity = "0.5");
+        tab.style.opacity = "1";
+
+        // ===== 切換內容 =====
+        items.forEach((item, i)=>{
+
+          if(index === 0){
+            // 重要公告 → 顯示1
+            item.style.display = (i === 0) ? "block" : "none";
+          }
+
+          if(index === 1){
+            // 精彩活動 → 顯示3
+            item.style.display = (i === 2) ? "block" : "none";
+          }
+
+          if(index === 2){
+            // 遊戲資訊 → 顯示2
+            item.style.display = (i === 1) ? "block" : "none";
+          }
+
+        });
+
+      };
+
+    });
+
+    // 預設顯示第一個
+    tabs[0].click();
+
+  }
+
+});
+</script>
+  <script>
+window.addEventListener("load", function(){
+
+  try{
+
+    const tabs = document.querySelectorAll(".notice-tab");
+    const items = document.querySelectorAll(".notice-card");
+
+    if(!tabs || tabs.length < 3) return;
+    if(!items || items.length < 3) return;
+
+    tabs.forEach((tab, index)=>{
+      tab.style.cursor = "pointer";
+
+      tab.onclick = function(){
+
+        tabs.forEach(t=>t.style.opacity = "0.5");
+        tab.style.opacity = "1";
+
+        items.forEach((item, i)=>{
+
+          if(index === 0){
+            item.style.display = (i === 0) ? "block" : "none";
+          }
+
+          if(index === 1){
+            item.style.display = (i === 2) ? "block" : "none";
+          }
+
+          if(index === 2){
+            item.style.display = (i === 1) ? "block" : "none";
+          }
+
+        });
+
+      };
+
+    });
+
+    tabs[0].click();
+
+  }catch(e){
+    console.log("公告切換錯誤：", e);
+  }
+
+});
+</script>
+  <script>
+window.addEventListener("load", function(){
+
+  try{
+
+    const tabs = document.querySelectorAll(".notice-tab");
+    const items = document.querySelectorAll(".notice-card");
+
+    if(!tabs || tabs.length < 3) return;
+    if(!items || items.length < 3) return;
+
+    tabs.forEach((tab, index)=>{
+      tab.style.cursor = "pointer";
+
+      tab.onclick = function(){
+
+        tabs.forEach(t=>t.style.opacity = "0.5");
+        tab.style.opacity = "1";
+
+        items.forEach((item, i)=>{
+
+          if(index === 0){
+            item.style.display = (i === 0) ? "block" : "none";
+          }
+
+          if(index === 1){
+            item.style.display = (i === 2) ? "block" : "none";
+          }
+
+          if(index === 2){
+            item.style.display = (i === 1) ? "block" : "none";
+          }
+
+        });
+
+      };
+
+    });
+
+    tabs[0].click();
+
+  }catch(e){
+    console.log("公告切換錯誤：", e);
+  }
+
+});
+</script>
+  
 
 
