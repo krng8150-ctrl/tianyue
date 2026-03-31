@@ -3452,4 +3452,329 @@ h1{
   z-index: 999999 !important;
 }
 </style>
+<style>
+/* ===== 右下角神級版浮動按鈕 ===== */
+
+/* 公告按鈕 */
+.notice-float-btn{
+  position: fixed !important;
+  right: 16px !important;
+  bottom: 155px !important;
+  z-index: 999999 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 122px !important;
+  padding: 14px 18px !important;
+  border-radius: 999px !important;
+
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  text-decoration: none !important;
+
+  background: linear-gradient(135deg,#ff3d3d,#ff9a00) !important;
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.38),
+    0 0 18px rgba(255,100,40,.35) !important;
+
+  animation: noticeFloatPulse 1.8s ease-in-out infinite !important;
+}
+
+/* 回首頁按鈕 */
+#backHomeBtn{
+  position: fixed !important;
+  right: 16px !important;
+  bottom: 80px !important;
+  z-index: 999999 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 138px !important;
+  padding: 14px 18px !important;
+  border-radius: 999px !important;
+
+  color: #000 !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  text-decoration: none !important;
+
+  background: linear-gradient(135deg,#ffe08a,#ffb52e) !important;
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.38),
+    0 0 18px rgba(255,215,90,.28) !important;
+
+  animation: homeFloatPulse 2.1s ease-in-out infinite !important;
+}
+
+/* 滑過更亮 */
+.notice-float-btn:hover,
+#backHomeBtn:hover{
+  transform: translateY(-2px) scale(1.04) !important;
+  filter: brightness(1.08) !important;
+}
+
+/* 公告脈衝 */
+@keyframes noticeFloatPulse{
+  0%,100%{
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 10px 24px rgba(0,0,0,.38),
+      0 0 18px rgba(255,100,40,.35);
+  }
+  50%{
+    transform: translateY(-4px) scale(1.04);
+    box-shadow:
+      0 14px 28px rgba(0,0,0,.42),
+      0 0 28px rgba(255,100,40,.55);
+  }
+}
+
+/* 回首頁脈衝 */
+@keyframes homeFloatPulse{
+  0%,100%{
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 10px 24px rgba(0,0,0,.38),
+      0 0 18px rgba(255,215,90,.28);
+  }
+  50%{
+    transform: translateY(-4px) scale(1.04);
+    box-shadow:
+      0 14px 28px rgba(0,0,0,.42),
+      0 0 28px rgba(255,215,90,.5);
+  }
+}
+
+/* 手機更穩 */
+@media (max-width: 768px){
+  .notice-float-btn{
+    bottom: 150px !important;
+    right: 14px !important;
+    min-width: 112px !important;
+    font-size: 15px !important;
+    padding: 12px 16px !important;
+  }
+
+  #backHomeBtn{
+    bottom: 82px !important;
+    right: 14px !important;
+    min-width: 126px !important;
+    font-size: 15px !important;
+    padding: 12px 16px !important;
+  }
+}
+</style>
+<!-- ===== 🔥 公告彈窗系統（神級版） ===== -->
+<style>
+.notice-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999999;
+  opacity:0;
+  pointer-events:none;
+  transition:.4s;
+}
+.notice-modal.show{
+  opacity:1;
+  pointer-events:auto;
+}
+.notice-box{
+  width:90%;
+  max-width:420px;
+  border-radius:20px;
+  padding:20px;
+  background:linear-gradient(180deg,#111,#000);
+  border:2px solid rgba(255,200,100,.7);
+  box-shadow:0 0 40px rgba(255,150,50,.4);
+  transform:scale(.8);
+  transition:.4s;
+}
+.notice-modal.show .notice-box{
+  transform:scale(1);
+}
+.notice-title{
+  text-align:center;
+  font-size:22px;
+  font-weight:900;
+  color:#ffd86a;
+  margin-bottom:12px;
+}
+.notice-content{
+  font-size:16px;
+  line-height:1.8;
+  color:#fff;
+}
+.notice-btn{
+  margin-top:16px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  font-weight:900;
+  background:linear-gradient(135deg,#ff8a00,#ff3c3c);
+  color:#fff;
+}
+</style>
+
+<div id="noticeModal" class="notice-modal">
+  <div class="notice-box">
+    <div class="notice-title">📣 最新公告</div>
+    <div class="notice-content">
+      🔥 天越天堂 開服進行中！<br>
+      ✔ 全免費 / 高倍率 / 輕鬆掛機<br>
+      ✔ 發文獎勵活動開放中<br>
+      ✔ 請先查看玩家須知避免違規
+    </div>
+    <button class="notice-btn" onclick="closeNotice()">我知道了</button>
+  </div>
+</div>
+
+<script>
+function closeNotice(){
+  document.getElementById("noticeModal").classList.remove("show");
+  localStorage.setItem("notice_seen", Date.now());
+}
+
+window.addEventListener("load", function(){
+  let last = localStorage.getItem("notice_seen");
+  let now = Date.now();
+
+  if(!last || now - last > 86400000){ // 24小時
+    setTimeout(()=>{
+      document.getElementById("noticeModal").classList.add("show");
+    }, 800);
+  }
+});
+</script>
+<!-- ===== END ===== -->
+<!-- ===== 🔥 公告彈窗（進階版） ===== -->
+<style>
+.notice-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999999;
+  opacity:0;
+  pointer-events:none;
+  transition:.4s;
+}
+.notice-modal.show{
+  opacity:1;
+  pointer-events:auto;
+}
+.notice-box{
+  width:92%;
+  max-width:420px;
+  border-radius:20px;
+  padding:18px;
+  background:linear-gradient(180deg,#111,#000);
+  border:2px solid rgba(255,200,100,.7);
+  box-shadow:0 0 40px rgba(255,150,50,.4);
+  transform:scale(.8);
+  transition:.4s;
+}
+.notice-modal.show .notice-box{
+  transform:scale(1);
+}
+
+.notice-title{
+  text-align:center;
+  font-size:22px;
+  font-weight:900;
+  color:#ffd86a;
+  margin-bottom:14px;
+}
+
+.notice-list a{
+  display:block;
+  margin:10px 0;
+  padding:12px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:900;
+  color:#fff;
+  background:linear-gradient(135deg,#ff3c3c,#ff9900);
+  box-shadow:0 0 12px rgba(255,100,0,.4);
+  position:relative;
+}
+
+/* NEW標籤 */
+.notice-list a::after{
+  content:"NEW";
+  position:absolute;
+  right:10px;
+  top:6px;
+  font-size:12px;
+  font-weight:900;
+  color:#fff;
+  background:#ff0000;
+  padding:2px 6px;
+  border-radius:6px;
+  animation:newFlash 1s infinite;
+}
+
+@keyframes newFlash{
+  0%{opacity:1;}
+  50%{opacity:.3;}
+  100%{opacity:1;}
+}
+
+.notice-close{
+  margin-top:12px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  font-weight:900;
+  background:linear-gradient(135deg,#666,#333);
+  color:#fff;
+}
+</style>
+
+<div id="noticeModal" class="notice-modal">
+  <div class="notice-box">
+    <div class="notice-title">📣 最新公告</div>
+
+    <div class="notice-list">
+      <a href="notice1.html">【注意事項】玩家須知手冊</a>
+      <a href="notice2.html">【贊助說明】贊助比例公告</a>
+      <a href="notice3.html">【活動公告】發文獎勵說明</a>
+    </div>
+
+    <button class="notice-close" onclick="closeNotice()">關閉</button>
+  </div>
+</div>
+
+<script>
+function closeNotice(){
+  document.getElementById("noticeModal").classList.remove("show");
+  localStorage.setItem("notice_seen", Date.now());
+}
+
+window.addEventListener("load", function(){
+  let last = localStorage.getItem("notice_seen");
+  let now = Date.now();
+
+  if(!last || now - last > 86400000){
+    setTimeout(()=>{
+      document.getElementById("noticeModal").classList.add("show");
+    }, 700);
+  }
+});
+</script>
+<!-- ===== END ===== -->
 
