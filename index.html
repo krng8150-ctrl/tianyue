@@ -156,7 +156,7 @@ body::after{
 }
 .notice{
   margin-top:12px;
-  padding:12px⋯⋯ 14px;
+  padding:12px 14px;
   background:rgba(255,216,106,.08);
   border-left:4px solid var(--gold);
   color:#fff2d7;
@@ -251,6 +251,7 @@ th{
       <a href="#donate">贊助說明</a>
     </div>
   </div>
+  
 
   <section id="home" class="anchor card">
     <h2>首頁重點</h2>
@@ -3091,7 +3092,7 @@ a:active, button:active, .btn:active, .big-btn:active, .navgrid a:active{
 }
 </style>
 
-<div class="notice-wrap">
+<div id="notice-area" class="notice-wrap">
   <section class="notice-card">
     <div class="notice-title">重要公告</div>
 
@@ -3121,6 +3122,7 @@ a:active, button:active, .btn:active, .big-btn:active, .navgrid a:active{
   </section>
 </div>
 <!-- ===== 結束 ===== -->
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -3208,6 +3210,7 @@ h1{
 
 </body>
 </html>
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -3295,6 +3298,7 @@ h1{
 
 </body>
 </html>
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -3382,5 +3386,55 @@ h1{
 
 </body>
 </html>
+<!-- ===== 📣 公告快速跳轉（浮動按鈕） ===== -->
+<style>
+.notice-float-btn{
+  position:fixed;
+  right:16px;
+  bottom:110px; /* 在回首頁上面 */
+  z-index:9999;
+  background:linear-gradient(135deg,#ff3c3c,#ff9900);
+  color:#fff;
+  font-weight:900;
+  font-size:16px;
+  padding:12px 16px;
+  border-radius:30px;
+  box-shadow:0 8px 20px rgba(0,0,0,.5);
+  text-decoration:none;
+  animation:noticePulse 1.5s infinite;
+}
+@keyframes noticePulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+</style>
 
+<a href="#notice-area" class="notice-float-btn">
+📣 公告
+</a>
+<!-- ===== END ===== -->
+<!-- ===== 把重要公告搬到前面（安全版） ===== -->
+<script>
+(function () {
+  function moveNoticeToFront() {
+    var notice = document.querySelector('.notice-wrap');
+    var home = document.getElementById('home');
+
+    if (!notice || !home) return;
+
+    // 已經在前面就不重複搬
+    if (notice.nextElementSibling === home) return;
+
+    home.parentNode.insertBefore(notice, home);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', moveNoticeToFront);
+  } else {
+    moveNoticeToFront();
+  }
+})();
+</script>
+<!-- ===== 結束 ===== -->
 
