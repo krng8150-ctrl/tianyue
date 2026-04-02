@@ -6,324 +6,147 @@
 <title>技能掉落查詢</title>
 
 <style>
-* { box-sizing: border-box; }
-
 body {
-  margin: 0;
-  padding: 20px;
-  font-family: "Microsoft JhengHei", Arial, sans-serif;
-  background: linear-gradient(180deg, #08101f 0%, #0d1b36 100%);
-  color: #fff;
-}
-
-.wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.title-box {
-  background: rgba(10,14,28,.88);
-  border: 1px solid rgba(255,215,0,.18);
-  border-radius: 22px;
-  padding: 22px 18px;
-  box-shadow: 0 10px 28px rgba(0,0,0,.35);
-  margin-bottom: 18px;
+  background:#0d1b36;
+  color:#fff;
+  font-family:"Microsoft JhengHei";
+  padding:20px;
 }
 
 h1 {
-  margin: 0 0 10px;
-  text-align: center;
-  color: #ffd84d;
-  font-size: 38px;
-  line-height: 1.2;
+  text-align:center;
+  color:#ffd84d;
 }
 
-.sub {
-  text-align: center;
-  color: #cfd8ff;
-  font-size: 15px;
+input,select,button {
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  margin:5px;
 }
 
-.search-box {
-  display: grid;
-  grid-template-columns: 1fr 220px 120px 120px;
-  gap: 12px;
-  margin: 18px 0 16px;
-}
-
-.search-box input,
-.search-box select,
-.search-box button {
-  border: none;
-  border-radius: 16px;
-  padding: 14px 16px;
-  font-size: 16px;
-}
-
-.search-box input,
-.search-box select {
-  background: #fff;
-  color: #222;
-}
-
-.btn-search {
-  background: linear-gradient(135deg,#4d7cff,#2d53ff);
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.btn-reset {
-  background: linear-gradient(135deg,#6f7b9b,#4d5877);
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.quick-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-.quick-tags button {
-  border: 1px solid rgba(255,255,255,.16);
-  background: rgba(130,160,255,.15);
-  color: #dfe7ff;
-  border-radius: 999px;
-  padding: 10px 16px;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.section-title {
-  margin: 24px 0 10px;
-  color: #67b7ff;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.count-text {
-  color: #d7def7;
-  margin-bottom: 14px;
-  font-size: 15px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 16px;
+button {
+  background:#4d7cff;
+  color:#fff;
 }
 
 .card {
-  background: rgba(24,35,72,.92);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 22px;
-  padding: 18px 18px 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  background:#1a2a5a;
+  border-radius:15px;
+  padding:15px;
+  margin:10px 0;
 }
 
-.skill-name {
-  color: #ffe14a;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  line-height: 1.4;
+.skill {
+  color:#ffd84d;
+  font-size:18px;
+  font-weight:bold;
 }
 
-.job-tag {
-  display: inline-block;
-  background: rgba(83,124,255,.18);
-  border: 1px solid rgba(130,167,255,.35);
-  color: #cfe0ff;
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 13px;
-  margin-bottom: 12px;
+.job {
+  color:#9ecbff;
+  margin-bottom:10px;
 }
 
-.mob-list {
-  margin: 0;
-  padding-left: 22px;
-  color: #f2f5ff;
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-.empty,
-.loading,
-.error {
-  background: rgba(24,35,72,.92);
-  border-radius: 20px;
-  padding: 30px 20px;
-  text-align: center;
-  color: #d4dcff;
-  font-size: 18px;
-}
-
-.error {
-  color: #ffd1d1;
-}
-
-.back-home {
-  margin-top: 22px;
-  text-align: center;
-}
-
-.back-home a {
-  display: inline-block;
-  background: linear-gradient(135deg,#f9d85d,#f3b33e);
-  color: #111;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 24px;
-  padding: 16px 32px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.25);
-}
-
-@media (max-width: 900px) {
-  .search-box {
-    grid-template-columns: 1fr;
-  }
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  h1 {
-    font-size: 30px;
-  }
-  .back-home a {
-    width: 100%;
-    font-size: 20px;
-  }
-}
 </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="title-box">
-      <h1>技能掉落查詢</h1>
-      <div class="sub">網站會直接讀取資料庫掉落內容，自動更新。</div>
-    </div>
 
-    <div class="search-box">
-      <input id="searchInput" type="text" placeholder="輸入技能名稱、怪物名稱、職業，例如：會心一擊、絕對屏障、黑暗妖精、魔法師">
-      <select id="jobFilter">
-        <option value="">全部職業</option>
-        <option value="王子">王子</option>
-        <option value="騎士">騎士</option>
-        <option value="妖精">妖精</option>
-        <option value="魔法師">魔法師</option>
-        <option value="黑暗妖精">黑暗妖精</option>
-        <option value="龍騎士">龍騎士</option>
-        <option value="幻術師">幻術師</option>
-      </select>
-      <button class="btn-search" onclick="renderData()">查詢</button>
-      <button class="btn-reset" onclick="resetSearch()">清空</button>
-    </div>
+<h1>技能掉落查詢</h1>
 
-    <div class="quick-tags">
-      <button onclick="setQuick('聖結界')">聖結界</button>
-      <button onclick="setQuick('絕對屏障')">絕對屏障</button>
-      <button onclick="setQuick('三重矢')">三重矢</button>
-      <button onclick="setQuick('雙重破壞')">雙重破壞</button>
-      <button onclick="setQuick('妖精')">妖精</button>
-      <button onclick="setQuick('黑暗妖精')">黑暗妖精</button>
-      <button onclick="setQuick('魔法師')">魔法師</button>
-      <button onclick="setQuick('龍騎士')">龍騎士</button>
-      <button onclick="setQuick('幻術師')">幻術師</button>
-    </div>
+<input id="search" placeholder="搜尋技能或怪物">
+<select id="job">
+<option value="">全部職業</option>
+<option>王子</option>
+<option>騎士</option>
+<option>妖精</option>
+<option>魔法師</option>
+<option>黑暗妖精</option>
+<option>龍騎士</option>
+<option>幻術師</option>
+</select>
 
-    <div class="section-title">技能掉落整理</div>
-    <div class="count-text" id="countText">讀取中...</div>
-    <div id="resultArea" class="grid">
-      <div class="loading">資料讀取中...</div>
-    </div>
+<button onclick="load()">查詢</button>
 
-    <div class="back-home">
-      <a href="index.html">⬅ 返回首頁</a>
-    </div>
-  </div>
+<div id="list"></div>
 
 <script>
-const API_URL = 'https://你的PHP主機網址/api/skill-drops.php';
 
-let allData = [];
+const data = [
 
-function normalizeText(text) {
-  return (text || "").toLowerCase().trim();
-}
+/* ================= 王子 ================= */
+{job:"王子",skill:"衝擊士氣",mobs:["商城取得"]},
+{job:"王子",skill:"援護盟友",mobs:["商城取得"]},
+{job:"王子",skill:"鋼鐵士氣",mobs:["商城取得"]},
+{job:"王子",skill:"激勵士氣",mobs:["商城取得"]},
+{job:"王子",skill:"王者加護",mobs:["商城取得"]},
 
-async function loadData() {
-  const resultArea = document.getElementById("resultArea");
-  const countText = document.getElementById("countText");
+/* ================= 騎士 ================= */
+{job:"騎士",skill:"增幅防禦",mobs:["BOSS怪物"]},
 
-  resultArea.innerHTML = '<div class="loading">資料讀取中...</div>';
-  countText.textContent = '資料讀取中...';
+/* ================= 妖精 ================= */
+{job:"妖精",skill:"三重矢",mobs:["九尾狐","亞力安","多眼怪","巨人","夢魘","格利芬","火焰弓箭手"]},
+{job:"妖精",skill:"精準射擊",mobs:["幽冥大將軍","牛鬼","赤鬼"]},
+{job:"妖精",skill:"屬性之火",mobs:["伊弗利特","火靈之王"]},
+{job:"妖精",skill:"大地屏障",mobs:["沙蟲","巨蟻女王"]},
+{job:"妖精",skill:"風之神射",mobs:["巴列斯","變形怪首領"]},
+{job:"妖精",skill:"風之枷鎖",mobs:["林德拜爾","格利芬"]},
+{job:"妖精",skill:"水之元氣",mobs:["龍龜","深海怪物"]},
 
-  try {
-    const res = await fetch(API_URL + '?t=' + Date.now());
-    const json = await res.json();
+/* ================= 魔法師 ================= */
+{job:"魔法師",skill:"絕對屏障",mobs:["牛鬼","赤鬼","黑暗精靈使"]},
+{job:"魔法師",skill:"聖結界",mobs:["死亡騎士","梅杜莎","黑暗妖精法師"]},
+{job:"魔法師",skill:"流星雨",mobs:["巴拉卡斯","黑暗妖精將軍"]},
+{job:"魔法師",skill:"火風暴",mobs:["伊弗利特","不死鳥"]},
+{job:"魔法師",skill:"召喚術",mobs:["安塔瑞斯","林德拜爾"]},
+{job:"魔法師",skill:"變形術",mobs:["牛鬼","赤鬼"]},
 
-    if (!json.ok) {
-      throw new Error(json.error || '讀取失敗');
-    }
+/* ================= 黑暗妖精 ================= */
+{job:"黑暗妖精",skill:"雙重破壞",mobs:["安塔瑞斯","林德拜爾","黑暗妖精將軍"]},
+{job:"黑暗妖精",skill:"燃燒鬥志",mobs:["黑暗妖精士兵","闇之精靈"]},
+{job:"黑暗妖精",skill:"附加劇毒",mobs:["殭屍","黑暗妖精士兵"]},
+{job:"黑暗妖精",skill:"破壞盔甲",mobs:["牛鬼","赤鬼"]},
+{job:"黑暗妖精",skill:"迴避提升",mobs:["黑暗妖精殘兵"]},
 
-    allData = json.data || [];
-    renderData();
-  } catch (err) {
-    countText.textContent = '資料讀取失敗';
-    resultArea.innerHTML = '<div class="error">無法讀取資料庫內容，請稍後再試。</div>';
-  }
-}
+/* ================= 龍騎士 ================= */
+{job:"龍騎士",skill:"奪命之雷",mobs:["牛鬼","赤鬼","阿勒尼亞"]},
 
-function renderData() {
-  const keyword = normalizeText(document.getElementById("searchInput").value);
-  const job = document.getElementById("jobFilter").value;
-  const resultArea = document.getElementById("resultArea");
-  const countText = document.getElementById("countText");
+/* ================= 幻術師 ================= */
+{job:"幻術師",skill:"幻覺：化身",mobs:["牛鬼","赤鬼","阿勒尼亞"]}
 
-  const filtered = allData.filter(item => {
-    const matchJob = !job || item.job === job;
-    const matchKeyword =
-      !keyword ||
-      normalizeText(item.skill).includes(keyword) ||
-      normalizeText(item.job).includes(keyword) ||
-      (item.mobs || []).some(m => normalizeText(m).includes(keyword));
-    return matchJob && matchKeyword;
+];
+
+function load(){
+  const kw=document.getElementById("search").value;
+  const job=document.getElementById("job").value;
+
+  const list=document.getElementById("list");
+  list.innerHTML="";
+
+  const result=data.filter(x=>{
+    return (!job||x.job==job)&&
+    (x.skill.includes(kw)||x.mobs.join().includes(kw)||x.job.includes(kw));
   });
 
-  countText.textContent = `目前共找到 ${filtered.length} 筆技能資料。`;
-
-  if (!filtered.length) {
-    resultArea.innerHTML = `<div class="empty">查無符合資料，請換關鍵字再試。</div>`;
+  if(result.length==0){
+    list.innerHTML="查無資料";
     return;
   }
 
-  resultArea.innerHTML = filtered.map(item => `
+  result.forEach(x=>{
+    list.innerHTML+=`
     <div class="card">
-      <div class="skill-name">${item.skill}</div>
-      <div class="job-tag">${item.job}</div>
-      <ul class="mob-list">
-        ${(item.mobs || []).map(mob => `<li>${mob}</li>`).join("")}
-      </ul>
-    </div>
-  `).join("");
+      <div class="skill">${x.skill}</div>
+      <div class="job">${x.job}</div>
+      <div>${x.mobs.join("、")}</div>
+    </div>`;
+  });
 }
 
-function resetSearch() {
-  document.getElementById("searchInput").value = "";
-  document.getElementById("jobFilter").value = "";
-  renderData();
-}
+load();
 
-function setQuick(text) {
-  document.getElementById("searchInput").value = text;
-  renderData();
-}
-
-loadData();
 </script>
+
 </body>
 </html>
