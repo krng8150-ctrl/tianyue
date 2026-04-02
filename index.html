@@ -4435,4 +4435,113 @@ body:has(div:contains("掉落查詢系統")) div:contains("掉落查詢系統") 
 </div>
 
 <!-- ===== END ===== -->
+<!-- ===== 掉落查詢系統 最終去重完整版 START ===== -->
+
+<style>
+.drop-main-final {
+  position: fixed;
+  right: 12px;
+  bottom: 200px;
+  z-index: 9999;
+}
+
+.drop-main-final a {
+  display: block;
+  background: linear-gradient(135deg,#ffd700,#ff9800);
+  color: #111;
+  padding: 14px 16px;
+  border-radius: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+#drop-box-final {
+  margin: 40px 20px;
+  padding: 20px;
+  background: #111;
+  border-radius: 15px;
+}
+</style>
+
+<div class="drop-main-final" id="drop-main-final">
+  <a href="javascript:void(0)" onclick="document.getElementById('drop-box-final').scrollIntoView({behavior:'smooth'});">
+    🔍 掉落查詢
+  </a>
+</div>
+
+<div id="drop-box-final">
+  <div style="
+    text-align:center;
+    color:#ffd700;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+  ">
+    🔍 掉落查詢系統
+  </div>
+
+  <a href="map-drops.html" style="
+    display:block;
+    background:#ff9800;
+    color:white;
+    text-align:center;
+    padding:15px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    text-decoration:none;
+    margin-bottom:15px;
+  ">
+    📜 地圖掉落查詢
+  </a>
+
+  <a href="skill-drops.html" style="
+    display:block;
+    background:#2196f3;
+    color:white;
+    text-align:center;
+    padding:15px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    text-decoration:none;
+  ">
+    ✨ 技能掉落查詢
+  </a>
+</div>
+
+<script>
+(function () {
+  // 刪掉舊的重複掉落區塊，只保留最新的 #drop-box-final
+  var allDivs = document.querySelectorAll('div');
+  allDivs.forEach(function(div) {
+    if (div.id === 'drop-box-final') return;
+    var text = (div.innerText || '').replace(/\s+/g, ' ').trim();
+    if (
+      text.indexOf('掉落查詢系統') !== -1 &&
+      text.indexOf('地圖掉落查詢') !== -1 &&
+      text.indexOf('技能掉落查詢') !== -1
+    ) {
+      div.remove();
+    }
+  });
+
+  // 刪掉舊的重複固定按鈕，只保留最新的 #drop-main-final
+  var allFixed = document.querySelectorAll('div');
+  allFixed.forEach(function(div) {
+    if (div.id === 'drop-main-final') return;
+    var style = div.getAttribute('style') || '';
+    var text = (div.innerText || '').replace(/\s+/g, ' ').trim();
+    if (
+      style.indexOf('position: fixed') !== -1 &&
+      text.indexOf('掉落查詢') !== -1
+    ) {
+      div.remove();
+    }
+  });
+})();
+</script>
+
+<!-- ===== 掉落查詢系統 最終去重完整版 END ===== -->
 </body>
