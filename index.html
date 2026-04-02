@@ -4544,4 +4544,25 @@ body:has(div:contains("掉落查詢系統")) div:contains("掉落查詢系統") 
 </script>
 
 <!-- ===== 掉落查詢系統 最終去重完整版 END ===== -->
+<!-- ===== 隱藏開發備註區塊 START ===== -->
+
+<script>
+(function () {
+  var allDivs = document.querySelectorAll('div');
+
+  allDivs.forEach(function(div) {
+    var text = (div.innerText || '').replace(/\s+/g, ' ').trim();
+
+    if (
+      text.indexOf('補充說明') !== -1 ||
+      text.indexOf('這份頁面先主打') !== -1 ||
+      text.indexOf('你之後如果還要補') !== -1
+    ) {
+      div.style.display = 'none';
+    }
+  });
+})();
+</script>
+
+<!-- ===== 隱藏開發備註區塊 END ===== -->
 </body>
