@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天越天堂｜地圖掉落查詢</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei";
+  background: #0b1020;
+  color: #fff;
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  color: gold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.card {
+  background: #1a1f35;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.card h3 {
+  color: gold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>地圖掉落查詢</h1>
+
+<input id="search" placeholder="輸入地圖或物品">
+<button onclick="search()">查詢</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const data = [
+
+{
+map: "地窖一樓",
+drops: [
+"龍珠碎片",
+"對武器施法的卷軸",
+"對盔甲施法的卷軸",
+"金幣",
+"勇敢藥水",
+"強化 自我加速藥水",
+"經驗藥水250%",
+"經驗藥水150%"
+]
+},
+
+{
+map: "地窖二樓",
+drops: [
+"龍珠碎片",
+"金幣",
+"受祝福 對盔甲施法的卷軸",
+"受祝福 對武器施法的卷軸",
+"經驗藥水450%",
+"裝備保護卷軸(歸0)",
+"裝備保護卷軸(-1)",
+"高級裝備保護卷軸(原樣)"
+]
+},
+
+{
+map: "等級區",
+drops: [
+"新手幣",
+"金幣",
+"強化 自我加速藥水",
+"對武器施法的卷軸",
+"對盔甲施法的卷軸",
+"充值內掛時間(8小時)",
+"推廣幣",
+"紋樣祝福粉末"
+]
+},
+
+{
+map: "團練區",
+drops: [
+"龍珠碎片",
+"一星龍珠",
+"二星龍珠",
+"三星龍珠",
+"四星龍珠",
+"五星龍珠",
+"六星龍珠",
+"七星龍珠",
+"金幣",
+"元寶",
+"充值內掛時間(一個月)",
+"金條一億"
+]
+},
+
+{
+map: "龍神殿(團練區)",
+drops: [
+"洗色防具升階卷",
+"洗色武器升階卷",
+"高級裝備保護卷軸(原樣)",
+"裝備保護卷軸(歸0)",
+"裝備保護卷軸(-1)"
+]
+},
+
+{
+map: "封印地窖一樓",
+drops: [
+"洗色武器升階卷",
+"洗色防具升階卷"
+]
+},
+
+{
+map: "封印地窖二樓",
+drops: [
+"洗色武器升階卷",
+"洗色防具升階卷"
+]
+}
+
+];
+
+function render(list) {
+let html = "";
+list.forEach(e => {
+html += `<div class="card">
+<h3>${e.map}</h3>
+${e.drops.map(d => `<div>・${d}</div>`).join("")}
+</div>`;
+});
+document.getElementById("result").innerHTML = html;
+}
+
+function search() {
+let key = document.getElementById("search").value;
+let result = data.filter(e =>
+e.map.includes(key) ||
+e.drops.some(d => d.includes(key))
+);
+render(result);
+}
+
+render(data);
+
+</script>
+
+</body>
+</html>
