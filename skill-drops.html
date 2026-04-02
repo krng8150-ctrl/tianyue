@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>天越天堂｜技能掉落指南</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #141b31 100%);
+      color: #f5f7ff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 28px 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+    }
+
+    .hero h1 {
+      margin: 0 0 12px 0;
+      font-size: 32px;
+      color: #ffd66b;
+    }
+
+    .hero p {
+      margin: 8px 0;
+      color: #d5def7;
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .notice {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,214,107,0.12);
+      border: 1px solid rgba(255,214,107,0.18);
+      color: #ffe8aa;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .toolbar input,
+    .toolbar select,
+    .toolbar button {
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 15px;
+    }
+
+    .toolbar input,
+    .toolbar select {
+      background: #f7f9ff;
+      color: #111;
+      min-width: 220px;
+      flex: 1;
+    }
+
+    .toolbar button {
+      background: linear-gradient(135deg, #4f7dff, #7f5cff);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      min-width: 110px;
+    }
+
+    .toolbar button:hover {
+      opacity: 0.92;
+    }
+
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .quick-tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .quick-tag:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section-title {
+      margin: 0 0 14px 0;
+      font-size: 24px;
+      color: #8fcbff;
+    }
+
+    .result-text {
+      margin: 0 0 16px 0;
+      color: #c7d2f1;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.22);
+    }
+
+    .card h3 {
+      margin: 0 0 8px 0;
+      font-size: 21px;
+      color: #ffd66b;
+    }
+
+    .job-tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(143,203,255,0.12);
+      border: 1px solid rgba(143,203,255,0.24);
+      color: #bfe3ff;
+    }
+
+    .drop-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #eef3ff;
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .drop-list li {
+      margin-bottom: 4px;
+    }
+
+    .footer-box {
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #c7d2f1;
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    .empty {
+      padding: 30px 20px;
+      text-align: center;
+      color: #cfd8f8;
+      border: 1px dashed rgba(255,255,255,0.16);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #9fd1ff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .top-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .section-title {
+        font-size: 21px;
+      }
+
+      .card h3 {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="top-link" href="index.html">← 返回首頁</a>
+
+    <div class="hero">
+      <h1>天越天堂｜技能掉落指南</h1>
+      <p>
+        本頁整理本服常用技能、法書、精靈水晶、黑暗精靈水晶、技術書等主要掉落來源。
+      </p>
+      <p>
+        玩家可先從這裡快速查看熱門技能掉落方向，完整版本後續可再持續補充擴充。
+      </p>
+      <div class="notice">
+        ※ 本頁僅顯示技能與重要來源，不顯示掉落率。<br>
+        ※ 若後續伺服器有調整掉落內容，請以遊戲最新版本為準。<br>
+        ※ 目前先整理你已提供的主要技能掉落資料。
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input id="searchInput" type="text" placeholder="輸入技能名稱、怪物名稱、職業，例如：會心一擊、三重矢、黑妖、艾爾摩將軍" />
+      <select id="jobFilter">
+        <option value="全部">全部職業</option>
+        <option value="黑妖">黑妖</option>
+        <option value="精靈">精靈</option>
+        <option value="法師">法師</option>
+        <option value="騎士">騎士</option>
+        <option value="通用">通用</option>
+      </select>
+      <button onclick="renderCards()">查詢</button>
+      <button onclick="resetSearch()">清空</button>
+    </div>
+
+    <div class="quick-tags">
+      <div class="quick-tag" onclick="quickSearch('會心一擊')">會心一擊</div>
+      <div class="quick-tag" onclick="quickSearch('三重矢')">三重矢</div>
+      <div class="quick-tag" onclick="quickSearch('衝擊之暈')">衝擊之暈</div>
+      <div class="quick-tag" onclick="quickSearch('絕對屏障')">絕對屏障</div>
+      <div class="quick-tag" onclick="quickSearch('聖結界')">聖結界</div>
+      <div class="quick-tag" onclick="quickSearch('燃燒鬥志')">燃燒鬥志</div>
+      <div class="quick-tag" onclick="quickSearch('黑妖')">黑妖技能</div>
+      <div class="quick-tag" onclick="quickSearch('法師')">法師技能</div>
+      <div class="quick-tag" onclick="quickSearch('精靈')">精靈技能</div>
+      <div class="quick-tag" onclick="quickSearch('騎士')">騎士技能</div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">技能掉落整理</h2>
+      <p class="result-text" id="resultText">目前顯示全部技能資料。</p>
+      <div class="grid" id="cardGrid"></div>
+    </div>
+
+    <div class="footer-box">
+      <strong>補充說明：</strong><br>
+      1. 這份頁面先主打「技能掉落整理」，比完整全物品查詢更適合玩家快速看重點。<br>
+      2. 你之後如果還要補「裝備掉落頁」、「材料掉落頁」、「新手打寶指南」，我可以照這個版型再幫你做一整套。<br>
+      3. 如果你要把這頁加進首頁，我下一步可以直接幫你做首頁按鈕連結版。
+    </div>
+  </div>
+
+  <script>
+    const skillData = [
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(會心一擊)",
+        drops: ["伊弗利特", "闇之精靈", "黑暗精靈使", "闇精靈王", "黑暗妖精盜賊", "召喚精靈使"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(燃燒鬥志)",
+        drops: ["黑暗妖精士兵", "闇之精靈", "黑暗精靈使", "黑暗妖精警衛", "闇精靈王", "召喚精靈使"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(雙重破壞)",
+        drops: ["闇之精靈", "黑暗精靈使", "闇精靈王"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(附加劇毒)",
+        drops: ["黑暗妖精士兵", "闇之精靈", "黑暗精靈使", "黑暗妖精警衛", "闇精靈王", "黑暗妖精盜賊", "召喚精靈使"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(暗黑盲咒)",
+        drops: ["黑暗妖精士兵", "闇之精靈", "黑暗精靈使", "哈維", "闇精靈王", "黑暗妖精盜賊", "召喚精靈使"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(暗隱術)",
+        drops: ["闇之精靈", "黑暗精靈使", "闇精靈王", "黑暗妖精盜賊", "召喚精靈使"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(影之防護)",
+        drops: ["闇之精靈", "黑暗精靈使", "闇精靈王", "黑暗妖精警衛", "召喚精靈使"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(暗影之牙)",
+        drops: ["闇之精靈", "黑暗精靈使", "闇精靈王", "骷髏神射手", "黑暗妖精警衛", "召喚精靈使"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(毒性抵抗)",
+        drops: ["闇之精靈", "黑暗精靈使", "毒蠍", "黑暗妖精警衛", "召喚精靈使"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(力量提升)",
+        drops: ["黑暗妖精士兵"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(敏捷提升)",
+        drops: ["黑暗妖精魔法學徒"]
+      },
+      {
+        job: "黑妖",
+        skill: "黑暗精靈水晶(迴避提升)",
+        drops: ["黑暗妖精盜賊"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(三重矢)",
+        drops: ["巴貝多", "火焰弓箭手"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(水之元氣)",
+        drops: ["蛇女", "龍龜", "雪怪", "地底蟹人"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(生命之泉)",
+        drops: ["龍龜", "伊萊克頓"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(大地防護)",
+        drops: ["龍龜", "毒蠍", "骷髏警衛"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(火焰武器)",
+        drops: ["地獄犬", "火焰戰士", "骷髏鬥士"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(舞躍之火)",
+        drops: ["火焰戰士", "火焰弓箭手", "食人妖精王"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(釋放元素)",
+        drops: ["哈維", "黑暗精靈", "食人妖精王"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(風之疾走)",
+        drops: ["哈維"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(暴風之眼)",
+        drops: ["哈維", "黑暗精靈"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(風之枷鎖)",
+        drops: ["龍蠅", "哈維"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(風之神射)",
+        drops: ["黑暗精靈", "骷髏神射手"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(弱化屬性)",
+        drops: ["闇精靈王", "食人妖精王"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(烈炎武器)",
+        drops: ["闇精靈王"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(封印禁地)",
+        drops: ["龍蠅"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(魔法防禦)",
+        drops: ["蛇女"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(屬性防禦)",
+        drops: ["奇巖 蛇女"]
+      },
+      {
+        job: "精靈",
+        skill: "精靈水晶(體能激發)",
+        drops: ["巨人"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (絕對屏障)",
+        drops: ["闇之精靈", "黑暗精靈使", "闇精靈王"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (聖結界)",
+        drops: ["地獄犬", "闇之精靈", "黑暗精靈使"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (極道落雷)",
+        drops: ["毒蠍", "伊萊克頓"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (魔法相消術)",
+        drops: ["龍龜", "毒蠍"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (震裂術)",
+        drops: ["毒蠍"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (冰錐)",
+        drops: ["龍龜", "伊萊克頓", "奎斯坦修"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (召喚術)",
+        drops: ["伊萊克頓"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (冰雪暴)",
+        drops: ["伊萊克頓"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (雷霆風暴)",
+        drops: ["伊萊克頓"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (寒冰尖刺)",
+        drops: ["伊萊克頓"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (吸血鬼之吻)",
+        drops: ["龍蠅", "哈維"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (加速術)",
+        drops: ["龍蠅", "爆彈花", "哈維", "骷髏鬥士"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (神聖疾走)",
+        drops: ["魔狼", "黑暗妖精警衛", "哈維", "黑暗妖精盜賊"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (強力加速術)",
+        drops: ["哈維"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (壞物術)",
+        drops: ["蛇女", "地獄犬", "食人妖精王", "奇巖 地獄犬"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (燃燒的火球)",
+        drops: ["地獄犬", "食人妖精王"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (通暢氣脈術)",
+        drops: ["骷髏警衛", "骷髏神射手", "火焰弓箭手", "骷髏鬥士"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (迷魅術)",
+        drops: ["骷髏警衛", "骷髏神射手", "奇巖 楊果裡恩"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (沉睡之霧)",
+        drops: ["爆彈花", "奇巖 楊果裡恩"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (緩速術)",
+        drops: ["莫妮亞", "奇巖 楊果裡恩"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (高級治癒術)",
+        drops: ["多羅", "莫妮亞"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (全部治癒術)",
+        drops: ["多羅"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (體力回復術)",
+        drops: ["多羅"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (造屍術)",
+        drops: ["多羅"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (烈炎術)",
+        drops: ["爆彈花", "火焰戰士", "火焰弓箭手"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (火風暴)",
+        drops: ["火焰戰士"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (木乃伊的詛咒)",
+        drops: ["哈維"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (龍捲風)",
+        drops: ["黑暗精靈"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (隱身術)",
+        drops: ["黑暗精靈"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (聖潔之光)",
+        drops: ["食人妖精王", "莫妮亞"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (疾病術)",
+        drops: ["食人妖精王"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (狂暴術)",
+        drops: ["黑暗妖精士兵", "闇精靈王"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (祝福魔法武器)",
+        drops: ["魔熊", "闇精靈王"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (靈魂昇華)",
+        drops: ["闇精靈王"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (黑闇之影)",
+        drops: ["奎斯坦修"]
+      },
+      {
+        job: "法師",
+        skill: "魔法書 (藥水霜化術)",
+        drops: ["黑暗精靈使", "黑暗妖精盜賊"]
+      },
+      {
+        job: "騎士",
+        skill: "技術書(衝擊之暈)",
+        drops: ["艾爾摩將軍"]
+      },
+      {
+        job: "騎士",
+        skill: "技術書(增幅防禦)",
+        drops: ["艾爾摩將軍"]
+      },
+      {
+        job: "通用",
+        skill: "熱門黑妖技能整理",
+        drops: ["會心一擊", "燃燒鬥志", "雙重破壞", "暗隱術", "附加劇毒", "暗黑盲咒", "暗影之牙"]
+      },
+      {
+        job: "通用",
+        skill: "熱門精靈技能整理",
+        drops: ["三重矢", "水之元氣", "生命之泉", "大地防護", "火焰武器", "風之神射", "暴風之眼"]
+      },
+      {
+        job: "通用",
+        skill: "熱門法師技能整理",
+        drops: ["絕對屏障", "聖結界", "極道落雷", "魔法相消術", "冰錐", "召喚術", "雷霆風暴"]
+      }
+    ];
+
+    function createCard(item) {
+      return `
+        <div class="card">
+          <h3>${item.skill}</h3>
+          <div class="job-tag">${item.job}</div>
+          <ul class="drop-list">
+            ${item.drops.map(drop => `<li>${drop}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    }
+
+    function renderCards() {
+      const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+      const jobFilter = document.getElementById("jobFilter").value;
+      const cardGrid = document.getElementById("cardGrid");
+      const resultText = document.getElementById("resultText");
+
+      const filtered = skillData.filter(item => {
+        const matchJob = jobFilter === "全部" || item.job === jobFilter;
+        const matchKeyword =
+          keyword === "" ||
+          item.skill.toLowerCase().includes(keyword) ||
+          item.job.toLowerCase().includes(keyword) ||
+          item.drops.some(drop => drop.toLowerCase().includes(keyword));
+        return matchJob && matchKeyword;
+      });
+
+      if (filtered.length === 0) {
+        cardGrid.innerHTML = `<div class="empty">查無符合資料，請換個技能名稱、怪物名稱或職業試試看。</div>`;
+        resultText.textContent = "目前沒有找到符合條件的技能資料。";
+        return;
+      }
+
+      cardGrid.innerHTML = filtered.map(createCard).join("");
+      resultText.textContent = `目前共找到 ${filtered.length} 筆技能資料。`;
+    }
+
+    function quickSearch(keyword) {
+      document.getElementById("searchInput").value = keyword;
+      renderCards();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function resetSearch() {
+      document.getElementById("searchInput").value = "";
+      document.getElementById("jobFilter").value = "全部";
+      renderCards();
+    }
+
+    renderCards();
+  </script>
+</body>
+</html>
