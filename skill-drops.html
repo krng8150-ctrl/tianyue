@@ -1,180 +1,210 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>天越天堂｜技能掉落查詢</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Microsoft JhengHei", Arial, sans-serif;
-      background: linear-gradient(180deg, #08101f 0%, #0d1b36 100%);
-      color: #fff;
-      padding: 18px;
-    }
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .title-box {
-      background: rgba(10,14,28,.88);
-      border: 1px solid rgba(255,215,0,.18);
-      border-radius: 22px;
-      padding: 22px 18px;
-      box-shadow: 0 10px 28px rgba(0,0,0,.35);
-      margin-bottom: 18px;
-    }
-    h1 {
-      margin: 0 0 10px;
-      text-align: center;
-      color: #ffd84d;
-      font-size: 38px;
-      line-height: 1.2;
-    }
-    .sub {
-      text-align: center;
-      color: #cfd8ff;
-      font-size: 15px;
-    }
-    .search-box {
-      display: grid;
-      grid-template-columns: 1fr 220px 120px 120px;
-      gap: 12px;
-      margin: 18px 0 16px;
-    }
-    .search-box input,
-    .search-box select,
-    .search-box button {
-      border: none;
-      border-radius: 16px;
-      padding: 14px 16px;
-      font-size: 16px;
-    }
-    .search-box input,
-    .search-box select {
-      background: #fff;
-      color: #222;
-    }
-    .btn-search {
-      background: linear-gradient(135deg,#4d7cff,#2d53ff);
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .btn-reset {
-      background: linear-gradient(135deg,#6f7b9b,#4d5877);
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .quick-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-    .quick-tags button {
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(130,160,255,.15);
-      color: #dfe7ff;
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-size: 15px;
-      cursor: pointer;
-    }
-    .section-title {
-      margin: 24px 0 10px;
-      color: #67b7ff;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    .count-text {
-      color: #d7def7;
-      margin-bottom: 14px;
-      font-size: 15px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 16px;
-    }
-    .card {
-      background: rgba(24,35,72,.92);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 22px;
-      padding: 18px 18px 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.22);
-    }
-    .skill-name {
-      color: #ffe14a;
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-    .job-tag {
-      display: inline-block;
-      background: rgba(83,124,255,.18);
-      border: 1px solid rgba(130,167,255,.35);
-      color: #cfe0ff;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-    .mob-list {
-      margin: 0;
-      padding-left: 22px;
-      color: #f2f5ff;
-      line-height: 1.8;
-      font-size: 16px;
-    }
-    .empty {
-      background: rgba(24,35,72,.92);
-      border-radius: 20px;
-      padding: 30px 20px;
-      text-align: center;
-      color: #d4dcff;
-      font-size: 18px;
-    }
-    .back-home {
-      margin-top: 22px;
-      text-align: center;
-    }
-    .back-home a {
-      display: inline-block;
-      background: linear-gradient(135deg,#f9d85d,#f3b33e);
-      color: #111;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 24px;
-      padding: 16px 32px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.25);
-    }
-    @media (max-width: 900px) {
-      .search-box {
-        grid-template-columns: 1fr;
-      }
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      h1 {
-        font-size: 30px;
-      }
-      .back-home a {
-        width: 100%;
-        font-size: 20px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技能掉落查詢</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  background: linear-gradient(180deg, #08101f 0%, #0d1b36 100%);
+  color: #fff;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.title-box {
+  background: rgba(10,14,28,.88);
+  border: 1px solid rgba(255,215,0,.18);
+  border-radius: 22px;
+  padding: 22px 18px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin: 0 0 10px;
+  text-align: center;
+  color: #ffd84d;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.sub {
+  text-align: center;
+  color: #cfd8ff;
+  font-size: 15px;
+}
+
+.search-box {
+  display: grid;
+  grid-template-columns: 1fr 220px 120px 120px;
+  gap: 12px;
+  margin: 18px 0 16px;
+}
+
+.search-box input,
+.search-box select,
+.search-box button {
+  border: none;
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+.search-box input,
+.search-box select {
+  background: #fff;
+  color: #222;
+}
+
+.btn-search {
+  background: linear-gradient(135deg,#4d7cff,#2d53ff);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-reset {
+  background: linear-gradient(135deg,#6f7b9b,#4d5877);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.quick-tags button {
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(130,160,255,.15);
+  color: #dfe7ff;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.section-title {
+  margin: 24px 0 10px;
+  color: #67b7ff;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.count-text {
+  color: #d7def7;
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+}
+
+.card {
+  background: rgba(24,35,72,.92);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 22px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+}
+
+.skill-name {
+  color: #ffe14a;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.job-tag {
+  display: inline-block;
+  background: rgba(83,124,255,.18);
+  border: 1px solid rgba(130,167,255,.35);
+  color: #cfe0ff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.mob-list {
+  margin: 0;
+  padding-left: 22px;
+  color: #f2f5ff;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.empty,
+.loading,
+.error {
+  background: rgba(24,35,72,.92);
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  color: #d4dcff;
+  font-size: 18px;
+}
+
+.error {
+  color: #ffd1d1;
+}
+
+.back-home {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.back-home a {
+  display: inline-block;
+  background: linear-gradient(135deg,#f9d85d,#f3b33e);
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 16px 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+@media (max-width: 900px) {
+  .search-box {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .back-home a {
+    width: 100%;
+    font-size: 20px;
+  }
+}
+</style>
 </head>
 <body>
   <div class="wrap">
     <div class="title-box">
       <h1>技能掉落查詢</h1>
-      <div class="sub">可搜尋技能名稱、怪物名稱，並依職業分類查看。</div>
+      <div class="sub">網站會直接讀取資料庫掉落內容，自動更新。</div>
     </div>
 
     <div class="search-box">
@@ -196,9 +226,8 @@
     <div class="quick-tags">
       <button onclick="setQuick('聖結界')">聖結界</button>
       <button onclick="setQuick('絕對屏障')">絕對屏障</button>
-      <button onclick="setQuick('會心一擊')">會心一擊</button>
-      <button onclick="setQuick('雙重破壞')">雙重破壞</button>
       <button onclick="setQuick('三重矢')">三重矢</button>
+      <button onclick="setQuick('雙重破壞')">雙重破壞</button>
       <button onclick="setQuick('妖精')">妖精</button>
       <button onclick="setQuick('黑暗妖精')">黑暗妖精</button>
       <button onclick="setQuick('魔法師')">魔法師</button>
@@ -207,163 +236,94 @@
     </div>
 
     <div class="section-title">技能掉落整理</div>
-    <div class="count-text" id="countText"></div>
-    <div id="resultArea" class="grid"></div>
+    <div class="count-text" id="countText">讀取中...</div>
+    <div id="resultArea" class="grid">
+      <div class="loading">資料讀取中...</div>
+    </div>
 
     <div class="back-home">
       <a href="index.html">⬅ 返回首頁</a>
     </div>
   </div>
 
-  <script>
-    const skillData = [
-      {
-        job: "王子",
-        skill: "衝擊士氣",
-        mobs: ["目前這批照片未確認怪物掉落，先保留分類位置"]
-      },
-      {
-        job: "王子",
-        skill: "援護盟友",
-        mobs: ["目前這批照片未確認怪物掉落，先保留分類位置"]
-      },
-      {
-        job: "王子",
-        skill: "鋼鐵士氣",
-        mobs: ["目前這批照片未確認怪物掉落，先保留分類位置"]
-      },
-      {
-        job: "王子",
-        skill: "激勵士氣",
-        mobs: ["目前這批照片未確認怪物掉落，先保留分類位置"]
-      },
-      {
-        job: "王子",
-        skill: "王者加護",
-        mobs: ["目前這批照片未確認怪物掉落，先保留分類位置"]
-      },
+<script>
+const API_URL = 'https://你的PHP主機網址/api/skill-drops.php';
 
-      {
-        job: "騎士",
-        skill: "增幅防禦",
-        mobs: ["目前這批照片未確認完整怪物掉落，先保留分類位置"]
-      },
+let allData = [];
 
-      {
-        job: "妖精",
-        skill: "三重矢",
-        mobs: ["涅染九尾狐", "亞力安", "受詛咒的多眼怪", "地底巨王龜", "多眼怪", "夢魘", "巴貝多", "思克巴", "暗黑火焰弓箭手", "曼波兔", "曼波兔部下", "格利芬", "污濁妖魔弓箭手", "深淵弓箭手", "火之牙", "火焰弓箭手", "熔岩高崙", "獨眼巨人", "風之牙", "骷髏弓箭手"]
-      },
-      {
-        job: "妖精",
-        skill: "世界樹的呼喚",
-        mobs: ["污濁妖魔鬥士", "阿吐巴妖魔", "高崙石頭怪"]
-      },
-      {
-        job: "妖精",
-        skill: "地面障礙",
-        mobs: ["涅染九尾狐", "亞力安", "卡士伯", "古代巨人", "吉爾塔斯", "安塔瑞斯", "巨大守護螃蟹", "巨大進化白螞蟻", "巨大白螞蟻", "巨蟻女皇", "巴士瑟", "強化白螞蟻群", "樹精", "死亡騎士", "沙蟲", "火焰死亡騎士", "獨眼巨人", "瑪雅", "白螞蟻群", "長老‧拉曼斯"]
-      },
-      {
-        job: "妖精",
-        skill: "大地屏障",
-        mobs: ["力卡溫", "反王肯恩", "吉爾塔斯", "地之牙", "地靈之王", "奇岩高崙熔岩怪", "沙蟲", "熔岩高崙", "牛鬼", "赤鬼", "長老‧巴洛斯"]
-      },
-      {
-        job: "妖精",
-        skill: "大地的祝福",
-        mobs: ["伊娃‧伊崇克頓", "伊娃‧希爾黛斯", "伊娃‧龍龜", "受詛咒的人魚", "古代巨人", "安塔瑞斯", "巨大強化白螞蟻", "巨大突擊螞蟻", "巨蟻女皇", "巴士瑟", "樹精", "獨眼巨人", "瑪雅", "白螞蟻群", "阿勒尼亞", "涅世牛魔王"]
-      },
-      {
-        job: "妖精",
-        skill: "大地防護",
-        mobs: ["涅染九尾狐", "古代巨人", "奇岩鋼鐵高崙", "安塔瑞斯", "毒蠍", "頭鐵高崙", "龍龜", "涅世牛魔王"]
-      },
-      {
-        job: "妖精",
-        skill: "封印禁地",
-        mobs: ["伊弗利特", "吉爾塔斯", "涅世牛魔王"]
-      },
-      {
-        job: "妖精",
-        skill: "屬性之火",
-        mobs: ["伊弗利特", "古代巨人", "德雷克", "曼波兔", "曼波兔", "深淵火靈", "火之牙", "火炎蛋", "火斷蠍", "火靈之王", "烈炎獸", "阿西塔基奧"]
-      },
-      {
-        job: "妖精",
-        skill: "屬性防禦",
-        mobs: ["受詛咒的穴居人", "受詛咒的蛇女", "受詛咒的蛇女", "奇岩穴居人", "奇岩蛇女", "法利昂", "穴居人", "昆弟", "西瑪"]
-      },
-      {
-        job: "妖精",
-        skill: "弱化屬性",
-        mobs: ["不死鳥", "地底伊崇克頓", "地底多眼怪", "地靈之王", "巴列斯", "德雷克", "恐怖的吸血鬼", "暗黑思克巴女皇", "水靈之王", "洛邁甲", "火靈之王", "阿西塔基奧", "貪人妖精王", "玲瓏", "魔法師", "西瑪", "污濁妖魔鬥士", "黑暗精靈"]
-      },
-      {
-        job: "妖精",
-        skill: "心靈轉換",
-        mobs: ["污濁妖魔鬥士", "魔法師", "西瑪"]
-      },
-      {
-        job: "妖精",
-        skill: "暴風之眼",
-        mobs: ["哈維", "巴列斯", "暗黑思克巴女皇", "月靈", "林德拜爾", "死亡之劍", "火蜥蜴", "魔法師", "黑暗精靈", "巨大牛人"]
-      },
-      {
-        job: "妖精",
-        skill: "風之神射",
-        mobs: ["巴列斯", "暗黑思克巴女皇", "林德拜爾", "變形怪首領"]
-      },
-      {
-        job: "妖精",
-        skill: "風之枷鎖",
-        mobs: ["吉爾塔斯", "哈維", "巨蟻女皇", "巴列斯", "暗黑思克巴女皇", "格利芬", "瑪雅", "長老‧巴陸德", "西瑪", "冰之女王", "妖魔巡守", "林德拜爾", "格利芬", "死亡之劍", "疾風的就職神射手", "幽妖神射手", "魔法師", "黑暗精靈", "地之牙", "地靈之王"]
-      },
-      {
-        job: "妖精",
-        skill: "風之疾走",
-        mobs: ["吉爾塔斯", "哈維", "巨蟻女皇", "巴列斯", "暗黑思克巴女皇", "格利芬", "瑪雅", "長老‧巴陸德", "西瑪"]
-      },
-      {
-        job: "妖精",
-        skill: "水之元氣",
-        mobs: ["涅世牛魔王", "伊娃‧希爾黛斯", "冰之女王", "冰人", "半魚人首領", "卡普", "受詛咒的人魚", "受詛咒的水精靈王", "吉爾塔斯", "地底伊崇克頓", "地底巨王龜", "地底蜥蜴", "巴貝多", "希爾黛斯", "曼波兔", "曼波兔", "水之牙", "水之精靈", "水靈之王", "污濁妖魔法師", "深海希爾黛斯", "深淵水靈", "蛇女", "邪惡狐媚", "長老‧巴洛斯", "蛋怪", "黑長者", "龍龜"]
-      },
-      {
-        job: "妖精",
-        skill: "水之防護",
-        mobs: ["卡普", "巨大螃蟹", "水之精靈", "力卡溫", "半魚人首領", "受詛咒的水精靈王", "巨螃蟹", "污濁之水", "牛鬼", "赤鬼", "阿勒尼亞"]
-      },
-      {
-        job: "妖精",
-        skill: "污濁之水",
-        mobs: ["力卡溫", "半魚人首領", "卡普", "受詛咒的水精靈王", "巨螃蟹", "康比斯阿努比斯", "牛鬼", "赤鬼", "阿勒尼亞"]
-      },
-      {
-        job: "妖精",
-        skill: "淨化精神",
-        mobs: ["污濁多羅", "污濁歐吉", "污濁甘地妖魔", "洛邁甲", "伊弗利特", "伊弗利特"]
-      },
-      {
-        job: "妖精",
-        skill: "火焰武器",
-        mobs: ["伊弗利特", "伊弗利特", "地獄犬", "奇岩地獄犬", "奇岩高崙熔岩怪", "巴拉卡斯", "火炎蛋", "火焰弓箭手", "火焰戰士", "火斷蠍"]
-      },
-      {
-        job: "妖精",
-        skill: "烈焰氣息",
-        mobs: ["伊弗利特", "卡士伯", "巴拉卡斯", "火炎蛋", "火焰弓箭手", "火焰戰士", "烈炎獸", "烈炎獸", "熔岩高崙", "阿西塔基奧", "雷歐巴馬特", "食人妖精王"]
-      },
-      {
-        job: "妖精",
-        skill: "生命之泉",
-        mobs: ["伊娃‧伊崇克頓", "伊娃‧希爾黛斯", "伊娃‧龍龜", "伊榮克頓", "冰之女王", "巴貝多", "思克巴", "思克巴", "思克巴女皇", "法利昂", "馬庫爾", "高輪冰石人", "鬼魂", "龍龜", "龜鱉"]
-      },
-      {
-        job: "妖精",
-        skill: "生命的祝福",
-        mobs: ["巴貝多", "思克巴女皇", "法利昂", "蛇女", "賽尼斯"]
-      },
-      {
-        job: "妖精",
- 
+function normalizeText(text) {
+  return (text || "").toLowerCase().trim();
+}
+
+async function loadData() {
+  const resultArea = document.getElementById("resultArea");
+  const countText = document.getElementById("countText");
+
+  resultArea.innerHTML = '<div class="loading">資料讀取中...</div>';
+  countText.textContent = '資料讀取中...';
+
+  try {
+    const res = await fetch(API_URL + '?t=' + Date.now());
+    const json = await res.json();
+
+    if (!json.ok) {
+      throw new Error(json.error || '讀取失敗');
+    }
+
+    allData = json.data || [];
+    renderData();
+  } catch (err) {
+    countText.textContent = '資料讀取失敗';
+    resultArea.innerHTML = '<div class="error">無法讀取資料庫內容，請稍後再試。</div>';
+  }
+}
+
+function renderData() {
+  const keyword = normalizeText(document.getElementById("searchInput").value);
+  const job = document.getElementById("jobFilter").value;
+  const resultArea = document.getElementById("resultArea");
+  const countText = document.getElementById("countText");
+
+  const filtered = allData.filter(item => {
+    const matchJob = !job || item.job === job;
+    const matchKeyword =
+      !keyword ||
+      normalizeText(item.skill).includes(keyword) ||
+      normalizeText(item.job).includes(keyword) ||
+      (item.mobs || []).some(m => normalizeText(m).includes(keyword));
+    return matchJob && matchKeyword;
+  });
+
+  countText.textContent = `目前共找到 ${filtered.length} 筆技能資料。`;
+
+  if (!filtered.length) {
+    resultArea.innerHTML = `<div class="empty">查無符合資料，請換關鍵字再試。</div>`;
+    return;
+  }
+
+  resultArea.innerHTML = filtered.map(item => `
+    <div class="card">
+      <div class="skill-name">${item.skill}</div>
+      <div class="job-tag">${item.job}</div>
+      <ul class="mob-list">
+        ${(item.mobs || []).map(mob => `<li>${mob}</li>`).join("")}
+      </ul>
+    </div>
+  `).join("");
+}
+
+function resetSearch() {
+  document.getElementById("searchInput").value = "";
+  document.getElementById("jobFilter").value = "";
+  renderData();
+}
+
+function setQuick(text) {
+  document.getElementById("searchInput").value = text;
+  renderData();
+}
+
+loadData();
+</script>
+</body>
+</html>
