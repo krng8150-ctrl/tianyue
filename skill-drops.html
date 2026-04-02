@@ -1,152 +1,342 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>技能掉落查詢</title>
-
-<style>
-body {
-  background:#0d1b36;
-  color:#fff;
-  font-family:"Microsoft JhengHei";
-  padding:20px;
-}
-
-h1 {
-  text-align:center;
-  color:#ffd84d;
-}
-
-input,select,button {
-  padding:10px;
-  border-radius:10px;
-  border:none;
-  margin:5px;
-}
-
-button {
-  background:#4d7cff;
-  color:#fff;
-}
-
-.card {
-  background:#1a2a5a;
-  border-radius:15px;
-  padding:15px;
-  margin:10px 0;
-}
-
-.skill {
-  color:#ffd84d;
-  font-size:18px;
-  font-weight:bold;
-}
-
-.job {
-  color:#9ecbff;
-  margin-bottom:10px;
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天越天堂｜技能掉落查詢</title>
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Microsoft JhengHei",sans-serif;
+      background:linear-gradient(180deg,#081224,#0e1d39);
+      color:#fff;
+      padding:20px;
+    }
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .top-box{
+      background:rgba(10,15,28,.92);
+      border:1px solid rgba(255,215,0,.15);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      margin-bottom:20px;
+    }
+    .title{
+      font-size:38px;
+      font-weight:bold;
+      color:#ffd84a;
+      text-align:center;
+      margin-bottom:10px;
+    }
+    .desc{
+      text-align:center;
+      color:#d9e4ff;
+      line-height:1.8;
+      font-size:16px;
+    }
+    .search-row{
+      display:grid;
+      grid-template-columns:1fr 220px 130px 130px;
+      gap:12px;
+      margin-top:20px;
+    }
+    .search-row input,
+    .search-row select,
+    .search-row button{
+      border:none;
+      border-radius:16px;
+      padding:14px 16px;
+      font-size:16px;
+    }
+    .search-row input,
+    .search-row select{
+      background:#fff;
+      color:#222;
+    }
+    .btn-search{
+      background:linear-gradient(135deg,#3d7bff,#244cff);
+      color:#fff;
+      font-weight:bold;
+    }
+    .btn-clear{
+      background:linear-gradient(135deg,#7d8597,#596275);
+      color:#fff;
+      font-weight:bold;
+    }
+    .quick-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:18px 0 10px;
+    }
+    .quick-tags button{
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(90,120,255,.16);
+      color:#dfe8ff;
+      border-radius:999px;
+      padding:10px 16px;
+      font-size:15px;
+    }
+    .sec-title{
+      margin:24px 0 8px;
+      color:#63bbff;
+      font-size:26px;
+      font-weight:bold;
+    }
+    .count{
+      color:#d7e2ff;
+      margin-bottom:14px;
+      font-size:15px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+    .card{
+      background:rgba(23,34,69,.96);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 8px 24px rgba(0,0,0,.25);
+    }
+    .job{
+      display:inline-block;
+      background:rgba(90,140,255,.18);
+      border:1px solid rgba(130,170,255,.35);
+      color:#d6e4ff;
+      border-radius:999px;
+      padding:6px 12px;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+    .skill{
+      font-size:24px;
+      font-weight:bold;
+      color:#ffe04f;
+      margin-bottom:12px;
+      line-height:1.4;
+    }
+    .mobs{
+      margin:0;
+      padding-left:20px;
+      line-height:1.8;
+      color:#f4f7ff;
+      font-size:16px;
+    }
+    .state{
+      background:rgba(23,34,69,.96);
+      border-radius:20px;
+      padding:30px 20px;
+      text-align:center;
+      color:#d7e2ff;
+      font-size:18px;
+    }
+    .back{
+      margin-top:24px;
+      text-align:center;
+    }
+    .back a{
+      display:inline-block;
+      text-decoration:none;
+      background:linear-gradient(135deg,#f9da61,#f4b241);
+      color:#111;
+      font-weight:bold;
+      font-size:22px;
+      padding:16px 32px;
+      border-radius:20px;
+      box-shadow:0 8px 20px rgba(0,0,0,.28);
+    }
+    @media (max-width:900px){
+      .title{font-size:30px}
+      .search-row{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .back a{display:block;width:100%}
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <div class="top-box">
+      <div class="title">技能掉落查詢</div>
+      <div class="desc">
+        可直接查詢各職業技能掉落怪物。<br>
+        職業分類：騎士 / 妖精 / 黑暗妖精 / 龍騎士 / 幻術師 / 魔法師
+      </div>
 
-<h1>技能掉落查詢</h1>
+      <div class="search-row">
+        <input id="keyword" type="text" placeholder="輸入技能名稱、怪物名稱、職業，例如：會心一擊、絕對屏障、黑暗妖精、魔法師">
+        <select id="job">
+          <option value="">全部職業</option>
+          <option value="騎士">騎士</option>
+          <option value="妖精">妖精</option>
+          <option value="黑暗妖精">黑暗妖精</option>
+          <option value="龍騎士">龍騎士</option>
+          <option value="幻術師">幻術師</option>
+          <option value="魔法師">魔法師</option>
+        </select>
+        <button class="btn-search" onclick="renderData()">查詢</button>
+        <button class="btn-clear" onclick="clearSearch()">清空</button>
+      </div>
 
-<input id="search" placeholder="搜尋技能或怪物">
-<select id="job">
-<option value="">全部職業</option>
-<option>王子</option>
-<option>騎士</option>
-<option>妖精</option>
-<option>魔法師</option>
-<option>黑暗妖精</option>
-<option>龍騎士</option>
-<option>幻術師</option>
-</select>
+      <div class="quick-tags">
+        <button onclick="setQuick('會心一擊')">會心一擊</button>
+        <button onclick="setQuick('三重矢')">三重矢</button>
+        <button onclick="setQuick('絕對屏障')">絕對屏障</button>
+        <button onclick="setQuick('聖結界')">聖結界</button>
+        <button onclick="setQuick('騎士')">騎士</button>
+        <button onclick="setQuick('妖精')">妖精</button>
+        <button onclick="setQuick('黑暗妖精')">黑暗妖精</button>
+        <button onclick="setQuick('龍騎士')">龍騎士</button>
+        <button onclick="setQuick('幻術師')">幻術師</button>
+        <button onclick="setQuick('魔法師')">魔法師</button>
+      </div>
+    </div>
 
-<button onclick="load()">查詢</button>
+    <div class="sec-title">技能掉落整理</div>
+    <div class="count" id="countText">資料讀取中...</div>
+    <div id="resultArea" class="grid">
+      <div class="state">資料讀取中...</div>
+    </div>
 
-<div id="list"></div>
+    <div class="back">
+      <a href="index.html">⬅ 返回首頁</a>
+    </div>
+  </div>
 
-<script>
+  <script>
+    const API_URL = 'http://localhost/tianyue/api/skill-drops.php';
+    let allData = [];
 
-const data = [
+    function normalizeText(text) {
+      return (text || '').toLowerCase().trim();
+    }
 
-/* ================= 王子 ================= */
-{job:"王子",skill:"衝擊士氣",mobs:["商城取得"]},
-{job:"王子",skill:"援護盟友",mobs:["商城取得"]},
-{job:"王子",skill:"鋼鐵士氣",mobs:["商城取得"]},
-{job:"王子",skill:"激勵士氣",mobs:["商城取得"]},
-{job:"王子",skill:"王者加護",mobs:["商城取得"]},
+    function decodeUnicode(str) {
+      try {
+        return str.replace(/\\u[\dA-Fa-f]{4}/g, function(match) {
+          return String.fromCharCode(parseInt(match.replace('\\u', ''), 16));
+        });
+      } catch (e) {
+        return str;
+      }
+    }
 
-/* ================= 騎士 ================= */
-{job:"騎士",skill:"增幅防禦",mobs:["BOSS怪物"]},
+    function convertData(data) {
+      return data.map(function(item) {
+        var newItem = {};
+        newItem.item = decodeUnicode(item.item || '');
+        newItem.job = decodeUnicode(item.job || '');
+        newItem.skill = decodeUnicode(item.skill || '');
+        newItem.mobs = [];
 
-/* ================= 妖精 ================= */
-{job:"妖精",skill:"三重矢",mobs:["九尾狐","亞力安","多眼怪","巨人","夢魘","格利芬","火焰弓箭手"]},
-{job:"妖精",skill:"精準射擊",mobs:["幽冥大將軍","牛鬼","赤鬼"]},
-{job:"妖精",skill:"屬性之火",mobs:["伊弗利特","火靈之王"]},
-{job:"妖精",skill:"大地屏障",mobs:["沙蟲","巨蟻女王"]},
-{job:"妖精",skill:"風之神射",mobs:["巴列斯","變形怪首領"]},
-{job:"妖精",skill:"風之枷鎖",mobs:["林德拜爾","格利芬"]},
-{job:"妖精",skill:"水之元氣",mobs:["龍龜","深海怪物"]},
+        if (item.mobs && item.mobs.length) {
+          for (var i = 0; i < item.mobs.length; i++) {
+            newItem.mobs.push(decodeUnicode(item.mobs[i]));
+          }
+        }
 
-/* ================= 魔法師 ================= */
-{job:"魔法師",skill:"絕對屏障",mobs:["牛鬼","赤鬼","黑暗精靈使"]},
-{job:"魔法師",skill:"聖結界",mobs:["死亡騎士","梅杜莎","黑暗妖精法師"]},
-{job:"魔法師",skill:"流星雨",mobs:["巴拉卡斯","黑暗妖精將軍"]},
-{job:"魔法師",skill:"火風暴",mobs:["伊弗利特","不死鳥"]},
-{job:"魔法師",skill:"召喚術",mobs:["安塔瑞斯","林德拜爾"]},
-{job:"魔法師",skill:"變形術",mobs:["牛鬼","赤鬼"]},
+        return newItem;
+      });
+    }
 
-/* ================= 黑暗妖精 ================= */
-{job:"黑暗妖精",skill:"雙重破壞",mobs:["安塔瑞斯","林德拜爾","黑暗妖精將軍"]},
-{job:"黑暗妖精",skill:"燃燒鬥志",mobs:["黑暗妖精士兵","闇之精靈"]},
-{job:"黑暗妖精",skill:"附加劇毒",mobs:["殭屍","黑暗妖精士兵"]},
-{job:"黑暗妖精",skill:"破壞盔甲",mobs:["牛鬼","赤鬼"]},
-{job:"黑暗妖精",skill:"迴避提升",mobs:["黑暗妖精殘兵"]},
+    function loadData() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', API_URL + '?t=' + new Date().getTime(), true);
 
-/* ================= 龍騎士 ================= */
-{job:"龍騎士",skill:"奪命之雷",mobs:["牛鬼","赤鬼","阿勒尼亞"]},
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            try {
+              var json = JSON.parse(xhr.responseText);
+              if (json.ok) {
+                allData = convertData(json.data || []);
+                renderData();
+              } else {
+                document.getElementById('countText').innerHTML = '讀取失敗';
+                document.getElementById('resultArea').innerHTML = '<div class="state">資料讀取失敗</div>';
+              }
+            } catch (e) {
+              document.getElementById('countText').innerHTML = '讀取失敗';
+              document.getElementById('resultArea').innerHTML = '<div class="state">資料格式錯誤</div>';
+            }
+          } else {
+            document.getElementById('countText').innerHTML = '讀取失敗';
+            document.getElementById('resultArea').innerHTML = '<div class="state">無法連線 API</div>';
+          }
+        }
+      };
 
-/* ================= 幻術師 ================= */
-{job:"幻術師",skill:"幻覺：化身",mobs:["牛鬼","赤鬼","阿勒尼亞"]}
+      xhr.send();
+    }
 
-];
+    function renderData() {
+      var keyword = normalizeText(document.getElementById('keyword').value);
+      var job = document.getElementById('job').value;
+      var html = '';
+      var count = 0;
 
-function load(){
-  const kw=document.getElementById("search").value;
-  const job=document.getElementById("job").value;
+      for (var i = 0; i < allData.length; i++) {
+        var item = allData[i];
+        var matchJob = !job || item.job === job;
+        var matchKeyword =
+          !keyword ||
+          normalizeText(item.skill).indexOf(keyword) > -1 ||
+          normalizeText(item.item).indexOf(keyword) > -1 ||
+          normalizeText(item.job).indexOf(keyword) > -1 ||
+          hasMobKeyword(item.mobs, keyword);
 
-  const list=document.getElementById("list");
-  list.innerHTML="";
+        if (matchJob && matchKeyword) {
+          count++;
 
-  const result=data.filter(x=>{
-    return (!job||x.job==job)&&
-    (x.skill.includes(kw)||x.mobs.join().includes(kw)||x.job.includes(kw));
-  });
+          html += '<div class="card">';
+          html += '<div class="job">' + item.job + '</div>';
+          html += '<div class="skill">' + item.skill + '</div>';
+          html += '<ul class="mobs">';
 
-  if(result.length==0){
-    list.innerHTML="查無資料";
-    return;
-  }
+          for (var j = 0; j < item.mobs.length; j++) {
+            html += '<li>' + item.mobs[j] + '</li>';
+          }
 
-  result.forEach(x=>{
-    list.innerHTML+=`
-    <div class="card">
-      <div class="skill">${x.skill}</div>
-      <div class="job">${x.job}</div>
-      <div>${x.mobs.join("、")}</div>
-    </div>`;
-  });
-}
+          html += '</ul>';
+          html += '</div>';
+        }
+      }
 
-load();
+      document.getElementById('countText').innerHTML = '目前共找到 ' + count + ' 筆技能資料。';
 
-</script>
+      if (count === 0) {
+        html = '<div class="state">查無資料，請換個關鍵字再試。</div>';
+      }
 
+      document.getElementById('resultArea').innerHTML = html;
+    }
+
+    function hasMobKeyword(mobs, keyword) {
+      for (var i = 0; i < mobs.length; i++) {
+        if (normalizeText(mobs[i]).indexOf(keyword) > -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function clearSearch() {
+      document.getElementById('keyword').value = '';
+      document.getElementById('job').value = '';
+      renderData();
+    }
+
+    function setQuick(text) {
+      document.getElementById('keyword').value = text;
+      renderData();
+    }
+
+    loadData();
+  </script>
 </body>
 </html>
