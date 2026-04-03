@@ -4153,114 +4153,35 @@ window.addEventListener("load", function(){
 
 });
 </script>
-  <script>
-window.addEventListener("load", function(){
 
-  try{
-
-    const tabs = document.querySelectorAll(".notice-tab");
-    const items = document.querySelectorAll(".notice-card");
-
-    if(!tabs || tabs.length < 3) return;
-    if(!items || items.length < 3) return;
-
-    tabs.forEach((tab, index)=>{
-      tab.style.cursor = "pointer";
-
-      tab.onclick = function(){
-
-        tabs.forEach(t=>t.style.opacity = "0.5");
-        tab.style.opacity = "1";
-
-        items.forEach((item, i)=>{
-
-          if(index === 0){
-            item.style.display = (i === 0) ? "block" : "none";
-          }
-
-          if(index === 1){
-            item.style.display = (i === 2) ? "block" : "none";
-          }
-
-          if(index === 2){
-            item.style.display = (i === 1) ? "block" : "none";
-          }
-
-        });
-
-      };
-
-    });
-
-    tabs[0].click();
-
-  }catch(e){
-    console.log("公告切換錯誤：", e);
-  }
-
-});
-</script>  
- <div style="position:fixed; right:16px; bottom:110px; z-index:999999; display:flex; flex-direction:column; align-items:flex-end; gap:10px;">
-
-  <a href="#"
-     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#1f1f1f; background:linear-gradient(135deg,#ffd86a,#f4b43f); box-shadow:0 10px 24px rgba(0,0,0,.35);">
-    ☰ 快速選單
-  </a>
-
-  <a href="skill-drops.html"
-     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#fff; background:linear-gradient(135deg,#5bbcff,#2f6fff); box-shadow:0 10px 24px rgba(0,0,0,.35);">
-    ✨ 技能掉落
-  </a>
-
-  <a href="map-drops.html"
-     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#fff; background:linear-gradient(135deg,#ffb347,#ff7a18); box-shadow:0 10px 24px rgba(0,0,0,.35);">
-    📜 地圖掉落
-  </a>
-
-  <a href="#"
-     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#fff; background:linear-gradient(135deg,#ff9b57,#ff7a18); box-shadow:0 10px 24px rgba(0,0,0,.35);">
-    📣 公告
-  </a>
-
-  <a href="#top"
-     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#1f1f1f; background:linear-gradient(135deg,#ffe98a,#f2cc58); box-shadow:0 10px 24px rgba(0,0,0,.35);">
-    ⬆️ 回首頁
-  </a>
-
-  <a href="你的懶人包下載網址"
-     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#1f1f1f; background:linear-gradient(135deg,#75dcff,#45bfff); box-shadow:0 10px 24px rgba(0,0,0,.35);">
-    ⬇️ 下載懶人包
-  </a>
-
-</div>
-  <!-- ===== 浮動整合按鈕（最終版）===== -->
+ <!-- ===== 浮動整合按鈕（最終版）===== -->
 <style>
-.float-all {
-  position: fixed;
-  right: 15px;
-  bottom: 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 9999;
+.float-all{
+  position:fixed;
+  right:15px;
+  bottom:80px;
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
-.float-btn {
-  padding: 10px 14px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 14px;
-  text-decoration: none;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+.float-btn{
+  padding:10px 14px;
+  border-radius:20px;
+  color:#fff;
+  font-size:14px;
+  text-decoration:none;
+  text-align:center;
+  box-shadow:0 0 10px rgba(0,0,0,0.4);
 }
 
-.btn-home { background: #d4a017; }
-.btn-download { background: #00bcd4; }
-.btn-ann { background: #ff5722; }
-.btn-drop { background: #ffc107; }
-.btn-map { background: #ff9800; }
-.btn-skill { background: #2196f3; }
+.btn-home { background:#d4a017; }
+.btn-download { background:#00bcd4; }
+.btn-ann { background:#ff5722; }
+.btn-drop { background:#ffc107; color:#000; }
+.btn-map { background:#ff9800; }
+.btn-skill { background:#2196f3; }
 </style>
 
 <div class="float-all">
