@@ -4153,46 +4153,53 @@ window.addEventListener("load", function(){
 
 });
 </script>
+  <script>
+window.addEventListener("load", function(){
 
- <!-- ===== 浮動整合按鈕（最終版）===== -->
-<style>
-.float-all{
-  position:fixed;
-  right:15px;
-  bottom:80px;
-  z-index:9999;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+  try{
 
-.float-btn{
-  padding:10px 14px;
-  border-radius:20px;
-  color:#fff;
-  font-size:14px;
-  text-decoration:none;
-  text-align:center;
-  box-shadow:0 0 10px rgba(0,0,0,0.4);
-}
+    const tabs = document.querySelectorAll(".notice-tab");
+    const items = document.querySelectorAll(".notice-card");
 
-.btn-home { background:#d4a017; }
-.btn-download { background:#00bcd4; }
-.btn-ann { background:#ff5722; }
-.btn-drop { background:#ffc107; color:#000; }
-.btn-map { background:#ff9800; }
-.btn-skill { background:#2196f3; }
-</style>
+    if(!tabs || tabs.length < 3) return;
+    if(!items || items.length < 3) return;
 
-<div class="float-all">
-  <a href="index.html" class="float-btn btn-home">🏠 首頁</a>
-  <a href="download.html" class="float-btn btn-download">⬇️ 下載</a>
-  <a href="#top" class="float-btn btn-ann">📢 公告</a>
-  <a href="#drop" class="float-btn btn-drop">🔍 掉落</a>
-  <a href="map-drops.html" class="float-btn btn-map">📜 地圖掉落</a>
-  <a href="skill-drops.html" class="float-btn btn-skill">✨ 技能掉落</a>
-</div>
-<!-- ===== 結束 ===== -->
-</body>
-</html>
+    tabs.forEach((tab, index)=>{
+      tab.style.cursor = "pointer";
+
+      tab.onclick = function(){
+
+        tabs.forEach(t=>t.style.opacity = "0.5");
+        tab.style.opacity = "1";
+
+        items.forEach((item, i)=>{
+
+          if(index === 0){
+            item.style.display = (i === 0) ? "block" : "none";
+          }
+
+          if(index === 1){
+            item.style.display = (i === 2) ? "block" : "none";
+          }
+
+          if(index === 2){
+            item.style.display = (i === 1) ? "block" : "none";
+          }
+
+        });
+
+      };
+
+    });
+
+    tabs[0].click();
+
+  }catch(e){
+    console.log("公告切換錯誤：", e);
+  }
+
+});
+</script>
   
+
+
