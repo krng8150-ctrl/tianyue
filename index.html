@@ -4336,28 +4336,75 @@ window.addEventListener("load", function(){
   }
 })();
 </script>
-<!-- ===== 掉落查詢浮動測試版開始 ===== -->
-<style>
-#dropTestFloat{
-  position: fixed !important;
-  left: 10px !important;
-  top: 120px !important;
-  z-index: 99999999 !important;
-  display: block !important;
-  padding: 12px 16px !important;
-  background: #ff0000 !important;
-  color: #ffffff !important;
-  font-size: 20px !important;
-  font-weight: bold !important;
-  border-radius: 12px !important;
-  text-decoration: none !important;
-  box-shadow: 0 0 12px rgba(0,0,0,0.6) !important;
-}
-</style>
+  <!-- ===== 掉落查詢浮動按鈕（JS自動插入版）開始 ===== -->
+<script>
+(function () {
+  function addDropFloatButtons() {
+    if (document.getElementById('drop-float-auto-wrap')) return;
 
-<a id="dropTestFloat" href="skill-drops.html">掉落查詢測試</a>
-<!-- ===== 掉落查詢浮動測試版結束 ===== -->
-  </body>
+    var wrap = document.createElement('div');
+    wrap.id = 'drop-float-auto-wrap';
+    wrap.style.position = 'fixed';
+    wrap.style.left = '15px';
+    wrap.style.bottom = '180px';
+    wrap.style.zIndex = '99999999';
+    wrap.style.display = 'flex';
+    wrap.style.flexDirection = 'column';
+    wrap.style.gap = '10px';
+
+    var mapBtn = document.createElement('a');
+    mapBtn.href = 'map-drops.html';
+    mapBtn.innerText = '📜 地圖掉落';
+    mapBtn.style.display = 'flex';
+    mapBtn.style.alignItems = 'center';
+    mapBtn.style.justifyContent = 'center';
+    mapBtn.style.width = '150px';
+    mapBtn.style.height = '50px';
+    mapBtn.style.borderRadius = '18px';
+    mapBtn.style.fontSize = '16px';
+    mapBtn.style.fontWeight = 'bold';
+    mapBtn.style.color = '#fff';
+    mapBtn.style.textDecoration = 'none';
+    mapBtn.style.background = 'linear-gradient(45deg,#ff9800,#ff5722)';
+    mapBtn.style.boxShadow = '0 0 12px rgba(0,0,0,0.5)';
+
+    var skillBtn = document.createElement('a');
+    skillBtn.href = 'skill-drops.html';
+    skillBtn.innerText = '✨ 技能掉落';
+    skillBtn.style.display = 'flex';
+    skillBtn.style.alignItems = 'center';
+    skillBtn.style.justifyContent = 'center';
+    skillBtn.style.width = '150px';
+    skillBtn.style.height = '50px';
+    skillBtn.style.borderRadius = '18px';
+    skillBtn.style.fontSize = '16px';
+    skillBtn.style.fontWeight = 'bold';
+    skillBtn.style.color = '#fff';
+    skillBtn.style.textDecoration = 'none';
+    skillBtn.style.background = 'linear-gradient(45deg,#2196f3,#00bcd4)';
+    skillBtn.style.boxShadow = '0 0 12px rgba(0,0,0,0.5)';
+
+    wrap.appendChild(mapBtn);
+    wrap.appendChild(skillBtn);
+    document.body.appendChild(wrap);
+  }
+
+  function runDropFloat() {
+    addDropFloatButtons();
+    setTimeout(addDropFloatButtons, 500);
+    setTimeout(addDropFloatButtons, 1500);
+    setTimeout(addDropFloatButtons, 3000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runDropFloat);
+  } else {
+    runDropFloat();
+  }
+})();
+</script>
+<!-- ===== 掉落查詢浮動按鈕（JS自動插入版）結束 ===== -->
+ </body>
 </html>
   
 
