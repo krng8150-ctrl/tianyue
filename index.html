@@ -4254,5 +4254,52 @@ window.addEventListener("load", function(){
   <a href="map-drops.html" class="drop-page-btn drop-map-btn">📜 地圖掉落</a>
 </div>
 <!-- ===== 掉落查詢分頁按鈕結束 ===== -->
+  <!-- ===== 掉落查詢浮動按鈕（最穩版）開始 ===== -->
+
+<style>
+#dropFloatWrap{
+  position:fixed !important;
+  right:16px !important;
+  bottom:220px !important;
+  z-index:9999999 !important;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.dropFloatBtn{
+  width:170px;
+  height:60px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:900;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+}
+
+.dropSkill{
+  background:linear-gradient(135deg,#5bbcff,#2f6fff);
+}
+
+.dropMap{
+  background:linear-gradient(135deg,#ffb347,#ff7a18);
+}
+</style>
+
+<div id="dropFloatWrap">
+  <a href="skill-drops.html" class="dropFloatBtn dropSkill">
+    ✨ 技能掉落
+  </a>
+
+  <a href="map-drops.html" class="dropFloatBtn dropMap">
+    📜 地圖掉落
+  </a>
+</div>
+
+<!-- ===== 掉落查詢浮動按鈕（最穩版）結束 ===== -->
 </body>
 </html>
