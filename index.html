@@ -4336,7 +4336,47 @@ window.addEventListener("load", function(){
   }
 })();
 </script>
-<!-- ===== 掉落查詢大按鈕（自動插入版）結束 ===== -->
+<!-- ===== 掉落查詢浮動按鈕（不重疊版）===== -->
+<style>
+.drop-float-box{
+  position: fixed;
+  left: 15px;   /* 改左邊 */
+  bottom: 120px; /* 高度避開下載按鈕 */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drop-float-btn{
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.drop-map{
+  background: linear-gradient(45deg,#ff9800,#ff5722);
+}
+
+.drop-skill{
+  background: linear-gradient(45deg,#2196f3,#00bcd4);
+}
+</style>
+
+<div class="drop-float-box">
+  <a href="map-drops.html" class="drop-float-btn drop-map">
+    📜 地圖掉落
+  </a>
+  <a href="skill-drops.html" class="drop-float-btn drop-skill">
+    ✨ 技能掉落
+  </a>
+</div>
+<!-- ===== 結束 ===== -->
+
   </body>
 </html>
   
