@@ -4302,4 +4302,153 @@ window.addEventListener("load", function(){
 
 <!-- ===== 掉落查詢浮動按鈕（最穩版）結束 ===== -->
    <script>
+     <!-- ===== 全站浮動總選單（最下面直接覆蓋版）開始 ===== -->
+<style>
+.float-menu-wrap{
+  position:fixed;
+  right:16px;
+  bottom:110px;
+  z-index:999999;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+}
+
+.float-menu-list{
+  display:none;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+}
+
+.float-menu-list.show{
+  display:flex;
+}
+
+.float-menu-btn{
+  min-width:170px;
+  height:58px;
+  padding:0 18px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:900;
+  color:#fff;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+  border:none;
+  cursor:pointer;
+}
+
+.float-btn-main{
+  background:linear-gradient(135deg,#ffd86a,#f4b43f);
+  color:#1f1f1f;
+}
+
+.float-btn-notice{
+  background:linear-gradient(135deg,#ff9b57,#ff7a18);
+}
+
+.float-btn-home{
+  background:linear-gradient(135deg,#ffe98a,#f2cc58);
+  color:#1f1f1f;
+}
+
+.float-btn-download{
+  background:linear-gradient(135deg,#75dcff,#45bfff);
+  color:#1f1f1f;
+}
+
+.float-btn-skill{
+  background:linear-gradient(135deg,#5bbcff,#2f6fff);
+}
+
+.float-btn-map{
+  background:linear-gradient(135deg,#ffb347,#ff7a18);
+}
+
+@media (max-width:768px){
+  .float-menu-wrap{
+    right:12px;
+    bottom:100px;
+    gap:8px;
+  }
+
+  .float-menu-btn{
+    min-width:148px;
+    height:52px;
+    padding:0 14px;
+    font-size:18px;
+  }
+}
+</style>
+
+<div class="float-menu-wrap">
+  <div id="floatMenuList" class="float-menu-list">
+    <button type="button" class="float-menu-btn float-btn-notice" onclick="goNoticeSection()">📣 公告</button>
+    <button type="button" class="float-menu-btn float-btn-home" onclick="goTopSection()">⬆️ 回首頁</button>
+    <a id="floatDownloadBtn" href="#" class="float-menu-btn float-btn-download">⬇️ 下載懶人包</a>
+    <a href="skill-drops.html" class="float-menu-btn float-btn-skill">✨ 技能掉落</a>
+    <a href="map-drops.html" class="float-menu-btn float-btn-map">📜 地圖掉落</a>
+  </div>
+
+  <button type="button" class="float-menu-btn float-btn-main" onclick="toggleFloatMenu()">
+    ☰ 快速選單
+  </button>
+</div>
+
+<script>
+function toggleFloatMenu() {
+  var menu = document.getElementById('floatMenuList');
+  if (menu.classList.contains('show')) {
+    menu.classList.remove('show');
+  } else {
+    menu.classList.add('show');
+  }
+}
+
+function goTopSection() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goNoticeSection() {
+  var targets = document.querySelectorAll('.notice-card, .announcement-card, .news-card, .post-card, .card, .notice-item');
+  if (targets.length > 0) {
+    targets[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
+
+  var textNodes = Array.from(document.querySelectorAll('h1,h2,h3,h4,div,span,a,button')).filter(function(el){
+    return el.textContent && (
+      el.textContent.indexOf('重要公告') !== -1 ||
+      el.textContent.indexOf('精彩活動') !== -1 ||
+      el.textContent.indexOf('遊戲資訊') !== -1
+    );
+  });
+
+  if (textNodes.length > 0) {
+    textNodes[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
+
+  window.scrollTo({ top: 600, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  var oldDownload = Array.from(document.querySelectorAll('a,button')).find(function(el){
+    return el.textContent && el.textContent.indexOf('下載懶人包') !== -1;
+  });
+
+  if (oldDownload && oldDownload.getAttribute('href')) {
+    document.getElementById('floatDownloadBtn').setAttribute('href', oldDownload.getAttribute('href'));
+  }
+});
+</script>
+<!-- ===== 全站浮動總選單（最下面直接覆蓋版）結束 ===== -->
+
+</body>
+</html>
   
