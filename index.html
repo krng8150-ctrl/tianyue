@@ -4200,255 +4200,78 @@ window.addEventListener("load", function(){
 
 });
 </script>  
-  <!-- ===== 掉落查詢分頁按鈕開始 ===== -->
-<style>
-.drop-page-btn-wrap{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin:18px 0 10px 0;
-  flex-wrap:wrap;
-}
+ <div style="position:fixed; right:16px; bottom:110px; z-index:999999; display:flex; flex-direction:column; align-items:flex-end; gap:10px;">
 
-.drop-page-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-width:180px;
-  height:62px;
-  padding:0 18px;
-  border-radius:999px;
-  text-decoration:none;
-  font-size:24px;
-  font-weight:900;
-  color:#fff;
-  box-shadow:0 8px 22px rgba(0,0,0,.32);
-}
+  <a href="#"
+     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#1f1f1f; background:linear-gradient(135deg,#ffd86a,#f4b43f); box-shadow:0 10px 24px rgba(0,0,0,.35);">
+    ☰ 快速選單
+  </a>
 
-.drop-skill-btn{
-  background:linear-gradient(135deg,#5bbcff,#2f6fff);
-}
-
-.drop-map-btn{
-  background:linear-gradient(135deg,#ffb347,#ff7a18);
-}
-
-@media (max-width:768px){
-  .drop-page-btn-wrap{
-    gap:10px;
-    margin:16px 0 8px 0;
-  }
-
-  .drop-page-btn{
-    min-width:150px;
-    height:54px;
-    font-size:20px;
-    padding:0 14px;
-  }
-}
-</style>
-
-<div class="drop-page-btn-wrap">
-  <a href="skill-drops.html" class="drop-page-btn drop-skill-btn">✨ 技能掉落</a>
-  <a href="map-drops.html" class="drop-page-btn drop-map-btn">📜 地圖掉落</a>
-</div>
-<!-- ===== 掉落查詢分頁按鈕結束 ===== -->
-  <!-- ===== 掉落查詢浮動按鈕（最穩版）開始 ===== -->
-
-<style>
-#dropFloatWrap{
-  position:fixed !important;
-  right:16px !important;
-  bottom:220px !important;
-  z-index:9999999 !important;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.dropFloatBtn{
-  width:170px;
-  height:60px;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  font-weight:900;
-  color:#fff;
-  text-decoration:none;
-  box-shadow:0 10px 25px rgba(0,0,0,0.6);
-}
-
-.dropSkill{
-  background:linear-gradient(135deg,#5bbcff,#2f6fff);
-}
-
-.dropMap{
-  background:linear-gradient(135deg,#ffb347,#ff7a18);
-}
-</style>
-
-<div id="dropFloatWrap">
-  <a href="skill-drops.html" class="dropFloatBtn dropSkill">
+  <a href="skill-drops.html"
+     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#fff; background:linear-gradient(135deg,#5bbcff,#2f6fff); box-shadow:0 10px 24px rgba(0,0,0,.35);">
     ✨ 技能掉落
   </a>
 
-  <a href="map-drops.html" class="dropFloatBtn dropMap">
+  <a href="map-drops.html"
+     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#fff; background:linear-gradient(135deg,#ffb347,#ff7a18); box-shadow:0 10px 24px rgba(0,0,0,.35);">
     📜 地圖掉落
   </a>
+
+  <a href="#"
+     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#fff; background:linear-gradient(135deg,#ff9b57,#ff7a18); box-shadow:0 10px 24px rgba(0,0,0,.35);">
+    📣 公告
+  </a>
+
+  <a href="#top"
+     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#1f1f1f; background:linear-gradient(135deg,#ffe98a,#f2cc58); box-shadow:0 10px 24px rgba(0,0,0,.35);">
+    ⬆️ 回首頁
+  </a>
+
+  <a href="你的懶人包下載網址"
+     style="min-width:170px; height:58px; padding:0 18px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:22px; font-weight:900; color:#1f1f1f; background:linear-gradient(135deg,#75dcff,#45bfff); box-shadow:0 10px 24px rgba(0,0,0,.35);">
+    ⬇️ 下載懶人包
+  </a>
+
 </div>
-
-<!-- ===== 掉落查詢浮動按鈕（最穩版）結束 ===== -->
-   <script>
-     <!-- ===== 全站浮動總選單（最下面直接覆蓋版）開始 ===== -->
+  <!-- ===== 浮動整合按鈕（最終版）===== -->
 <style>
-.float-menu-wrap{
-  position:fixed;
-  right:16px;
-  bottom:110px;
-  z-index:999999;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:10px;
+.float-all {
+  position: fixed;
+  right: 15px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
 }
 
-.float-menu-list{
-  display:none;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:10px;
+.float-btn {
+  padding: 10px 14px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
-.float-menu-list.show{
-  display:flex;
-}
-
-.float-menu-btn{
-  min-width:170px;
-  height:58px;
-  padding:0 18px;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  font-size:22px;
-  font-weight:900;
-  color:#fff;
-  box-shadow:0 10px 24px rgba(0,0,0,.35);
-  border:none;
-  cursor:pointer;
-}
-
-.float-btn-main{
-  background:linear-gradient(135deg,#ffd86a,#f4b43f);
-  color:#1f1f1f;
-}
-
-.float-btn-notice{
-  background:linear-gradient(135deg,#ff9b57,#ff7a18);
-}
-
-.float-btn-home{
-  background:linear-gradient(135deg,#ffe98a,#f2cc58);
-  color:#1f1f1f;
-}
-
-.float-btn-download{
-  background:linear-gradient(135deg,#75dcff,#45bfff);
-  color:#1f1f1f;
-}
-
-.float-btn-skill{
-  background:linear-gradient(135deg,#5bbcff,#2f6fff);
-}
-
-.float-btn-map{
-  background:linear-gradient(135deg,#ffb347,#ff7a18);
-}
-
-@media (max-width:768px){
-  .float-menu-wrap{
-    right:12px;
-    bottom:100px;
-    gap:8px;
-  }
-
-  .float-menu-btn{
-    min-width:148px;
-    height:52px;
-    padding:0 14px;
-    font-size:18px;
-  }
-}
+.btn-home { background: #d4a017; }
+.btn-download { background: #00bcd4; }
+.btn-ann { background: #ff5722; }
+.btn-drop { background: #ffc107; }
+.btn-map { background: #ff9800; }
+.btn-skill { background: #2196f3; }
 </style>
 
-<div class="float-menu-wrap">
-  <div id="floatMenuList" class="float-menu-list">
-    <button type="button" class="float-menu-btn float-btn-notice" onclick="goNoticeSection()">📣 公告</button>
-    <button type="button" class="float-menu-btn float-btn-home" onclick="goTopSection()">⬆️ 回首頁</button>
-    <a id="floatDownloadBtn" href="#" class="float-menu-btn float-btn-download">⬇️ 下載懶人包</a>
-    <a href="skill-drops.html" class="float-menu-btn float-btn-skill">✨ 技能掉落</a>
-    <a href="map-drops.html" class="float-menu-btn float-btn-map">📜 地圖掉落</a>
-  </div>
-
-  <button type="button" class="float-menu-btn float-btn-main" onclick="toggleFloatMenu()">
-    ☰ 快速選單
-  </button>
+<div class="float-all">
+  <a href="index.html" class="float-btn btn-home">🏠 首頁</a>
+  <a href="download.html" class="float-btn btn-download">⬇️ 下載</a>
+  <a href="#top" class="float-btn btn-ann">📢 公告</a>
+  <a href="#drop" class="float-btn btn-drop">🔍 掉落</a>
+  <a href="map-drops.html" class="float-btn btn-map">📜 地圖掉落</a>
+  <a href="skill-drops.html" class="float-btn btn-skill">✨ 技能掉落</a>
 </div>
-
-<script>
-function toggleFloatMenu() {
-  var menu = document.getElementById('floatMenuList');
-  if (menu.classList.contains('show')) {
-    menu.classList.remove('show');
-  } else {
-    menu.classList.add('show');
-  }
-}
-
-function goTopSection() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function goNoticeSection() {
-  var targets = document.querySelectorAll('.notice-card, .announcement-card, .news-card, .post-card, .card, .notice-item');
-  if (targets.length > 0) {
-    targets[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
-    return;
-  }
-
-  var textNodes = Array.from(document.querySelectorAll('h1,h2,h3,h4,div,span,a,button')).filter(function(el){
-    return el.textContent && (
-      el.textContent.indexOf('重要公告') !== -1 ||
-      el.textContent.indexOf('精彩活動') !== -1 ||
-      el.textContent.indexOf('遊戲資訊') !== -1
-    );
-  });
-
-  if (textNodes.length > 0) {
-    textNodes[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
-    return;
-  }
-
-  window.scrollTo({ top: 600, behavior: 'smooth' });
-}
-
-document.addEventListener('DOMContentLoaded', function(){
-  var oldDownload = Array.from(document.querySelectorAll('a,button')).find(function(el){
-    return el.textContent && el.textContent.indexOf('下載懶人包') !== -1;
-  });
-
-  if (oldDownload && oldDownload.getAttribute('href')) {
-    document.getElementById('floatDownloadBtn').setAttribute('href', oldDownload.getAttribute('href'));
-  }
-});
-</script>
-<!-- ===== 全站浮動總選單（最下面直接覆蓋版）結束 ===== -->
-
+<!-- ===== 結束 ===== -->
 </body>
 </html>
   
