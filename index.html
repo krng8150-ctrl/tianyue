@@ -4203,91 +4203,66 @@ window.addEventListener("load", function(){
 <!-- ===== 掉落查詢（穩定版）開始 ===== -->
 
 <style>
-.drop-fixed-btn{
+.drop-fixed-wrap{
   position:fixed;
-  right:20px;
-  bottom:360px;
+  right:16px;
+  bottom:340px;
   z-index:99999;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.drop-fixed-btn{
   display:flex;
   align-items:center;
   justify-content:center;
-  width:160px;
-  height:60px;
+  min-width:160px;
+  height:58px;
+  padding:0 18px;
   border-radius:999px;
+  text-decoration:none;
   font-size:22px;
   font-weight:900;
-  text-decoration:none;
   color:#1f1f1f;
   background:linear-gradient(135deg,#ffe36a,#f4b93f);
   box-shadow:0 10px 25px rgba(0,0,0,.35);
+  border:2px solid rgba(255,255,255,.18);
 }
 
-.drop-section{
-  width:100%;
-  max-width:900px;
-  margin:80px auto;
-  padding:20px;
-}
-
-.drop-title{
-  font-size:34px;
-  font-weight:900;
-  text-align:center;
-  color:#ffd84d;
-  margin-bottom:25px;
-}
-
-.drop-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.drop-card{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:120px;
-  border-radius:25px;
-  font-size:26px;
-  font-weight:900;
-  color:#fff;
-  text-decoration:none;
-}
-
-.drop-map{
+.drop-fixed-map{
   background:linear-gradient(135deg,#ffb347,#ff7a18);
+  color:#fff;
 }
 
-.drop-skill{
+.drop-fixed-skill{
   background:linear-gradient(135deg,#69b7ff,#3f79ff);
+  color:#fff;
+}
+
+@media (max-width:768px){
+  .drop-fixed-wrap{
+    right:12px;
+    bottom:330px;
+    gap:10px;
+  }
+
+  .drop-fixed-btn{
+    min-width:138px;
+    height:52px;
+    font-size:18px;
+    padding:0 14px;
+  }
 }
 </style>
 
-<!-- 右側按鈕 -->
-<a href="#drop-area" class="drop-fixed-btn">🔍 掉落查詢</a>
-
-<!-- 掉落查詢區塊 -->
-<div id="drop-area" class="drop-section">
-
-  <div class="drop-title">🔍 掉落查詢</div>
-
-  <div class="drop-grid">
-    <a href="map-drops.html" class="drop-card drop-map">
-      📜 地圖掉落查詢
-    </a>
-
-    <a href="skill-drops.html" class="drop-card drop-skill">
-      ✨ 技能掉落查詢
-    </a>
-  </div>
-
+<div class="drop-fixed-wrap">
+  <a href="skill-drops.html" class="drop-fixed-btn">🔍 掉落查詢</a>
+  <a href="map-drops.html" class="drop-fixed-btn drop-fixed-map">📜 地圖掉落</a>
+  <a href="skill-drops.html" class="drop-fixed-btn drop-fixed-skill">✨ 技能掉落</a>
 </div>
 
 <!-- ===== 掉落查詢（穩定版）結束 ===== -->
 
 </body>
 </html>
-  
-
-
